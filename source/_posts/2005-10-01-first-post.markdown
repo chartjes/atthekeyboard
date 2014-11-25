@@ -1,8 +1,8 @@
 --- 
 layout: default
-title: First Post!
+title: "First Post!"
 author: Chris Hartjes
-date: 2005-10-01
+date: "2005-10-01"
 ---
 Yeah, yeah, I know it's a cliche but you do have to start somewhere.  Some of you searching around on the web may have found my other blog <a href="http://www.littlehart.net/attheballpark">@TheBallPark</a>, where I talk about my experiences with my simulation baseball team.  However, I decided to start up @TheKeyboard to talk about the other side of my life, where I'm a programmer who's working with PHP at his day job and learning Rails on the side.
 

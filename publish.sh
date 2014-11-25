@@ -4,8 +4,8 @@
 # was downloaded and placed in this directory instead of sculpin having been
 # installed globally.
 
-sculpin generate --env=prod
+sculpin.phar generate --env=prod --url=http://littlehart.net/atthekeyboard
 if [ $? -ne 0 ]; then echo "Could not generate the site"; exit 1; fi
 
-rsync -avze 'ssh -p 4668' output_prod/ username@yoursculpinsite:public_html
+rsync -avze 'ssh -p 22' output_prod/ chartjes@littlehart.net:atthekeyboard/
 if [ $? -ne 0 ]; then echo "Could not publish the site"; exit 1; fi
