@@ -1,4 +1,6 @@
-atthekeyboard
-=============
+AtTheKeyboard
+============
 
-Repo containing my Sculpin powered blog 
+This is the repo that is the source for my blog. 
+
+Powered by [Sculpin](http://sculpin.io).
