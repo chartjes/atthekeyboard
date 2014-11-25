@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2010-06-24-fun-with-custom-zend_views.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Fun with custom Zend_Views</h2>
+
+<p>
+The other day I had a nice meeting in my basement lair with my co-workers.  We laughed.  We cried.  We had some BBQ'd burgers, and nobody got food poisoning.  As we discussed the implementation of our new fantasy gaming platform, I managed to figure out that one requirement was for an admin to upload a header and footer file for a game.  "The idea here is to be able to set up a new game for someone without programmer intervention". </p>
+
+<p>
+After I got over being insulted that a programmer was not required for every tiny tweak to the site (I'm kidding) I tried to figure out how I was going to accomplish this.  I'm not a big fan of storing actual HTML content in a database.  Call me old-fashioned, but I feel my HTML content belongs on the filesystem, and nowhere else.  Besides, it makes it harder to do deployments of code on multiple servers if all the templates aren't there to begin with.
+</p>
+
+<p>
+The solution was, of course, obvious:  create a custom Zend_View and override stuff until you get it behaving the way you want!  The logic for doing this is actually quite simple:
+<ol>
+<li>Check to see if the script in question exists in the file system</li>
+<li>If not, figure out what template we need to pull from the database.</li>
+<li>Read in contents of that script from the database</li>
+<li>Write contents to the filesystem</li>
+</ol>
+</p>
+
+<p>
+<b>NOTE</b>:  I am not sure if this is the most elegant solution for solving this particular problem.  I am open to a different solution so long as it meets the same needs.
+</p>
+
+<p>
+Since I've made a commitment to doing TDD for this project, naturally I started out with a test:
+~~~
+
+< ?php
+require_once 'PHPUnit/Framework.php';
+require_once 'Zend/Application.php';
+
+// Define path to application directory
+if (!defined('APPLICATION_PATH')) {
+    define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../../../application'));
+}
+
+// Define application environment
+if (!defined('APPLICATION_ENV')) {
+    define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'test'));
+}
+
+// Ensure library/ is on include_path
+set_include_path(implode(PATH_SEPARATOR, array(
+        realpath(APPLICATION_PATH . '/../library'),
+            get_include_path(),
+        )));
+
+class Xmlteam_ZFViewTest extends PHPUnit_Framework_TestCase 
+{
+
+    public function setUp()
+    {
+        $this->bootstrap = new Zend_Application(
+            'testing',
+            APPLICATION_PATH . '/configs/application.ini'
+        );
+        parent::setUp();
+    }
+
+    public function tearDown()
+    {
+        parent::tearDown();
+    }
+
+    
+    public function testRenderView()
+    {
+        $templateData = array(
+            'league_short_name' => 'testing',
+            'type' => 'header',
+            'created_at' => new Doctrine_Expression('NOW()'),
+            'content' => '<div id="header"><b>header</b></div>'
+        );
+        $testTemplate = new Template();
+        $testTemplate->fromArray($templateData);
+        $testTemplate->save();
+        $testView = new Xmlteam_ZFView(); 
+        $testView->setScriptPath('./application/views');
+        $content = $testView->render('testing-header.phtml');
+        $this->assertTrue(file_exists('./application/views/testing-header.phtml'));
+        $this->assertEquals($content, $templateData['content']);
+        $testTemplate->delete();
+        unlink('./application/views/testing-header.phtml');
+    }   
+}
+~~~
+For those wondering, yes all the tests pass. ;)</p>
+
+<p>The "Template" is a Doctrine (1.2) model that represents the table where I'm storing information about the templates.  Yes, it has unit tests too.  That pass.
+</p>
+
+<p>So how do we accomplish this?  First, I hit up my peeps on Twitter and the advice from <a href="http://twitter.com./weierophinney">Matthew Weier-O'Phinney</a> himself was to simply create my own Zend_View and override what needed to be overriden.   Also, he was very wise to tell me to look at Zend/View.php itself for guidance.   That and some helpful messages from exceptions during testing.
+</p>
+
+<p>
+Here's the initial implementation, for which all tests pass.
+~~~
+< ?php
+
+// Custom view that reads in templates from the database and
+// writes them to the filesystem
+
+class Xmlteam_ZFView extends Zend_View_Abstract
+{
+    private $_filter = array();
+    private $_file = null;
+
+    public function __construct($config = array())
+    {
+        parent::__construct($config);
+    }
+
+    /**
+     * Custom method to see if template is in the file system
+     * and then load it into memory, write out to the file system
+     * if it doesn't
+     *
+     * @param string $name The script name to precess
+     * @return string THe script output
+    */
+    public function render($name)
+    {
+        $scriptPaths = $this->getScriptPaths();
+        $filename = $scriptPaths[0] . $name;
+        
+        if (!file_exists($filename)) {
+            list($league, $tmp) = explode('-', $name);
+            list($templateType, $extension) = explode('.', $tmp);
+            $q = Doctrine_Query::create()
+                ->select('t.*')
+                ->from('Template t')
+                ->where('t.league_short_name = ?', $league)
+                ->andWhere('t.type = ?', $templateType);
+            $q->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY);
+            $results = $q->execute();
+
+            if (count($results) > 0) {
+                file_put_contents($filename, $results[0]['content']);
+            }
+        }
+        
+        // find the script file name using the parent private method
+        $this->_file = $this->_script($name);
+        unset($name); // remove $name from local scope
+
+        ob_start();
+        $this->_run($filename);
+
+        return $this->_filter(ob_get_clean()); // filter output
+    }
+
+                    /**
+     * Applies the filter callback to a buffer.
+     *
+     * @param string $buffer The buffer contents.
+     * @return string The filtered buffer.
+     */
+    private function _filter($buffer)
+    {
+        // loop through each filter class
+        foreach ($this->_filter as $name) {
+            // load and apply the filter class
+            $filter = $this->getFilter($name);
+            $buffer = call_user_func(array($filter, 'filter'), $buffer);
+        }
+
+        // done!
+        return $buffer;
+    }
+
+    /**
+     * Includes the view script in a scope with only public $this variables.
+     *
+     * @param string The view script to execute.
+     */
+    protected function _run()
+    {
+        if ($this->_useViewStream && $this->useStreamWrapper()) {
+            include 'zend.view://' . func_get_arg(0);
+        } else {
+            include func_get_arg(0);
+        }
+    }
+}
+~~~
+So, what did I learn from this process?
+<ol>
+<li>I needed to create my own private _file and _filter variables to match what exists in  so that if I create any custom filters they can be applied to my custom view *and* to keep compatibility with existing code.</li>
+<li>Because the _run method is protected AND abstract, I needed to implement my own _run method in my custom view, or else it would spit out errors.  Even if it doesn't do anything special.</li>
+</ol>
+</p>
+
+<p>You can see that the logic in my render method is pretty much as I outlined before.  I realize I will take a slight hit the first time we go to load a particular template.  I'm assuming at some point I will want to run a test to see just how long it does take to pull in the template from the database and write it to the file system.  I'm guessing this will not be a serious performance hit, but you never know.  All those file_exists() calls can't be that good for performance,
+</p>
+
+<p>
+I look forward to seeing other potential solutions to this problem
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2010-07-21-coding-lessons-learned.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Coding Lessons Learned</h2>
+
+<p>In discussions with my friend <a href="http://chiggsy.com">Kevin</a>, I have come to realize that we have arrived at the same conclusions about the use of <a href="http://en.wikipedia.org/wiki/Web_application_framework">web application frameworks</a>.  Much of these conclusions have driven from 12+ years in building applications using them, with various rates of success.  Suffice it to say, only the most l33t programmers out there are using their own frameworks, be it a custom one or contributing to the creation of an open-sourced framework.  Everyone else is like me:  a user of frameworks, and extremely rare contributor back to those frameworks.
+</p>
+
+<p>Since Kevin and I are travelling together through the world of <a href="http://python.org">snake handling</a>, we have been looking at the available options for building web applications in that environment.  Our conclusions have been surprising to ourselves, but I think they can be very instructive to others.   These two lessons are applicable to other programming languages as well, so feel free to substitute your favourite language where applicable.
+</p>
+
+<h3>Lesson 1: Full-stack gets you in the door, lightweight lets you find your niche</h3>
+
+<p>
+If you want to learn Python for the web, the first place you go is <a href="http://djangoproject.com">Django</a>.  It is a full-stack solution for building things in Python.  Awesome documentation, and with some help from Python's online documentation, you can build an app in a reasonable time frame without knowing a ton of Python.  Awesome tutorials and code samples FTW!  I have built a Django app and briefly made it public.  It was, like so many other things, a piece of crap missing functionality so I am trying to rectify that in my ever-dwindling spare time.   I did not find any serious obstacles to building this app, except for figuring out how to do some dynamic form-field-generating code.  It took me a while to find the right info (amazing how having the correct keywords in your search helps) but I did.
+</p>
+
+<p>
+As an old warrior of frameworks (10 and counting across 3 languages) I found that because I already understood the concepts behind MVC (or MVT in the case of Django) I could concentrate on learning Python first, and then the unique features of the framework after that.
+</p>
+
+<p>
+In many ways, my early experiments with Rails (back in 2004-2005) helped me understand frameworks a lot better.  All frameworks have their own magic methods for doing things, with Rails making heavy use of Ruby's ability to create Domain Specific Languages to make Rails the incredibly useful framework that it is today.  But eventually, your skill with the language and the framework gets to the point where you see the limitations of the conventions and magic methods the framework uses.
+</p>
+
+<p>Now that I've gotten my hooks into building stuff with Django, I now recognize the same seductive promises that I found in things like CakePHP:  the full-stack takes you away from actually figuring out how to code things, and instead you find yourself just using all the built-in methods.  Don't get me wrong, the built-in stuff for Django is awesome.  But if I want to push my skills forward so I can say "I can build stuff for the web using Python" instead of "I can build stuff for the web using Django" I need to use other tools.  What if I want to run my stuff on Google App Engine?  Sure, there are these hacks available for Django that make it "usable" on GAE, but that's not what I want.  And what about the use of WSGI instead of relying on mod_python?  Forgive me if this stuff comes across as technobabble.  It was technobabble to me at one time too.
+</p>
+
+<p>
+So now the next step is (after finishing the current Django app) is to build an application using a much more <a href="http://flask.pocoo.org/">lightweight framework</a>.  Why?  Because it's time to actually learn how to do something instead of relying on magic methods.  Because once I learn to write code to duplicate those magic methods, I'll be able to use Django *and* Flask.  And that, my friends, is how you make yourself useful.  That and the ability to run the app both as a standalone WSGI app or on Google App Engine seems like a bonus to me.
+</p>
+
+<p>
+So now that you've gone from full-stack to lightweight, it's time to look at the next lesson...
+</p>
+
+<h3>Lesson 2: Don't use anything made by One Guy</h3>
+
+<p>
+This will undoubtably be a touchy subject for some.  Let me try and explain it.
+</p>
+
+<p>
+In the quest for the lightweight solution, I ran across <a href="http://web2py.com">web2py.</a>  Nice and lightweight, awesome documentation, but it's all driven by ONE GUY.  Experience has taught me that projects driven by ONE GUY end up looking like how the ONE GUY would do it.  Sometimes the ONE GUY is brilliant and it all works out.  That is rare, in my experience.   Open source projects are littered with the wreckage caused by egos and control freaks who were unwilling to accept outside help to solve problems.
+</p>
+
+<p>So look for projects where it appears there are solid contributors beyond ONE GUY.  web2py sure has an impressive list of people who contribute, but is Massimo the ONE GUY when it comes to actually making non-trivial code changes?  I sure hope not.
+</p>
+
+<h3>There will be no test afterwards</h3>
+
+<p>
+While I do not expect other people's experiences to be the same as mine, I'm pretty sure I am not the only person who has learned these lessons.  So the next time you are evaluating using a web application framework (in a new language or an existing one) think back on these lessons.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2010-07-29-snakes-and-elephants-playing-nice-together-phpunit-and-py-test-with-hudson.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: "Snakes and Elephants Playing Nice Together: PHPUnit and py.test with Hudson"</h2>
+
+<p>These days, it's becoming increasingly harder to find web applications that are homogenous in terms of the tools they use to Get Things Done.  The ability to build the web front-end of your site using PHP but a critical part that requires asynchronous processing using <a href="http://nodejs.org">Node.js</a> is something that is both exciting and, well, practical.  Loosely coupled components, passing messages to each other, is great architecture to try and build if you have both the skills and patience to make it work.
+</p>
+
+<p>
+For a project at work, I am using PHP (specifically Zend Framework) for the front-end but are using Python scripts run as a cron-job (and also on-demand when statistical corrections occur) to collect raw stats for a variety of sports, and then generate fantasy point totals for the games we run.  I'm already using <a href="http://phpunit.de">PHPUnit</a> for tests of the front end, and I decided to to use <a href="http://codespeak.net/py/dist/test/index.html">py.test</a> to test my Python scripts.
+</p>
+
+<p>
+Setting up tests in Python was pretty simple.  Here's one of my test scripts:
+~~~
+import py
+import baseball_scoring
+
+def test_batter_empty_data_set():
+    expected_points = 0
+    test_data = dict() 
+    test_points = baseball_scoring.batter_points(test_data)
+    assert expected_points == test_points 
+
+def test_batter_simple():
+    test_data = {
+        'hits': 4,
+        'doubles': 1,
+        'triples': 1,
+        'home_runs': 1,
+        'runs_scored': 1,
+        'rbi': 1,
+        'stolen_bases': 1,
+        'league': 'bluejays2010'
+    }
+    expected_points = 11
+    test_points = baseball_scoring.batter_points(test_data)
+    assert expected_points == test_points
+
+def test_pitcher_empty_data_set():
+    expected_points = 0
+    test_data = dict() 
+    test_points = baseball_scoring.pitcher_points(test_data)
+    assert expected_points == test_points 
+
+def test_pitcher_simple():
+    test_data = {
+        'wins': 1,
+        'losses': 0,
+        'saves': 0,
+        'strikeouts': 7,
+        'complete_games': 1,
+        'shutouts': 1,
+        'league': 'bluejays2010'
+    }
+    expected_points = 25 
+    test_points = baseball_scoring.pitcher_points(test_data)
+    assert expected_points == test_points
+~~~
+</p>
+
+<p>Very similar to tests with PHPUnit, right?  So now that I had both PHPUnit tests and py.tests tests (hrm, is there are better way to say that?) to run, I had to figure out how to automatically run them.  More specifically, how to get our installation of <a href="http://hudson-ci.org">Hudson</a> to run them.
+</p>
+
+<p>
+Getting PHPUnit to play nice with Hudson was relatively easy.  I installed the NUnit plugin for Hudson, made sure I installed phpunit, and then I added it's use to my build scripts.  However, the strength of Hudson is that  with the use of another plugin I could read reports of all those tests.  So when things failed, I would not have to look at the console output to figure things out.  There's a place in the Hudson config where you can configure this:
+<img src="http://cakebook.s3.amazonaws.com/atthekeyboard/wp-content/uploads/2010/07/phpunit-hudson1-300x99.jpg" alt="PHPUnit configuration in Hudson" title="phpunit-hudson" width="300" height="99" class="alignnone size-medium wp-image-755" />
+<br />
+Now, I figured that the same thing could be done with py.test.  It had an option so that at run-time you could tell it where to put JUnit-compatible test result files.  After a little tinkering, I got it to work.  First step was adding execution of it to my build script.  Here is the latest-and-greatest version of that script:
+<pre>
+mkdir /var/www/games-hudson/${BUILD_ID}
+cd ${WORKSPACE}/games
+/usr/local/zend/bin/php doctrine-cli migrate
+cd ${WORKSPACE}/games/tests
+/usr/local/zend/bin/phpunit --log-junit=${WORKSPACE}/build/logs/phpunit-results.xml
+cd ${WORKSPACE}/games/scripts
+/usr/bin/py.test --junitxml=${WORKSPACE}/build/logs/pytest-xmlrunner.xml
+cp -R /var/lib/hudson/jobs/${JOB_NAME}/workspace/games/* /var/www/games-hudson/${BUILD_ID}
+chmod 777 /var/www/games-hudson/${BUILD_ID}/tmp
+rm -rf /var/www/games-hudson/current
+ln -sf /var/www/games-hudson/${BUILD_ID} /var/www/games-hudson/current
+</pre>
+<br />
+</p>
+
+<p>
+Next, I then told Huson where it could find the JUnit-compatible files generated by py.test:
+<br />
+<img src="http://cakebook.s3.amazonaws.com/atthekeyboard/wp-content/uploads/2010/07/pytest-hudson-300x42.jpg" alt="Telling Hudson where to find the py.test output" title="pytest-hudson" width="300" height="42" class="alignnone size-medium wp-image-756" />
+</p>
+
+<p>
+So there you have it.  Now, when I do a commit and trigger a Hudson build, both my PHPUnit and Python tests get run.  And there is output to check, so I don't have to dig through console output to figure things out.
+[topicblocks id="/en/phpunit" comment="When you publish this post, this WordPress shortcode will display the TopicBlock you created about 'PHPUnit'."]
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/130">Newer Posts</a><br />
+        <a href="/page/132">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

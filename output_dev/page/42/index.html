@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2006-12-15-elephants-rubiesand-now-snakes.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Elephants, Rubies...and now Snakes?</h2>
+
+<p>
+As time goes on, I find that I'm drawn to web frameworks like a moth to a flame.  Why?  I've built so many web apps from scratch that if I have to build one more front controller from scratch I'm going to gouge my eyes out.  Okay, maybe I'm exaggerating a little.  As I get older, I start to value my time more.  Web frameworks usually let me build something faster than if I  had created the app from scratch.  Of course, this only works well with "green field" projects, one where you are starting from scratch.  Shoehorning an existing app into a web framework is  process that I usually refer to as a "total rewrite of the system" as it's very difficult to do it without, well, rewriting things.  The only exception might be homegrown MVC systems.
+</p>
+
+<p>
+Any how, as I think about rallyhat.com and what I want to do with it, I happened to stumble upon some info about Python.  YouTube apparantly is built with Python.  Google uses Python all over the place.  Gudio van Rossum, the creator of Python works there.  Someone told me that that GMail is run out of 3 python scripts:  one that generates the HTML/Javascript output, one that handles the ever-expanding space for your email, and an email client.  Now *that* I could believe.
+</p>
+
+<p>
+Then I remembered that there is a web framework for Python called Django.  I dig a little more digging around and found the web site, along with some interesting benchmarks comparing it to some other frameworks.  Python is very similar to Ruby (but no blocks, which  become indispensible when you work with Ruby) so it looks very interesting.  For a little more info check out <a href="http://jesusphreak.infogami.com/blog/why_py">this posting on  why one guy chose Python over Ruby</a> and <a href="http://jesusphreak.infogami.com/blog/why_django">some constructive reasons for choosing Django over Rails</a>.
+</p>
+
+<p>
+Some of those comments are interesting and perhaps even wrong, but it was enough to set me off taking a look at Django and it's tutorials.  Rather than have me list some of the cool features, go and look at <a href="http://www.djangoproject.org">the main Django site</a> and the links above.  Maybe you'll find something interesting.In the meantime, I've been following through the tutorial for Django, using the models I will need for rallyhat.com as examples...
+</p>
+
+<p>
+Anyway, a tip of the rallyhat to the first commenter who can tell me what programming languages are represented by the title of this post. :)
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2006-12-19-ruthless-refactoring-and-other-activities.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Ruthless Refactoring and Other Activities</h2>
+
+<p>
+As I finally wrestle down my <a href="http://www.sportsticker.com">Sportsticker</a> parser and scoreboard system into submission, I spent some time going through my code and applying the DRY (Don't Repeat Yourself) wherever I can.  So, I've moved some functionality into a support library and are slowly replacing old code with calls to new functions I've created.  The result?  Easier testing of my code when I add new features AND less lines of code to go through when figuring out more tweaks.
+</p>
+
+<p>
+It also looks like I have a large amount of side work to do in the next little while.  Marco over at <a href="http://www.phparch.com">php|architect</a> has asked me to get involved in a few projects over there.  Firstly, he's asked me to contribute a smaller version of my recent magazine article to <a href="http://hades.phparch.com/artemis/main/">A/R/T</a>.  That shouldn't be too hard to do, the trick will be figuring out what to cut out.  Secondly, Marco also mentioned that he was interested in having me do a 20 minute webcast about "What Can PHP Learn From Ruby on Rails" as a teaser for my talk at <a href="http://www.phparch.com/tek">php|tek 2007</a>.  Again, that should be fairly easy...but I will have to definitely cut down my presentation from php|works to focus on just the basics.  Maybe just talk about "convention over configuration" or something.  I'll figure that out.
+</p>
+
+<p>
+Lastly, I've been asked to participate in the creation of an introduction to Ruby training course.  This is very exciting and very scary at the same time.  While I'm no Ruby expert, I feel that I can show other people with programming experience just what Ruby has to offer.  Of course, it's ironic I'm asked to do this while I'm busy ignoring Ruby while fooling around with Python and <a href="http://www.djangoproject.org">Django.</a> :)
+</p>
+
+<p>
+Not to feat though.  Your humble correspondent is up to the task.  Since I love to talk, coming up with up to 18 hours of instruction on Ruby (and some Rails as well), while challenging, is the type of task that kicks my butt and tends to help me create something good.  First step is the outline of the course.  If that goes well, then we can figure out how to turn that outline into a large quantity of slides for the actual course.
+</p>
+
+<p>
+Back to my Django tutorial... ;)
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2006-12-23-weve-moved.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: We've Moved!</h2>
+
+<p>If you can read this, I've moved littlehart.net to it's new location, on a host at Media Temple, where I've signed up for a <a href="http://www.mediatemple.net/webhosting/gs/">Grid Server</a> account with them.  My friend <a href="http://derekmartin.ca">Derek</a> recommended I go with them after he spent a lot of time researching a host to move his own projects to.
+</p>
+
+<p>
+One of the cooler features of this hosting plan is that if I get digged (or, for the older folks out there, slashdotted) they have this huge cluster of servers that can dynamically adjust to provide bandwidth for you.  Now, it seems to me that you could only get digged / slashdotted once or twice before they will ask you to start paying for a better plan, but it's nice to know that the site should be able to stay up.  Given the nature of my next project I think this protection will be good.  Of course, if it goes REALLY well then I'll need that better plan anyways. 
+</p>
+
+<p>
+As an extra bonus, I'm going to be speaking at the <a href="http://vancouver.php.net/">Vancouver PHP Conference 2007</a> on February 12-13, 2007.  I'll be giving my "What Can PHP Learn From Ruby on Rails" talk, but I'll be definitely updating it from the version I gave in September.  I've never been to Vancouver before so I hope to see a few sites while I'm there.
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/41">Newer Posts</a><br />
+        <a href="/page/43">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

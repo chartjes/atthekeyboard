@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2007-03-23-in-spring-time-a-not-so-young-php-programmers-mind-turns-to-frameworks.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: In Spring Time, A Not-so-young PHP Programmer's Mind Turns To Frameworks</h2>
+
+<p>It's my 36th birthday tomorrow (if you really love me, you'll send money to my PayPal account) and as I get older, I get lazier as a programmer.  I'm interested in getting the most amount of work done with the least amount of work.  So, as someone who fetishizes new web technologies (yes, I can finally admit it) I latched onto web frameworks as a potential solution to my problem.  So, I've tried a lot of them:  Zend Framework, CakePHP, Symfony, Mojavi (back in the day), and Ruby on Rails (not PHP, but the inspiration for a lot of frameworks).
+</p>
+
+<p>
+So, what is it that I expect a framework to do?  I expect it to help me build something faster *and* with less hassle.  The less hassle part is really important to me.  Remember the lazy part above?  If it's a hassle, I'm less likely to want to use it beyond my first tutorial.  So, if a framework helps me to easily and quickly build a web application, I'm all for it.</p>
+
+<p>Now, at my current job I lobbied to use CakePHP instead of Zend Framework...and lost that fight.  Existing apps were build in Zend Framework, and with an ex-Zend guy as a boss, well, it seems like it's going to be Zend Framework all the time.  Don't get me wrong, I don't mind Zend Framework (shameless self-promotion: my component for using the webservice that powers <a href="http://last.fm">Last.fm</a> is in the core for the upcoming Zend 1.0 release) but I just prefer CakePHP.  No rational reason, just my fetishizing of the new and shiny.  I'm finding myself attracted to lightweight solutions as well.</p>
+
+<p>I wouldn't call Zend Framework lightweight, *but* I can use components of the framework as if they are libraries, instead of only being able to use it as part of an MVC framework.  CakePHP isn't there yet, but they are striving for that ability.  That turns a framework from being strictly for web applications only from being usable for all sorts of other applications.</p>
+
+<p>Although I can't talk in detail about the project I'm working on (NDA, competitive advantage for our company) I can say that I've been writing PHP scripts that will be run as cron jobs, and using Zend_Config and Zend_Log.  Now, I could write my own code to do those things (and have done so in the past) but, again, people smarter than me have put the effort into writing components that work really well without me having to worry about it.  That's the less hassle thing I mentioned above.</p>
+
+<p>
+Where frameworks shine is in their ability to provide helpers for output.  CakePHP has some great helpers for doing work with Prototaculous (or is it Scritacutype?) and adding in hooks to allow you build helpers for other Javascript libraries.  This is the stuff that can help a programmer who has only a little bit of UI experience create something more interesting.  Maybe Terry Chay <a href="http://terrychay.com/blog/article/why-frameworks-fail.shtml">was right</a> about frameworks.  His claim is that frameworks are really good for helping you generate fairly complex output dynamically, but using it for anything else is unnecessary.  I don't know if I share that opinion, because not everyone is an ace level programmer who can create well-thought-out architectures, and create elegant modular code that can easily be extended later.  Hell, I'm not one of those (yet) but I'm trying.</p>
+
+<p>
+So, the argument about frameworks will continue on well past the spring.  In fact, it will never stop.  But people will continue to build frameworks in PHP in order to satisfy egos, not for reasons related to productivity.  I guess the fact that something you write will make other people productive seems to be a big bonus.  But why are people so zealous about frameworks?  I might ramble a bit here, so please be patient.</p>
+
+<p>
+People want other people to write code for them that they can basically dump into place, tweak like one or two things, and then the app of their dreams will be realized.  If the framework doesn't instantly meet their needs, they flame the mailing list about how the framework doesn't meet their needs (which turns out to be so incorrect, either due to their solution to the problem or due to the fact that they can't be bothered to read the existing documentation.)</p>
+
+<p>
+So developers jump from framework to framework, never settling on one long enough to figure out if one is a solution for them.  Applied effort is what really separates programmers, and to use a framework properly you are going to have to not only read the documentation (several times in fact), but probably ask a bunch of questions too.  Failure to do this always leads to abandonment of a tool, no matter what it is.  So people proclaim that framework X sucks, and go onto something else.  And the cycle begins again.  All you can do is roll your eyes, make sarcastic comments about these people to your friends on IM and get back to working on stuff with tools you trust.</p>
+
+<p>
+Ultimately, every developer finds a set of tools that they like to use.  Despite almost 10 years of programming experience, I have yet to settle on a common set of tools.  Well, the only tool I use quite a bit is PHP for web applications.  Yes, I dabble in other things (Ruby via the Ruby on Rails framework) but I keep coming back to PHP.  I don't have a common set of libraries I use, instead choosing to use whatever components come with the framework I'm using at the time.  Very different from how a lot of developers work, as far as I can tell.
+</p>
+
+<p>Maybe I'm a nomad programmer.  Not in the sense that I wander around from place to place programming, but I wander from component to component, library to library as I program.  I wonder how unique this is?  Is it an essential skill if you are the type who likes to pick up new technologies and figure out how to use them?  Hrm, certainly something for me to dwell upon as I'm having my birthday dinner with my long-suffering wife tomorrow night.
+</p>
+
+<p>It's clear to me that all my future web applications will involve a framework of some sort, the question becomes will I settle on one now that the "modern web development framework" seems to have stabilized around a common set of mechanics and concepts.  Right now it's CakePHP vs. Zend Framework.  Sadly, my Rails work has fallen off to the side because I'm not getting paid to build in it, so I don't get to explore concepts that would allow me to rapidly push my Rails skills forward.  I'm getting into web services in a big way, and those are totally language agnostic.  I'm actually going to try and see if I can create an API for the code I'm using to update the <a href="http://www.ibl.org">IBL</a> web site.  My ability to harness the power of a framework seems to be key to me in order to make these sort of things happen.</p>
+
+<p>Get out there and put the required effort into figuring out if a particular framework suits your need.  Get rid of the juvenile "Framework X sucks, Framework Y rocks!" attitude.  That's okay in grade school, not amongst even remotely serious developers.  Try and be objective and put the goddamned effort into figuring out how to make your particular problem solvable in the confines of a framework.  You'll be a better programmers for it.</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2007-03-28-more-framework-fun.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: More Framework Fun</h2>
+
+<p>Sometimes you make a blog post that generates a lot of feedback.  In this case, Nate from CakePHP had a vigorous conversation with me via IM about my blog posting <a href="http://www.littlehart.net/atthekeyboard/2007/03/23/in-spring-time-a-not-so-young-php-programmers-mind-turns-to-frameworks/">about frameworks</a>.  In a nutshell, Nate took issue with my comment that CakePHP isn't quite there yet because you can't use components from it outside the framework itself.</p>
+
+<p>
+Nate does have a point here.  Zend Framework is perhaps being *overly* ambitious by not only providing an MVC component, but you can use parts of it outside that MVC component as long as you place the Zend Framework itself in your path.  So is Zend Framework truly a framework?  Yes, as long as you understand that a web application framework means more than just a MVC-based framework.
+</p>
+
+<p>
+At this point, CakePHP is an MVC-based framework only.  That is changing (remember my interactive console project?), but Nate's argument was that perhaps Zend Framework is unfocused and should be concentrating on the MVC part of the web application problem.  Not to mention the fact that it still doesn't have an Active Record implementation for database access.  This particular thing baffles me, but what can you do?  Zend_Db_ActiveRecord (or whatever you could call it) wasn't a priority among the core developers for Zend Framework.  I still can't believe that I have to write SQL by hand with Zend Framework, when I have all those magic methods available to me in CakePHP.
+</p>
+
+<p>
+Which brings me around to another point.  A disproportionately large number of successful open-source projects are the creation of one, very talented, egomaniacal developer.  David Heinemeier Hansson is a great developer (and has a big ego from what I've seen, heard and read about him) and still is one of the main driving forces behind Ruby on Rails.  Without him being there at the beginning, deciding on the core features and rejecting anything he didn't like, who knows how Rails would've ended up?  One of the toughest things to do is to say "no" to someone when they ask you for something.  Not many people can do it.  It's an especially important skill to have as a developer, because adding in features when they don't really add anything of value is the kiss of death for an application</p>
+
+<p>
+So, as a result of this sort of "cult of personality" that surrounds open source projects (or any popular project) you get people initially choosing projects based on the recommendations of others, not on the merits of the project itself.  Why pick Zend Framework?  It's rich in libraries, backed by a large well-known company in the industry, and has many talented contributors (including yours truly).  But *why* use it for your particular project?  Biggest flaw right now as I can see it is (beating a dead horse here today) lack of an ORM database wrapper.  Again, CakePHP has one so it can't be *that* hard to implement such a thing.  I know that <a href="http://pixelated-dreams.com/">Davey Shafik</a> has created such a beast for Zend Framework...but it's nowhere to be seen in ZF 0.91 beta and likely ZF 1.0.  C'mon, cut Davey a break and ram it in there.
+</p>
+
+<p>
+So, at this point, CakePHP is probably better suited for building an MVC application, despite the lack of libraries that Zend Framework provides that CakePHP does not.  On the other hand, a decent programmer should be able to quickly implement such things themselves, right?  So, for MVC-based apps that I need to build in a hurry I'm going to pick CakePHP.
+</p>
+
+<p>There, Nate.  You happy now?</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2007-03-31-what-do-you-mean-you-havent-had-a-code-review.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: What Do You Mean You Haven't Had A Code Review?!?</h2>
+
+<p>As I finish up week 3 at my new job, I have had more code reviews in 3 weeks than I have had in my last 5 years of work.  This is no lie.</p>
+
+<p>
+Right now, a code review consists of me either sitting right next to my boss looking at my code on a big monitor or talking via Skype while I am connected to a gotomeeting.com session he is hosting.  Either way, he is in the driver's seat and we go through my code, refactoring things and discussing the original goals of whatever it was I was supposed to be doing.  When we're done, he commits the changes back into our <a href="http://subversion.tigris.org">svn</a> repository, and I'm left to go back and test everything we've changed.
+</p>
+
+<p>
+So far, to be honest, the reviews have been just fine.  What I'm lacking right now is elegance in the code.  My boss likes to joke about making metrosexual code, but what he's really after is code that is elegant, readable, and as simple as possible.  I find that while my code is getting the job done properly, it could be more elegant as I learn (and in some cases relearn) some of the finer points of design and move towards a more OOP-style of thinking instead of the mishmash of OOP and functional I seem to gravitate towards.
+</p>
+
+<p>
+Things like returning objects (so that we can chain things as needed), and dumping nested ifs for the sake of readability.  Above all though, he's encouraging me to think about what I'm doing instead of just banging out the code.  Nobody I know gets paid per line of code, and my boss is not some dimwitted pointy-haired-boss who is impressed by the volume of my output as opposed to the quality of what I'm doing.  For the IPTV project I'm working on, the code HAS to be bulletproof and HAS to be able to run unattended as I won't be able to log into the server to hack things on the fly.  I've got a healthy enough level of self-esteem that I am able to take these code reviews not as criticism (which they are not, but would be if I was thin-skinned or had too much ego invested in my code) but as an invaluable opportunity to go back and fix assumptions, drill the manta of elegant code into my programmer's brain, and unlearn bad habits from years of essentially unsupervised programming.  Ouch, kind of hurts to read that now that I've typed it.  
+</p>
+
+<p>
+Code reviews and unit testing are probably the two things developers try to avoid as much as they can.  Don't be scared of either one.  You will not believe how much you can benefit from a code review, xtreme programming-style, with a developer who knows what he's doing.
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/51">Newer Posts</a><br />
+        <a href="/page/53">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

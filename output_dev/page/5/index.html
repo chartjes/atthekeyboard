@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2005-11-02-session-handling.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Session handling</h2>
+
+<p>At my day job, session handling was at one time the bane of our existance.  One poor server holding all the sessions for a large number of users.  We did lots of work to streamline them so that they take up far fewer resources than before, and are now going to be refactoring our code to remove all unnecessary info from the session.  Less data flowing back-and-forth, the better.</p>
+
+<p>Over at <a href="http://www.littlehart.net/attheballpark">my other blog</a>, I was dealing with a session-related problem.  The sysadmin for the box had gotten sick of seeing all these files starting with ruby_ appearing in /tmp and told me to "fix it, damnit".  So off I went to the <a href="http://wiki.rubyonrails.com">Ruby wiki</a> and figured it out in short order.</p>
+
+<p>So now, I have a Postgres-backed session handling option for the site...and no more files in /tmp that I have to go in and delete!</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2005-11-04-sessions-updateand-some-caching.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Sessions update...and some caching</h2>
+
+<p>After thinking about just what the heck I'd be using sessions for on the <a href="http://www.littlehart.net/attheballpark">other site</a>, I decided to dig around a little and after updating <a href="http://www.rubyonrails.com">Rails</a> to the latest version (almost 1.0) I figured out how to disable sessions completely.</p>
+
+<p>More importantly, I implemented caching for the user-facing portion of my blog in under a half-hour.  That's right, less than a half-hour.  I sure hope that the new <a href="http://www.zend.com/collaboration">Zend Framework</a> makes things that easy.</p>
+
+<p>A co-worker asked me today if I were freelancing, what would I be using to build new sites.  Without hesitating I told him "Rails.  Unless I couldn't get Rails installed on the server, in which case I'd break out my mad PHP skillz."</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2005-11-11-been-quiet.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Been Quiet</h2>
+
+<p>Things have been slow...baby has been very fussy at night so I'm lacking the energy to post lately.  However, I have been thinking about my latest programming challenge.  At work, it's unit tests.  Which I'm a fan of because it lets me prove that the stuff I just wrote isn't horribly broken.</p>
+
+<p>I am also roughing out the specs for stat tracking for my &lt;a href="//www.littlehart.net/attheballpark"">other site</a>, using some interesting techniques:  post via javascript on a remote site, and then passing a bunch of information to a PHP script that does all the parsing of the important data.</p>
+
+<p>I'm also toying with releasing the code for my blogging engine that I wrote in Rails to the outside world.  I have to work at making it a little more generic before I can do that.  I'll keep you posted...</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/4">Newer Posts</a><br />
+        <a href="/page/6">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

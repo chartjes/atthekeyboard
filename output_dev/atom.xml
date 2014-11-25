@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title><![CDATA[@TheKeyboard]]></title>
+    <link href="/atom.xml" rel="self"/>
+    <link href="/"/>
+    <updated>2014-11-25T09:41:50-05:00</updated>
+    <id>/</id>
+        <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[]]></title>
+            <link href="/_posts/2005-10-01-first-post.markdown"/>
+            <updated>2005-10-01T00:00:00-04:00</updated>
+            <id>/_posts/2005-10-01-first-post.markdown</id>
+            <content type="html"><![CDATA[<hr />
+
+<p>layout: default
+title: First Post!
+author: Chris Hartjes</p>
+
+<h2>date: 2005-10-01</h2>
+
+<p>Yeah, yeah, I know it's a cliche but you do have to start somewhere.  Some of you searching around on the web may have found my other blog <a href="http://www.littlehart.net/attheballpark">@TheBallPark</a>, where I talk about my experiences with my simulation baseball team.  However, I decided to start up @TheKeyboard to talk about the other side of my life, where I'm a programmer who's working with PHP at his day job and learning Rails on the side.</p>
+
+<p>Again, I need some time to modify this blog as I learn how Serendipity likes to do things.</p>
+
+<p>So, what about my day job?  Well, I work for a company called Instaclick and we do adult dating sites (no names just quite yet, you inquisitive little monkeys).  I spend my days working with PHP code and MySQL databases.  We started out quite small but now we're up to 18 developers, with 4 more on the way.  You may think that's a lot of developers to deal with one web site, but it's a pretty massive code base of 300,000 lines of code.</p>
+
+<p>Anyway, today I got some great news.  Two weeks ago I had attended the php|works conference in Toronto and took the Zend PHP Certification test.  It was a brutal test of 70 questions that cover EVERYTHING in PHP.  In all honesty, if you work with PHP on a regular basis and study a little bit to cover the things you haven't worked much with, you should be able to pass the test.  But you really need a broad knowledge of the language.</p>
+
+<p>You can check out my entry on Zend's web site <a href="http://zend.com/zce.php?c=ZEND901167&amp;r=0910099">here</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[]]></title>
+            <link href="/_posts/2005-10-05-supersecret-project-is-revealed.markdown"/>
+            <updated>2005-10-05T00:00:00-04:00</updated>
+            <id>/_posts/2005-10-05-supersecret-project-is-revealed.markdown</id>
+            <content type="html"><![CDATA[<hr />
+
+<p>layout: post
+title: Supersecret project is revealed</p>
+
+<h2>author: Chris Hartjes</h2>
+
+<p>Back when I was at the php|works conference, i hooked up for dinner with <a href="http://www.slash7.com">Amy Hoy</a>, who I had met on the #rubyonrails IRC channel.  My other <a href="http://www.littlehart.net/attheballpark">blog</a> uses <a href="http://www.rubyonrails">Ruby on Rails</a> as the underlying technology.  Anyhow, at the time she mentioned there was a supersecret project she had been working on that she couldn't talk about.</p>
+
+<p>Yesterday, I read about <a href="http://www.ning.com">Ning</a>, a site that lets you build what they call "community and social software" applications really easily.  It looks like they host everything for you, and profide an API (PHP only for now) for you to write your own stuff.  Very interesting concept, and I signed up for a beta developer account if only to screw around with it and see what's going on.</p>
+
+<p>When I saw that Amy's <a href="http://www.omniti.com">employer</a> was helping them out, I put one and one together and figured out that this was the project Amy had mentioned.  Congrats to Amy on being involved in something that is very cool (and sure to spawn imitators).</p>
+
+<p>I also chuckled when I saw that they claim you could create your own <a href="http://dating.ning.com">dating site</a>.  C'mon guys, that's sort of half-true.  The site I work on is sitting at 300K+ lines of code.  Maybe that could be ruthlessly cut down to half via refactoring and rewriting, but that is still a lot of code to maintain.  Simple dating site?  Sure.  Money-making dating site?  Can't see it happening the way Ning is currently setup.  Not to say that it couldn't change because, after all, it's still in beta.</p>
+
+<p>Given that Ning is free (and premium stuff is coming that you'll obviously have to pay for) it might be tough to hack together something that you could make money off of.  Hrm...sounds like an interesting programming challenge...</p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[]]></title>
+            <link href="/_posts/2005-10-05-year-of-confusion.markdown"/>
+            <updated>2005-10-05T00:00:00-04:00</updated>
+            <id>/_posts/2005-10-05-year-of-confusion.markdown</id>
+            <content type="html"><![CDATA[<hr />
+
+<p>layout: post
+title: Year of Confusion?
+author: Chris Hartjes</p>
+
+<h2>date: 2005-10-05</h2>
+
+<p>There's a <a href="http://blogs.phparch.com/mt/?p=106">posting</a> over at Marco Tabini's weblog where he talks about the rough year that he thinks PHP is facing.  It's all related to the PHP 4 to PHP 5 migration that is going on.  And how many people aren't doing it.  Go read it.</p>
+
+<p>As for me, well, I'm running PHP 5.0.4 right now on my laptop and I'm pushing my host to upgrade to PHP 5 as well.  Work is contemplating making the move, and it wouldn't require very much work at all on our port to make the necessary changes to our code base to take advantage of PHP 5's new features (which are a lot more than "better support for objects".</p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[]]></title>
+            <link href="/_posts/2005-10-06-how-will-you-die.markdown"/>
+            <updated>2005-10-06T00:00:00-04:00</updated>
+            <id>/_posts/2005-10-06-how-will-you-die.markdown</id>
+            <content type="html"><![CDATA[<hr />
+
+<p>layout: post
+title: How Will You Die?
+author: Chris Hartjes</p>
+
+<h2>date: 2005-10-06</h2>
+
+<p>I found this via my friend <a href="http://www.davesbrain.ca">Dave</a></p>
+
+<table border='0' cellpadding='5' cellspacing='0' width='600'><tr><td><img src='http://images.quizfarm.com/1109469973poisons.jpg'></td><td> You scored as <b>Posion</b>. Your death will be by poison, probably because you are a glutton and are around so many people that it would be easy to get away with it. Several important people in history share your fate.<br /><br /><table border='0' width='300' cellspacing='0' cellpadding='0'><tr><td><p><font face='Arial' size='1'>Posion</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='73' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>73%</font></td></tr><tr><td><p><font face='Arial' size='1'>Natural Causes</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='67' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>67%</font></td></tr><tr><td><p><font face='Arial' size='1'>Stabbed</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='67' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>67%</font></td></tr><tr><td><p><font face='Arial' size='1'>Eaten</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='67' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>67%</font></td></tr><tr><td><p><font face='Arial' size='1'>Suffocated</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='53' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>53%</font></td></tr><tr><td><p><font face='Arial' size='1'>Bomb</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='47' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>47%</font></td></tr><tr><td><p><font face='Arial' size='1'>Suicide</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='47' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>47%</font></td></tr><tr><td><p><font face='Arial' size='1'>Disappear</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='47' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>47%</font></td></tr><tr><td><p><font face='Arial' size='1'>Accident</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='40' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>40%</font></td></tr><tr><td><p><font face='Arial' size='1'>Disease</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='33' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>33%</font></td></tr><tr><td><p><font face='Arial' size='1'>Gunshot</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='33' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>33%</font></td></tr><tr><td><p><font face='Arial' size='1'>Cut Throat</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='27' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>27%</font></td></tr><tr><td><p><font face='Arial' size='1'>Drowning</font></p></td><td><table border='1' cellpadding='0' cellspacing='0' width='0' bgcolor='#dddddd'><tr><td></td></tr></table></td><td><font face='Arial' size='1'>0%</font></td></tr></td></tr></table><br /><a href='http://quizfarm.com/test.php?q_id=8960'>How Will You Die??</a><br /><font face='Arial' size='1'>created with <a href='http://quizfarm.com'>QuizFarm.com</a></font></table>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[]]></title>
+            <link href="/_posts/2005-10-06-refactoring-is-actually-fun.markdown"/>
+            <updated>2005-10-06T00:00:00-04:00</updated>
+            <id>/_posts/2005-10-06-refactoring-is-actually-fun.markdown</id>
+            <content type="html"><![CDATA[<hr />
+
+<p>layout: post
+title: Refactoring is actually fun
+author: Chris Hartjes</p>
+
+<h2>date: 2005-10-06</h2>
+
+<p>No, really.</p>
+
+<p>If you look at my <a href="http://www.littlehart.net/attheballpark">other blog</a>, you will notice that I'm the commissioner of the league.  There's a weekly newsletter that goes out to the league, with results and other info of interest to the league.</p>
+
+<p>I've been Commish since the middle of the 2000 season and I was stunned to see that the newsletter was being compiled by hand (shudder), and that was the most difficult part of the job.  So, I quickly wrote a bunch of PHP scripts to collect the raw info needed to do the newsletter and then munge it all into the format it needs.  I'd show you guys the app, but it's password protected and the security is pretty much non-existent.</p>
+
+<p>Which brings me back to the topic at hand.  We're going to be redesigning the <a href="http://www.ibl.org">Internet Baseball League's website</a> to make it more CMS-like and have our webguru stop putting things in by hand.  Part of the work is moving my code from where it lives right now (under my own littlehart.net domain) to be part of the new site.</p>
+
+<p>Right now I'm using my own DB abtraction layer, but since I'm going to be using PEAR::DB for the new site I might as well go back into my existing code and refactor it to use that code.  Plus fix the ugly-looking interface.</p>
+
+<p>I'm probably the only person out there who enjoys going back and fixing his old programming mistakes...</p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[]]></title>
+            <link href="/_posts/2005-10-11-its-like-meta-versioning.markdown"/>
+            <updated>2005-10-11T00:00:00-04:00</updated>
+            <id>/_posts/2005-10-11-its-like-meta-versioning.markdown</id>
+            <content type="html"><![CDATA[<hr />
+
+<p>layout: post
+title: It's like meta-versioning
+date: 2005-10-05</p>
+
+<h2>author: Chris Hartjes</h2>
+
+<p><a href="http://slash7.com">Amy Hoy</a> has a posting up at her blog about her efforts in <a href="http://www.slash7.com/articles/2005/10/09/super-customizing-typo-svk-more">hax0ring at Typo so her blog can be all pretty-like</a>.  In it she mentions using something called <a href="http://svk.elixus.org">SVK</a>, which is "decentralized version controls system" that uses some elements of <a href="http://subversion.tigris.org">Subversion</a>.</p>
+
+<p>Now, I messaged Amy when I got into work and asked her what the big deal was, because I took a look at it last night and couldn't see what the advantage was.  Of course, I was sleep deprived from three days of the baby waking up 3 times a night.  Amy explained it to me thusly:</p>
+
+<p>1) you check out the code you wish to hack using SVK
+2) any changes you make to it, when committed, remain only in <strong>your</strong> copy of the repository
+3) when you do an update of your repository, any changes made upstream appear in <strong>your</strong> copy of the repository</p>
+
+<p>As soon as she explained it, the light bulb went on.  I <strong>immediately</strong> understood why that was a good thing.  To take it even further, this technique could be used at work when the time came for us to reboot the templating of the site effort.  The templaters could work on their own stuff, committing their changes locally and then pulilng down updates the maintenance team was doing.</p>
+
+<p>I've installed SVK on my iBook and going to fool around with it for a while to see if I can work with it.</p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[]]></title>
+            <link href="/_posts/2005-10-12-true-tales-from-the-internet.markdown"/>
+            <updated>2005-10-12T00:00:00-04:00</updated>
+            <id>/_posts/2005-10-12-true-tales-from-the-internet.markdown</id>
+            <content type="html"><![CDATA[<hr />
+
+<p>layout: post
+title: True Tales From The Internet
+date: 2005-10-05</p>
+
+<h2>author: Chris Hartjes</h2>
+
+<p>11:03:17 AM 6161180: One of my personal projects coming up is a PHP5 web framework...prelude to a supersecret open source project
+11:04:06 AM sp1ffar1ff1c: oh noes
+11:04:08 AM sp1ffar1ff1c: a framework
+11:04:31 AM 6161180: Yes, an evil framework
+11:04:40 AM sp1ffar1ff1c: 99% of frameworks are
+11:04:42 AM sp1ffar1ff1c: evil
+11:04:51 AM 6161180: It's a tool to allow me to pimp myself out to various PHP conferences
+11:05:00 AM 6161180: "How to build a PHP 5 framework that is not Evil"
+11:05:09 AM sp1ffar1ff1c: step 1: download Cake.
+11:05:14 AM sp1ffar1ff1c: there is no step 2!
+11:05:50 AM 6161180: Cake is not ready
+11:06:00 AM 6161180: it doesn't have any frosting yet
+11:06:16 AM sp1ffar1ff1c: on the flip side, it mimics the best framework yet. <img src="//www.littlehart.net/atthekeyboard/templates/default/img/emoticons/smile.png"" alt="-)"" />
+11:06:27 AM sp1ffar1ff1c: mmm cake. now i'm hungry.
+11:06:28 AM 6161180: There is some truth to that
+11:06:35 AM 6161180: <strong>rummages around for a snack</strong>
+11:06:43 AM sp1ffar1ff1c: the beauty of ruby on rails is how it is loosely coupled
+11:06:55 AM 6161180: I dunno...a lot of stuff I do now are exercises to expand my own programming skillz
+11:06:58 AM sp1ffar1ff1c: it doesn't make doing things a different way any harder
+11:07:11 AM 6161180: maybe it's time I looked at cake closely
+11:07:20 AM 6161180: and abandoned my crazy dreams
+11:07:39 AM sp1ffar1ff1c: i'm not convinced that php's design as a language really allows the creation of a good framework
+11:07:58 AM sp1ffar1ff1c: it's missing a lot of important higher-level language features
+11:07:58 AM 6161180: I don't see why not
+11:08:03 AM sp1ffar1ff1c: meta-programming's practically impossible 
+11:08:20 AM 6161180: what do you mean by "meta-programming" in this instance?
+11:08:28 AM sp1ffar1ff1c: writing code which writes code on the fly
+11:08:40 AM 6161180: you're talking about the generator scripts?
+11:08:45 AM sp1ffar1ff1c: no.
+11:08:47 AM sp1ffar1ff1c: let me show you.
+11:10:03 AM sp1ffar1ff1c:    {:up =&gt; :move_higher, :down =&gt; :move_lower, :top =&gt; :move_to_top, :bottom =&gt; :move_to_bottom}.each do |action, list_method|
+   define_method(action) do
+        if params['id']
+              @section = Section.find(params['id'])
+              @section.send(list_method)
+        end
+        redirect_to :action =&gt; 'list'
+      end
+    end<br />
+11:10:30 AM sp1ffar1ff1c: this bit of code writes methods when the class is invoked. it's not inside another method, it's just in the class. 
+11:10:46 AM sp1ffar1ff1c: the fancy thing is a closure
+11:10:57 AM sp1ffar1ff1c: closures + metaprogramming = simplicity
+11:11:12 AM sp1ffar1ff1c: it was paul graham who really made me see that ther ereally is a huge power difference between languages
+11:11:28 AM sp1ffar1ff1c: he of course pushes lisp, but ruby has most of the features which make lisp great, without the horrible dialects. <img src="//www.littlehart.net/atthekeyboard/templates/default/img/emoticons/smile.png"" alt="-)"" />
+11:12:26 AM 6161180: I guess the biggest problem is that PHP grew so fast
+11:12:32 AM 6161180: hard to go back after the fact and clean up the mess
+11:12:47 AM sp1ffar1ff1c: the biggest problem is that it was made by a guy who hates to program and design things. <img src="//www.littlehart.net/atthekeyboard/templates/default/img/emoticons/smile.png"" alt="-)"" /> php is a sledgehammer.
+11:12:51 AM sp1ffar1ff1c: but sometimes you need finer tools
+11:13:06 AM sp1ffar1ff1c: it's still the best out there vs eveyrthing but ruby
+11:13:07 AM sp1ffar1ff1c: for web dev</p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[]]></title>
+            <link href="/_posts/2005-10-17-my-first-steps-towards-open-source.markdown"/>
+            <updated>2005-10-17T00:00:00-04:00</updated>
+            <id>/_posts/2005-10-17-my-first-steps-towards-open-source.markdown</id>
+            <content type="html"><![CDATA[<hr />
+
+<p>layout: post
+title: My first steps towards open source
+date: 2005-10-05</p>
+
+<h2>author: Chris Hartjes</h2>
+
+<p>Tomorrow I'm starting some work on my supersecretsideproject, which is going to be an open source project.  I've never done any code that I've given away under open source, only paid stuff.  Many moons ago I wrote a system to interface with Canada Post's eParcel system, and I managed to sell a copy of it for good coin too.</p>
+
+<p>At the time I got a few emails from people hoping to get it from me for free.  Since I was woefully underemployed at the time (my first foray into the world of freelance work) I didn't want to lose out on any money.  So of course I said no to people.  Only ever made the one sale, and that code is long gone.</p>
+
+<p>I'm hoping to make up for previous stupidity now and create something that more than just one person will want to use out there on the internet.  I'll keep you posted on how it goes.</p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[]]></title>
+            <link href="/_posts/2005-10-20-php-frameworksare-they-worth-the-trouble.markdown"/>
+            <updated>2005-10-20T00:00:00-04:00</updated>
+            <id>/_posts/2005-10-20-php-frameworksare-they-worth-the-trouble.markdown</id>
+            <content type="html"><![CDATA[<hr />
+
+<p>date: 2005-10-05
+layout: post
+title: PHP Frameworks...are they worth the trouble?</p>
+
+<h2>author: Chris Hartjes</h2>
+
+<p>My open source project has gotten underway, as the three conspirators met and hashed out how we wanted the view/template part of the system to work.  We got to play around with <a href="http://www.codingmonkeys.de/subethaedit/">SubEthaEdit</a> and it's great collaborative capabilities.  It was cool to see me edit something in the document, then the <a href="http://www.derekmartin.ca">other guy</a>, and then <a href="http://www.jobblender.com">our other partner</a> add in his info.  You should seriously check it out sometime.</p>
+
+<p>But I've started to wonder if <a href="http://www.rubyonrails.com">Rails</a> hasn't, well, spoiled me.  When I think about how to implement Rails in PHP (although <a href="http://www.cakephp.org">Cake</a> is trying), I realize that I don't know if it could be done as slickly as Rails was done with Ruby.  Doing a half-assed web application framework is easy.  Doing a good one is hard.</p>
+
+<p>And on top of this all, Zend annoucned their new <a href="http://www.zend.com/collaboration/">PHP Collaboration Project</a> which, at this time, consists of working with <a href="http://www.eclipse.org">Eclipse</a> to make it easier to do PHP dev work with it (Zend Studio 6 maybe?), and...a PHP framework.  Open sourced.  Blessed for use in the "enterprise".</p>
+
+<p>So, maybe the second part of the Grand Project must wait until we take a look at what Zend comes up.  I can't help but wonder if <a href="http://http://www.xisc.com/">this little project that won a Zend programming contest</a> is what will become the Zend PHP Framework...</p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[]]></title>
+            <link href="/_posts/2005-10-20-programmer-grrl-does-grreat.markdown"/>
+            <updated>2005-10-20T00:00:00-04:00</updated>
+            <id>/_posts/2005-10-20-programmer-grrl-does-grreat.markdown</id>
+            <content type="html"><![CDATA[<hr />
+
+<p>date: 2005-10-05
+layout: post
+title: Programmer Grrl Does Grreat</p>
+
+<h2>author: Chris Hartjes</h2>
+
+<p>A big shoutout needs to go to Amy Hoy who <a href="http://slash7.com/articles/2005/10/19/podcast-book">is writing a book about Ruby with the Pragmatic Programmer guys</a>.  Also check out her interview with the folks from the Ruby on Rails podcast.</p>
+]]></content>
+        </entry>
+    </feed>

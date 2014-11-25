@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2008-04-04-building-rallyhat-importing-schedules.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post
+title: "Building Rallyhat: Importing Schedules"</p>
+
+<h2>author: Chris Hartjes</h2>
+
+<p>I continue to be impressed with <a href="http://www.djangoproject.com">Django</a> as I build out Rallyhat.  I have an extreme alpha version working on my laptop, minus the Yahoo! Maps stuff I've been playing around with.  The biggest task was populating my database with the schedules for all the baseball teams.  I thought I'd share what the import script looks like:
+</p>
+
+<p>
+~~~
+#!/usr/bin/env python
+from django.core.management import setup_environ
+import settings
+setup_environ(settings)
+from rallyhat.www.models import Team
+from rallyhat.www.models import Game
+from rallyhat.www.models import Location
+from rallyhat.www.models import Sport
+
+from datetime import date
+
+import csv, urllib, time
+
+s = Sport.objects.get(name='Major League Baseball')
+teamSchedules = Team.objects.all()
+
+for teamSchedule in teamSchedules:
+    scheduleFile = teamSchedule.schedule
+    print "Importing games for " + str(teamSchedule.name)
+
+    if scheduleFile != "":
+        reader = csv.reader(urllib.urlopen(scheduleFile))
+
+        for row in reader:
+            teams = row[3].split(' at ')
+
+            if len(teams) == 2:
+                if Team.objects.filter(name=teams[1]).count() == 0:
+                    print "Adding new team: " + teams[1]
+                    homeTeam = Team(name=teams[1], sport=s)
+                    homeTeam.save()
+                else:
+                    homeTeam = Team.objects.get(name=teams[1])
+
+                if Team.objects.filter(name=teams[0]).count() == 0:
+                    print "Adding new team: " + teams[0]
+                    awayTeam = Team(name=teams[0], sport=s)
+                    awayTeam.save()
+                else:
+                    awayTeam = Team.objects.get(name=teams[0])
+
+                gameDate = time.strftime("%Y-%m-%d", time.strptime(row[0], "%m/%d/%Y"))
+                startTime = time.strftime("%H:%M", time.strptime(row[2], "%I:%M %p"))
+
+                # If this game doesn't exist, add it to the system
+                if Game.objects.filter(home_team=homeTeam, away_team=awayTeam, game_date=gameDate, start_time=startTime).count() == 0:
+                    locationCheck = Location.objects.filter(name=row[4]).count()
+
+                    if locationCheck == 0:
+                        print "Adding new location: " + row[4]
+                        l = Location(name=row[4])
+                        l.save()
+                    else:
+                        l = Location.objects.get(name=row[4])
+
+                    locationId = l.id
+                    g = Game(home_team=homeTeam, away_team=awayTeam, location=l, game_date=gameDate, start_time=startTime)
+                    g.save()
+~~~
+</p>
+
+<p>
+It's interesting to treat everything as an object after so many years of being in the PHP world where you can mix and match depending on what's been going on in your application.  I'm also amazed at how clear the code is.  There is some non-intuitive stuff in there, especially when dealing with the saving of model records.  It took me a while to figure out I could pass the object containing the model  as a parameter when saving a record for a model that it is associated with.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2008-04-09-the-rise-of-the-app-cloud.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: The Rise of the App Cloud</h2>
+
+<p>
+These are heady times for any web developer.  Two of the biggest companies on the web are now offering access to what I call their "app cloud" so you can run your web app in a hugely scalable environment.  Amazon was first out of the gate with their great combo of <a href="http://www.amazon.com/gp/browse.html?node=16427261">S3</a>, <a href="http://www.amazon.com/gp/browse.html?node=201590011">EC2</a> and <a href="http://www.amazon.com/gp/browse.html?node=342335011">SimpleDB</a>.  Of course, you didn't expect Google to stand idly by and they have delivered as well with <a href="http://code.google.com/appengine/">Google App Engine</a>.  So, what do they have in common?
+</p>
+
+<p>
+You're limited in what you are allowed to do.  It's really that simple, because in order for you to gain the advantage of being able to have scalability out of the box you are going to have to follow a bunch of rules.  Sandboxes are good, but the problem occurs when you fight against the sandbox rather than embrace it's constraints.  Sort of the same thing I see on the CakePHP mailing list where people are determined to do what they want, and who gives a flying fuck what the conventions are.  But in this case, you cannot avoid it.
+</p>
+
+<p>
+Having looked into the idea of running an app using Amazon's EC2 + SimpleDB structure for Rallyhat, it looks like it's pretty simple to get up and running with those tools.  I know I'm grossly simplifying the process, but you create your app, create an image, upload it into the cloud and away you go!  With Google App Engine, all you can do is create Django-based apps...but they've severely limited what you can do as they require you to use a GAE-specific wrapper to talk to things.  That means a lot of the cool Python libraries that are out there WILL NOT BE ABLE TO HELP YOU.  Maybe that's just for now, but that's a pretty serious limitation.
+</p>
+
+<p>
+Secondly, both SimpleDB and BigTable have the same limitation in that you cannot do joins, so that means you have zero hope in hell of using any sort of ORM wrapper on your data.  It's all about the denormalized data.  Go look it up if you don't believe me.  Now, this can be a problem if you have a very complex database structure that requires a lot relationships between your tables...like most of the apps that use modern web application frameworks.  Maybe my thoughts on using a very simple REST-based framework in PHP isn't such a crazy one for this.
+</p>
+
+<p>
+Rallyhat is using relationships between tables because that makes it easier for me.  Games belong to Teams, Locations belong to Games, Teams belong to Sports.  Also, I've been using CakePHP long enough that all my apps are designed around the idea of data having relationships.  If I had to denormalize that data by putting it all in one big table essentially, I lose the use of ORM / data mapping.  Django lets me do the same sort of relationships as Cake, so why the hell wouldn't I use it?  It's about speed of development, after all.  Quicker to a usable state is really the key here, as you're bound to spend all sorts of time in maintenance-and-bug-fix mode no matter what.
+</p>
+
+<p>
+So this leads me to what I consider an inevitable conclusion:  using an app cloud is only for certain types of applications.  What a huge leap in logic, no?  All sarcasm aside, this is the same sort of logic that dictates that most web application frameworks are only good for certain types of sites.  Once you step up to a certain level of complexity, you have two choices:  work really, really hard to simplify things as possible OR understand that you are in the land of Custom Solutions and hope that you are smart enough to come up with one that works.  What's that old adage:  simple systems can display complex behaviour?  Now that there is a solution for certain types of scalability issues, the trick is to figure out how to build an app to leverage that.
+</p>
+
+<p>
+The biggest problem I see with putting your app up in the cloud is the issue of data sharing.  Scalability usually requires as little sharing between parts of your application as possible.  If you have a central data store, that will forever be your application choke point.  Whether it's clustering or sharding, it is a non-trivial task to build scalable data stores.  I haven't looked at SimpleDB and BigTable enough to form an opinion on whether or not these are viable contenders for this type of solution.  Hopefully it is.
+</p>
+
+<p>
+It's ironic to me that while we have a definite rise in the use of frameworks for web application programming, some of the most powerful tools available to build web applications that can handle the complexity of scaling well require you to throw all that stuff away and get back to really simple things.  Perhaps this is a good thing, as all these magic methods in frameworks give the developer simplicity, but you become dependent on those magic methods.
+</p>
+
+<p>
+Heady days indeed.  Time to look at whether or not Rallyhat could run in those environments...just because I want to see if it's possible.  Learning Python is one thing.  Learning Python + Django + SimpleDB, or Google App Engine (if I could ever get an invitation) is another.  Seems to me I could whip something together in PHP that could run on EC2 with SimpleDB, but is that really much of a challenge?
+</p>
+
+<p>&lt;</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2008-04-11-building-rallyhat-up-into-the-cloud.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: "Building Rallyhat: Up into the cloud"</h2>
+
+<p>It pays to have friends who have connections.  After reading my blog posting about <a href="http://www.littlehart.net/atthekeyboard/2008/04/09/the-rise-of-the-app-cloud/">the rise of the app cloud</a> I got an IM from <a href="http://marcgrabanski.com/index.php">Marc Grabanski</a> asking me if I wanted an invite to get in on <a href="http://code.google.com/appengine/">Google App Engine</a>.  Needless to say, I said yes.</p>
+
+<p>
+So I have an account up there now, but nothing to show you guys yet.  The tutorials they have are actually quite clear and make sense.  What makes it even more ironic is that all you can use is Python (which I'm learning) and runs Django 0.96 standards (although you can use dev versions if you like). Is that fate trying to give me a hint or something?
+</p>
+
+<p>
+Anyway, it looks like it will be trivial for me to redo my database structure so that it fits in nicely with BigTable.  I need to massage the data in the new format and then find a tool that lets me upload that up into BigTable itself.  My data is simple enough so the fact that I can't do joins won't really matter.  All my data can be per row in a database anyway, the relational stuff just makes it easier to write code.  Or at least I've found that when doing stuff with Cake.
+</p>
+
+<p>
+As far as Rallyhat Extreme Alpha goes, I've got it working in that you can do the following:
+<ul>
+<li>pick your teams and date range</li>
+<li>see the list of games and pick which ones you want to go to</li>
+<li>plot the stadiums on a map so you can see distances</li>
+</ul>
+<br />
+The UI isn't pretty so I have lots of work on making that easier to use.  But I am excited.  Once I figure out how to create driving-distance stuff dynamically it will be even cooler.
+</p>
+
+<p>
+I have to say that I have noticed that the Python "way" is quite different from the PHP "way".  Maybe it's more accurate to say the Django "way" is different from the PHP "way".  Django has deliberately limited what you can do in their templates out-of-the-box.  Yes, you can write custom code for stuff in templates by extending it yourself (the documentation is actually quite clear on how to build them) but out-of-the-box you can only do so much.  Frustrating when you come from the PHP world where you are able to put PHP code in your templates to accomplish certain tasks.  You can't just dump any old Python code in there, as I have found.  Much of what I'm trying to accomplish simply needs to be done in a different place, as a lot of the form-processing magic in both CakePHP and PHP itself has hidden that from me.
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/83">Newer Posts</a><br />
+        <a href="/page/85">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2007-02-07-bips-and-boops.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Bips and Boops</h2>
+
+<p>This time next week I will be trying to flag down a taxi at the airport in Toronto, having come back from the <a href="http://vancouver.php.net">Vancouver PHP Conference 2007</a>.  I'm looking forward to giving my "What Can PHP Learn From Ruby on Rails" talk because I'll be doing a screencast of my talk.  However, I'm struggling with trying to decide what to do with it.
+</p>
+
+<p>
+If I give it away, then the people who see me in person are getting ripped off.  If I charge for it, the question then becomes how much to charge?  $5?  $10.  One model I've been thinking of trying is that if 20 people by the screencast I will give it away for free after that point.  We shall see what ends up happening.
+</p>
+
+<p>
+Over on the CakePHP mailing list, someone asked a question about how to build a model without accessing a database.  I pointed out that it can be done, and that there were examples.  Then, I got schooled by <a href="http://cake.insertdesignhere.com/">nate</a>...
+
+
+<blockquote>I definitely wasn't agreeing with you, but I wasn't really making fun
+of you either.  I'll give you a hint: there's a reason why we have a
+base DataSource class, which is extended by DboSource, which talks to
+the database on behalf of a model.  Felix's Google Analytics model is
+actually a pretty poor example.  Not because Felix is a bad coder or
+anything (quite the contrary), but because up till now, there are a
+few things that people really haven't clearly understood (or perhaps,
+there are a few things we haven't made clear for people).  Basically
+what I'm trying to say is that you should never have to extend Model
+in that way.  Models are designed to *model* data, not handle the
+details of accessing it.</blockquote>
+Ouch
+</p>
+
+<p>But Nate did have a good point.  I didn't fully understand how the Model was built up in CakePHP because, well, I never really had to before.  I think when I build my first CakePHP 1.2x site I'll dig into the internals a little more.
+</p>
+
+<p>
+Now, I've noticed a few blog postings about <a href="http://dev.mysql.com/downloads/connector/php-mysqlnd/">mysqlnd</a>, a native MySQL driver for PHP 6 (for now) and beyond.  As an aside, I should try installing PHP 6 somewhere just to see how they are progressing.  Anyhow, back to mysqlnd.  Why is this significant? There are, in my mind, two things why you should know about it.
+</p>
+
+<p>Firstly, mysqlnd is designed to take advantage of PHP's own infrastructure.  I imagine this means that you can expect better performance from this library as opposed to the old libmysql or the newer libmysqli.  I understand it's aimed at PHP 6 for the time being, due to some of the work being done with Unicode in PHP 6.  There is talk of backporting it to PHP 5, or even PHP 4 (something to do with streams meaning you could backport) but it's aimed squarely at PHP 6 for now.</p>
+
+<p>
+The second big reason is that it will provide a library for PHP to talk to MySQL databases that has a license that is more compatible with PHP.  In fact, it will be released under the PHP license.  MySQL has an exception for allowing libmysql to be integrated with <a href="http://www.mysql.com/company/legal/licensing/foss-exception.html">FLOSS</a> projects, of which PHP is one.  Having a native driver that doesn't require an exception to use can only be a good thing.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2007-02-07-verticalscope-is-hiring-php-developers.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post
+title: VerticalScope is hiring PHP developers
+author: Chris Hartjes</p>
+
+<h2>date: 2007-02-07</h2>
+
+<p>Want the chance to work with me?  If you live in the Greater Toronto Area (we don't pay relocation costs or sponsor people) and know PHP, we may have a job for you.  We're looking to fill at least two positions I'm aware of:  nne junior developer and one intermediate developer.  Here's what my boss said he's looking for:
+
+
+<blockquote>VerticalScope Inc. is seeking a highly skilled professional programmer with extensive expertise in developing PHP and MySQL applications. The position will be focused on the custom development of vBulletin applications, CMS tools, search engine optimization, tool bar creation for our network of sports, automotive and technology sites. If you like working in a creative and fast-paced environment, please send your resume to jmillman@verticalscope.com. Please ensure your qualifications match those outlined below before applying.
+
+Requirements:
+To be considered for this role, your background should include:
+? 4+ years of development experience in PHP (including hands on experience in your current/last role)
+? 4+ years of experience in MySQL (including hands on experience in your current/last role)
+? Experience with high-availability, clustering and load balancing, familiarity with Linux, Apache, Perl, CVS, vBulletin development experience an asset
+? Experience and comfort in a FreeBSD shell and with FreeBSD development environment
+? Shell scripting in Perl, Bash, or other languages an asset
+? Strong communication skills
+? Ability to work independently in a group environment
+? Proven testing and troubleshooting skills
+? Strong education background including a Bachelor in Computer Science (or similar) and relevant work experience
+? Any relevant industry certifications an asset
+
+About VerticalScope
+VerticalScope is a leading Internet media company providing detailed coverage and analysis of the Technology, Automotive, and Sports vertical markets. Our network of industry web portals, online communities, and print publications reach over five million enthusiasts and decision makers each month. As one of the pioneers of Consumer Generated Media, our targeted network of discussion forums and community websites have in excess of one million registered members and tens of millions of consumer generated posts, articles, and blog entries.
+</blockquote>
+
+That's for the intermediate position.  For the junior position, it's the same sort of qualifications but only 2+ years of experience.  You'll be spending your time working with a small group of IT guys who are great at coming up with solutions to difficult problems.  The ability to deploy applications problem-free is critical, as you will see what it's like to deploy applications for users who don't tolerate any downtime or problems with their sites.  
+</p>
+
+<p>
+We're a very small IT shop (2 programmers, 1 HTML/CSS person, 2 sys admins) so finding a person who has the skills *and* will fit in with our mix of personalities (having a sense of humour is key around here) is critical.  After all, I want to like the people that I work with.</p>
+
+<p>
+If you think that you are a good fit for us, send your resume to me at chartjes@verticalscope.com with the subject "PHP / MySQL Developer position" and I'll make sure it gets to the right people.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2007-02-09-my-next-foolish-project-a-console-for-cakephp.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: "My Next Foolish Project:  A console for CakePHP"</h2>
+
+<p>On the <a href="http://www.cakephp.org">CakePHP</a> mailing list, somebody familiar with Ruby on Rails' console functionality asked "why isn't there one of these in Cake?".  I, of course, jumped right in and said "such a thing does not exist in PHP."  Nate, of course, quickly corrected me and pointed out that PHP has an interactive mode.  Which lets you do some stuff quickly for testing purposes, but this is not enough.  So I foolishly volunteered to work on a console.  Like I'm not busy enough.
+</p>
+
+<p>
+So I got to thinking about how to do this.  On the surface, it seems the easiest way to do this is to write a PHP script that takes entries on the command line, run the input through an 'eval' statement.  Sounds easy enough, and I could write that in a hurry.  I think the trickiness comes in figuring out how to hook it into CakePHP so that you can access Models that already exist.  I guess this will be something that will bother me while I'm at the <a href="http://vancover.php.net">conference</a> on Monday and Tuesday.  I'll be sure to mention it during my talk.
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/46">Newer Posts</a><br />
+        <a href="/page/48">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2007-09-13-glue-vs-full-stack-the-podcast-edition.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: "Glue vs. Full-Stack: The Podcast Edition"</h2>
+
+<p>Cal Evans just pinged me to let me know that my second contribution to his PHP Abstract podcast, called <a href="http://devzone.zend.com/article/2537-PHP-Abstract-Podcast-Episode-19-Glue-Frameworks-vs.-Full-Stack-Frameworks">Glue Frameworks vs. Full-Stack Frameworks</a> has just been posted.  Go and take a listen and let me know what you think.</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2007-09-14-configuring-cakephp-to-work-with-nginx.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Configuring CakePHP to Work With Nginx</h2>
+
+<p>I use the incredibly small high-performance web server <a href="http://wiki.codemongers.com/Main">Nginx</a> to run this blog and some of my other projects.  Again, the ADD developer in me likes trying out new technology and nginx is a great fit for me so far.  I had to dig around a bit to find some rewrite rules that work for using WordPress (I'll share those if people are interested) but I got an email this morning from a fellow <a href="http://www.cakephp.org">CakePHP</a> user who couldn't find any configuration info on how to get it to work with Nginx.  Well, I did some fooling around and I'm confident this set of rules will work.  This assumes that you've gotten Nginx already up and running.
+<pre>
+# CakePHP rewrite rules
+location / {
+     index index.php;
+     if (!-e $request_filename) {
+          rewrite ^/(.+)$ /webroot/$1 last;
+          break;
+     }
+}
+
+location /webroot/ {
+     index index.php;
+     if (!-e $request_filename) {
+          rewrite ^(.+)$ index.php?url=$1 last;
+          break;
+     }
+}
+</pre>
+I am by no means an nginx expert, so if you have problems you are probably on your own.  I hope this helps out other people wanting to run CakePHP on nginx.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2007-09-18-new-cakephp-podcast-launched.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: New CakePHP Podcast Launched</h2>
+
+<p>Mad props go out to Jeff Loiselle (aka phishy) for putting together <a href="http://live.cakephp.org">The Show</a>, a CakePHP-specific podcast.  The archive of the first show is up there (Jeff talks to Nate Abele, with a side-order of Garrett Woodworth) and the next show will be broadcast live tomorrow at noon.  Check out the site for more details, and your humble correspondent may try to worm his way into tomorrow's episode that talks about writing console applications, since I am busy extending bake and adding to my interactive testing console.</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/65">Newer Posts</a><br />
+        <a href="/page/67">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

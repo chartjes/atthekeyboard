@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2005-12-15-zend-certificate-finally-arrives.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Zend Certificate <em>Finally</em> Arrives</h2>
+
+<p>Went and picked up my framed certificate from Zend that they mailed to me from the post office today.  Nice to finally have it...I'll put it up on the wall of my basement office once it gets built in the summer.</p>
+
+<p>However, what bugs me is how long it took to get here.  The postage on it says it was mailed on November 21st.  From California.  That's almost 3 weeks to get here.  That's ridiculous.</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2005-12-19-beauty-is-in-the-eye-of-the-coder.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Beauty Is In The Eye Of The Coder</h2>
+
+<p>Okay, be honest now.  As a programmer, you get very attached to the work you've done.  It's not always good, but it's YOURS damnit!  But do you ever really consider that somebody somewhere else will have to deal with the code you've written at a later date?  I've come to realization that actually thinking about the next sucker who has to work on your code is something that aids in becoming a Great Developer(tm).  And isn't that what I want to be?</p>
+
+<p>Like most programmers, I've inherited a bunch of code from someone else.  It uses a software package I don't particularly like, and it's been written in a style that I can only call inconsistent.  However, it's mine now and I have to deal with.  For your own sanity, please consider using a tool like <a href="http://pear.php.net/package/PHP_Beautifier/">PHP Beautifier</a> to take that old crufty code and at least make it look manageable.  It's only drawback is that it's written in PHP5, so you will need to get that crufy code somewhere where PHP5 is installled.</p>
+
+<p>In this case, it's perfect for me because I have PHP5 installed on my laptop.  I took the offending file, ran it through the beautifier (command line version please) and in 3 seconds, I had a nicely formatted piece of code that I could actually figure out where things were!  Praise to Murphy!</p>
+
+<p>In all seriousness, using a consistent format for your code means that somebody other than you will be able to take what you've done and use it.  Anyone who thinks that "job security" is more important than readble code should be fired on the spot.  You're not helping yourself when you create a system only you can understand.</p>
+
+<p>Okay, now to go and figure out why an image upload is working right...at least I KNOW which nested conditional it's in now. <img src="//www.littlehart.net/atthekeyboard/templates/default/img/emoticons/smile.png"" alt="-)"" /></p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2005-12-30-work-commences-on-new-ibl-site.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Work Commences on New IBL Site</h2>
+
+<p>Yes, gentle reader, we're finally getting underway with the long-awaited <a href="http://www.ibl.org">IBL website</a>.  I had bandied about ideas for what technology to use.  I'm still not 100% sure, but it's obviously going to be some sort of content management system.  I'm not going to write my own because, well, I really don't have the time for such things these days.</p>
+
+<p><a href="http://drupal.org">Drupal</a> is one that I am seriously taking a look at because, well, it fits the idea of a "content management system" and is written in PHP.  And it's open source, which means I can go in there and hackyhackyhacky anything that we need fixed.</p>
+
+<p>Also, by moving to a CMS-type site, it frees up our poor webguru to simple publish entries via an already-created interface AND work on the look and feel of the site.  It will also let our registrar and our statitician to post stuff up to the site as well in an easier format.  We have some existing online-scripts that I will have to figure out how to hook the output from them into Drupal.  But I'm a ZCE, so I should know how to do it. <img src="//www.littlehart.net/atthekeyboard/templates/default/img/emoticons/smile.png"" alt="-)"" /></p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/7">Newer Posts</a><br />
+        <a href="/page/9">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

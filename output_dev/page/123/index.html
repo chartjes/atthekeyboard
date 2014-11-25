@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2009-12-02-readers-ask-me-tdd-and-freelancing.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: "Readers Ask Me: TDD and freelancing"</h2>
+
+<p>Hendrick Daldrup writes:
+<blockquote>I just saw your post regarding topic suggestions on your blog for Dec.
+
+I actually have 2, but the first one might be better suited for a blog post.
+So, here goes:
+
+1. I started doing some freelance work to boost my portfolio and have been using CakePHP as my framework of choice in several cases.
+I wanted to focus on TDD for the larger projects, thanks to Cake's nice tie in with SimpleTest, but found it impossible to market to clients.
+The problem is that TDD causes an overhead on development time while reducing the bugs in the code. However, since bug fixes are basically included in the price, for the client it just translates to paying more for work that I would otherwise do for free anyway.
+TDD makes sense for a company with full time developer(s), but those with a small budget/tight deadline or no technical understanding always translate it to an unnecessary additional cost & time.
+Of course you could just add it to the development time and/or costs without mentioning it, but I prefer keeping my work transparent and was hoping that you or one of your readers might have been in a similar situation and have a tip on how to justify the use of TDD to a potential client.
+</blockquote>
+</p>
+
+<p>The first thing that occurs to me when trying to answer this question is this:<i>TDD is not for the client, it is for the developer</i>.  In other words, the client should not care that you are using TDD to build this application for them.  They should care that you deliver something on-time, within budget, and meeting their application requirements.
+</p>
+
+<p>
+TDD can be a powerful tool, especially if you are going in and reworking an existing application.  With work projects, every time a bug is reported I now create a test to (a) verify that the bug exists and (b) make sure that when I fix that bug, it has not broken anything else.  Scoff at the TDD crowd if you want, but there appears to be lots of evidence that including tests with your application goes a long way towards reducing bugs.  <a href="http://sites.google.com/site/yacoset/Home/how-to-avoid-writing-bugs">This article</a> speaks anecdotally about the value of TDD:
+<blockquote>
+ At first it wasn't clear what the benefits and trade-offs of TDD were, but an empirical study conducted on teams working at Microsoft and IBM2 found that teams practicing TDD could get up to 40% fewer bugs in their released code, but it came at a cost of taking up to 35% longer than a team developing the same software without TDD. It neither absolves TDD nor condemns it, but it can tell a product manager what he could get if he had the time to pay for it.
+</blockquote>
+</p>
+
+<p>We have started to stray from Hendrik's question.  In my opinion, there is no need to sell the client on TDD.  As far as the client is concerned, TDD is simply part of the whole "building the application for you" process.  At this point, I could not imagine building a web application for someone else without including tests to make sure I don't break things.  Those tests are your first line of defence when fixing the bugs you inevitably introduce into an application.  No set of tests can cover everything, but even a limited set of tests are better than nothing.
+</p>
+
+<p>
+Now, if someone can tell me how to test CodeIgniter controllers using <a href="http://jamierumbelow.net/2009/08/11/setting-up-the-perfect-codeigniter-tdd-environment/">this type of setup</a>, I'll be a much-less grumpier programmer.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2009-12-15-shells-and-sandboxes.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Shells and Sandboxes</h2>
+
+<p>
+Now that I have become a born-again tester, I've started looking at the testing I'm doing at work from more of a high-level point of view.  What are tools like <a href="http://www.simpletest.org/">SimpleTest</a> and <a href="http://www.phpunit.de/">PHPUnit</a> *really* doing?  They are providing a mechanism for the automating of running of tests.  Such tools also exist for frameworks like <a href="http://www.djangoproject.com">Django</a> and <a href="http://www.rubyonrails.org">Ruby on Rails</a>.  I cannot speak for Django, but the Rails community has made a very large commitment to testing tools and testing best practices.  But there is also another very powerful testing tool that Ruby and Python make available that PHP does not.
+</p>
+
+<p>
+Both Ruby and Python offer a <a href="http://en.wikipedia.org/wiki/REPL">Read-eval-print loop</a> that can be run from the command line to allow people to do the opposite of what conventional testing tools do:  allow you to run interactive tests of your code.  I used the REPL available in Python (you know, just typing 'python' from my command line) to test out how to use various geocoding libraries for a side project.  My <a href="http://gilesbowkett.blogspot.com/">favourite Ruby programmer</a> (who is offering career consulting that I might find too enticing to pass up even at $100/month) uses <a href="http://en.wikipedia.org/wiki/Interactive_Ruby_Shell">irb</a> all the time to work on stuff.
+</p>
+
+<p>So in a way, a REPL is the anti-automated test.  I think that if there was a good REPL available for PHP, testing best-practices might take better hold.  Perhaps there is hope for a good PHP REPL in Alan Pinstein's <a href="http://github.com/apinstein/iphp">iphp</a> project.  I remember trying to continue work on the testing console I had created a number of years ago for CakePHP, and quickly realized that what I needed was a REPL.</p>
+
+<p>
+Since I did not have the desire to write my own limted PHP parser by messing around with <a href="http://www.php.net/eval">eval</a> (although, to be honest I did try playing with it and realized I did not know what the hell I was doing), the testing console was dead.  Besides, how many PHP devs really use PHP on the command line?  10%? 1%?  Hard to know, as the group I follow is a self-selecting one and I'm sure most of them have used PHP on the command line.  Hard to become an advanced PHP developer without trying to do stuff on the command line with it.
+</p>
+
+<p>
+I was also pleased to find out (after a year of using it, no less) that <a href="http://exist-db.org/">eXist</a> had it's own REPL for XQuery - they call it the "sandbox".  It's awesome because I can take my "wrote this 6 months ago and can't remember if it still works" XQuery scripts and test them out.  Sort of like a command line client to your RDBMS.  It even tells me when I've got syntax or formatting errors in them BEFORE I try and execute them.  Talk about saving a developer time.
+</p>
+
+<p>
+Do things like this exist for RDBMs like MySQL and Postgres?  Imagine an interactive client that is checking your syntax out <i>while you type it</i>.  If such a thing exists, please tell me!
+</p>
+
+<p>
+Once again, I see I have started to diverge.  Back on track again.  
+</p>
+
+<p>
+So, from a testing perspective it's easy to see how shells and sandboxes can become essential tools.  For example, all the good advice I have ever seen about unit testing clearly advocates a sandbox approach.  You create fixtures containing data.  You create mock objects to simulate functionality that might potentially be destructive.  You might even create a separate database for doing test operations on.  Clearly, the goal here is to create an environment that is the same as the one your code will eventually be running in, but separate from the "real" one.
+</p>
+
+<p>
+A REPL, on the other hand, is a very powerful and very dangerous.  If you're not careful, you could very easily insert data into your current "working" environment instead of a "test" one.  As with so many other things, power comes with a price.  Sure, I can run some code to figure out how to use, say, <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> but I better make sure that I am not writing data to my production database.  That would be silly.</p>
+
+<p>
+I'm guessing the main reason PHP does not have a easy-to-use REPL is because it grew up on the web first and the command line second.  Ruby and Python started on the command line first, and out to the web second.  It's really that simple I think.  Will PHP ever get a widely-accepted REPL?
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2009-12-22-whats-in-chris-brain-christmas-2009-edition.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: What's In Chris' Brain - Christmas 2009 Edition</h2>
+
+<p>With Christmas quickly approaching, it's time to dump all the junk rattling around in my head and into the blog.  I hope you have a great holiday season.</p>
+
+<p>
+<h3>Concurrency is coming, better be ready</h3>
+</p>
+
+<p><a href="http://intensivesystems.net/tutorials/cont_m.html">The Continuation Mondad in Clojure</a>.  Even if you hate Lisp (I'm looking at you, Kevin) or don't give a damn about <a href="http://clojure.org/">Clojure</a> it is worth reading about to understand how you can write concurrent applications.</p>
+
+<h3>Real-time web applications are coming, better be ready</h3>
+
+<p>I have a new project I am going to be starting at work, one that can potentially involve real-time information.  Check out this series on <a href="http://thingsilearned.com/2009/06/09/starting-out-with-comet-orbited-part-1/">how to build real-time web applications using Django, Python and a javascript library called Orbited</a>.  When you combine this with the you-can-see-it-on-the-horizon-but-not-quite-here-yet concept of <a href="http://armstrongonsoftware.blogspot.com/2009/12/comet-is-dead-long-live-websockets.html">web sockets</a>, I can see some of the concepts of what I called Web Pi (3.14159, get it?  Get it?  Um okay, any way) starting to take shape.</p>
+
+<h3>TDD With PHP is already here, where have you been?</h3>
+
+<p>Giorgio Sironi has gone and <a href="http://giorgiosironi.blogspot.com/2009/12/practical-php-testing-is-here.html">written the book I was thiking of writing this winter</a>.  If you want to learn more about doing TDD with PHP, go and grab a copy of his e-book.  It's 100% free, but I liked it so much (and admired him for tackling a topic I have interest in) I donated $10 to him.  You should do the same.</p>
+
+<h3>Chris should not post links on Twitter that cannot be discussed in 140 characters or less</h3>
+
+<p>Finally, on Twitter I posted about <a href="http://devcomponents.com/blog/?p=633">this blog post</a> which talked about how it's only people who are financially secure who pound away at the "only do what you love" message.  When you don't have to work, that's easy to do.  I got into a long conversation with <a href="http://slash7.com">Amy Hoy</a> about this topic, although Twitter is a crappy medium for doing this sort of thing.</p>
+
+<p>
+I respect Amy a great deal, so I was kind of bummed when she and I appeared to disagree on some the key points of the blog posting.  Basically, "do what you love" is a lie because it is not always possible.  "Do what you do, with love" is a better approach to thing.  Not everyone gets to work on exactly what they want to, so perhaps I am showing some signs of neo-puritanism or something when I said "well, even if you have a crummy job you should be doing it as best as you can."  I proceeded to be smacked around by several people who do not share that philosophy.  Amy seemed to feel that the blog article was (to use her words) bullshit and was advocating "eating a shit sandwich and liking it" by giving people justification for "hiding behind the mortgage" as an excuse for not taking chances.  It will no doubt surprise Amy that I happen to agree with her, but utterly failed to get that across on twitter.  My apologies to Amy for that.  We've all worked crummy jobs, and it has been my personal experience that the best way to get out of a crummy job is to work as hard as you can to build up your skills so you are ready to leap on better opportunities when they come around.  
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/122">Newer Posts</a><br />
+        <a href="/page/124">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2010-03-19-u-r-doin-it-wrong-adventures-with-flexible-forms-in-zend-framework.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: \"U R Doin It Wrong\" - Adventures with flexible forms in Zend Framework</h2>
+
+<p><a href="http://framework.zend.com/manual/en/zend.form.html">Zend_Form</a> is a super-powerful, force-of-nature tool.  By force-of-nature I mean it does all this crazy stuff, and you can see it doing it, but I am not alone in admitting that taming it sometimes is very difficult.  When building tools to make form programatically you either severely limit peoples options or make it so flexible that there are multiple ways to get something done.  Given the concept that Zend Framework "treats you like an adult" (I cannot find the blog post where I read this) it is not surprising that Zend_Form takes the flexible route.
+</p>
+
+<p>
+Before I go any further, thanks (again) to <a href="http://twitter.com/elazar">@elazar</a> and to <a href="http://akrabat.com/">Rob Allen</a> aka <a href="http://twitter.com/akrabat">@akrabat</a> for helping me solve this particular problem.
+</p>
+
+<p>
+Okay, so onto my problem.  I was creating a page for a fantasy baseball draft application to process transaction requests.  You could do one thing, and one thing only:  make a request to add a free agent to your team and what player off your team you wanted to drop.  Since I needed to locate form elements in specific places in the layout, I didn't do the usual < ?= $form ?> in my template, instead I created a bunch of setX methods, with X representing a specific form element.  Then, in my templates I simply did < ?= $form->X ?> where X represents the specific element.  Let me show you what I mean:
+</p>
+
+<pre><code>            &lt;form action="/baseball/&lt;?= $this-&gt;league ?&gt;/transactions/process" method="post"&gt;
+                &lt; ?= $this-&gt;transactionForm-&gt;teamId ?&gt;
+                &lt; ?= $this-&gt;transactionForm-&gt;shortLeagueName ?&gt;
+                &lt;table width="100%"&gt;
+                    &lt;tr&gt;
+                        &lt;th width="50%" align="center"&gt;Players on your Team&lt;/th&gt;
+                        &lt;th width="50%" align="center"&gt;Players Available&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td align="center" valign="top"&gt;
+                            &lt; ?= $this-&gt;transactionForm-&gt;players ?&gt;
+                        &lt;/td&gt;
+                        &lt;td align="center" valign="top"&gt;
+                            &lt;div id="freeAgentList"&gt;
+                                &lt; ?= $this-&gt;transactionForm-&gt;freeAgents ?&gt;
+                            &lt;/div&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+                &lt;input type="submit" id="transactionFormSubmit" value="Request Selection"/&gt;
+            &lt;/form&gt;
+</code></pre>
+
+<p>
+I did this figuring it would give me lots of flexibility.  Then, the pain started.
+</p>
+
+<p>
+I kept wondering why every time I validated the form, it kept coming back as true.  I had a requirement that to have a successful transaction request, they had to select both a player to drop from their own team AND a free agent to add.  I had put into the form validation that a free agent was required, but it never seemed to be triggered.  Off to <a href="http://stackoverflow.com">Stack Overflow</a> I went to ask for help, along with pleas for help on Twitter.  I had thought I was doing something subtly wrong, and I was right.
+</p>
+
+<p>
+Here's the finished, working code.  I will explain what I had been doing wrong.  By the way, if you can think of a better way to do something of the more "hackish" stuff in there, I'd appreciate it.
+</p>
+
+<p>
+~~~
+    public function indexAction()
+    {
+        $form = new Baseball_Form_Transactions();
+        $options = array(
+            'teamId' => $this->teamId,
+            'position' => 'C',
+            'leagueShortName' => $this->league,
+            'status' => 0
+        );
+
+        $form->setMyPlayers($options);
+        $form->setFreeAgents($options);
+        $form->setTeamId($options);
+        $form->setShortLeagueName($options);
+
+        if ($this->getRequest()->isPost()) {
+            // This is hack to make sure we pull back the list of free agents for
+            // the player's position
+            $postData = $this->_request->getPost();
+            $player = Doctrine::getTable('Player')->find($postData['players']);
+            $options['position'] = $player['position'];
+            $form->setFreeAgents($options);
+
+            if ($form->isValid($this->_request->getPost())) {
+                $data = $form->getValues();
+                $leagueInfo = Doctrine::getTable('League')->findOneByShortName($data['shortLeagueName'])->toArray();
+
+                // Create the request top drop an existing player       
+                $transactionInfo = array(
+                    'league_id' => $leagueInfo['id'],
+                    'team_id' => $data['teamId'],
+                    'player_id' => $data['players'],
+                    'type' => 'drop',
+                    'target_team_id' => 0,
+                    'transaction_date' => date('Y-m-d H:m:s'),
+                    'shortLeagueName' => $data['shortLeagueName'],
+                    'group_id' => uniqid()
+                );
+                $transaction = new Transaction();
+                $transaction->fromArray($transactionInfo);
+                $transaction->save();
+
+                // Now we do the request to add a player
+                $transactionInfo['team_id'] = 0;
+                $transactionInfo['player_id'] = $data['freeAgents'];
+                $transactionInfo['target_team_id'] = $data['teamId'];
+                $transactionInfo['type'] = 'add';
+                $transaction = new Transaction();
+                $transaction->fromArray($transactionInfo);
+                $transaction->save();
+                $this->_flashMessenger->addMessage('Added transaction');
+            }
+        }
+
+        $this->view->transactionForm = $form;
+        $this->view->messages = $this->_flashMessenger->getMessages();
+        $transaction = new Transaction();
+        $this->view->transactions = $transaction->byTeam($options);
+    }
+~~~
+</p>
+
+<p>The big mistake?  I was not setting up all the form elements via my setX calls BEFORE I did the validation.  Because I didn't, those elements didn't exist, and therefore the validation never got called.  See, I told you my mistake was (a) dumb and (b) subtle.
+</p>
+
+<p>
+I think I did the right thing with my method of creating the form elements outside of the init() method to give me the ability to layout things where I wanted them.  I'm interested in finding out how other people have solved the same problem.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2010-03-30-is-there-a-more-practical-approach-to-tdd.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Is There A More Practical Approach To TDD?</h2>
+
+<p>One of the things I (foolishly perhaps) promised myself when I started up a new project at work was that I was going to use Test Driven Development (or TDD for short).  I advocated using a <a href="http://framework.zend.com">web application framework that supports good testing practices</a> and discussed how it would be beneficial when trying to track down and solve bugs to have a set of tests.  I ran through the impact of my horrible decision to use a framework without a good culture of testing in a previous project:  fixing things became tedious as I could not run automated tests to verify that things were working properly.
+</p>
+
+<p>But a funny thing has happened while building the new application.  Sadly, there are no automated tests, and the question I've been asking myself is "other than being lazy as hell, why did you not write tests?".  The answer I seem to have come up with (or justified is probably the better word) is "I don't see anything complicated in what I'm doing that I need to write a test for."  Before you dismiss my thoughts on this, consider the architecture of what I've built:
+</p>
+
+<p>
+We have a backend consisting of MySQL with two distinct databases on it:  one containing raw stats for sporting events, the other summarized records about fantasy points accumulated by players.  My thought was to make the database do all the work of crunching the numbers for me as a daily cron job and then the web front end only needs to do reads.  With proper indexing of the tables, performance is at an acceptable level with a full season's set of test data.  Sounds like a pretty decent strategy to me.
+</p>
+
+<p>
+The scripts that collect the raw data and pre-calculate fantasy point totals are written in Python.  The web site that displays the fantasy points info was done with Zend Framework.  So what sort of tests should I have written for this.  I've come around to the idea that you should write tests for things that are non-trivial.  Then you get into the problem of deciding what is non-trivial:
+<ul>
+<li>Verify that point totals are being calculated correctly</li>
+<li>Verify that when players are assigned to teams in our admin panel they actually end up, you know, being on the proper team</li>
+</ul>
+Every else seems to me to be, well, not worth testing.  Make sure teams are sorted in order of total fantasy points?  Database does that for me.  Make sure list of players for a specific team contain expected players for a team?  Um, database does that for me(?).  I can verify that players are properly changing teams in the admin panel by hand.  Of course, I shouldn't be testing things by hand, but I'm wondering if I'm either missing the point or have stumbled upon something here.
+</p>
+
+<p>
+<b>Am</b> I missing something here?  Am I doing it wrong? I do believe I need some tests, but only for the things that are not super-obvious.  I'd appreciate people's thoughts on this.  Maybe I just need someone else to look at it the app as a whole and say "we should be testing for the following things".  The curse of the lone programmer maybe?
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2010-04-14-you-asked-for-it-chris-awesome-but-short-guide-to-deployment-using-phing.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: "You Asked For It:  Chris' Awesome But Short Guide To Deployment Using Phing"</h2>
+
+<p>I have been suffering from a major case of blogger's block, so I reached out to the lucky people who follow me on Twitter to ask them about some topics to talk about on the blog.  Thanks to them I've got at least two blog posts coming.  Credit to this one goes to Neil Crookes (who I met at the first CakeFest conference in Orlando) who suggested I talk about <a href="http://twitter.com/neilcrookes/status/12119140914">deployment issues</a>
+</p>
+
+<p>What's that you are saying?  You thought I was using <a href="http://capify.org">Capistrano</a> to do deployments at work?  Gentle reader, things change.  All my work in trying to automate deployments is designed to allow me to do a deployment either from my own laptop or remotely on the server where it's run.  Tools like Capistrano and <a href="http://phing.info">Phing</a> let me do that.  Sure, I could cobble together my own solution using rsync or shell scripts, but my experience telecommuting has taught me that if you want others to use your tools, they have to be tools that can be used by others.
+</p>
+
+<p>While Capistrano is certainly up to the task of deploying my own personal projects, I had nothing but problems getting people OTHER than myself to get it up and running.  You wouldn't think that getting Ruby and then assorted gems installed on a non-Windows machine would be that hard.  Apparently it is.  So what was my alternate solution?  Create something that can be run on the server where the code is going to be deployed.
+</p>
+
+<p>
+As a guy who is always up to his neck in the <a href="http://www.jedi.be/blog/2010/02/12/what-is-this-devops-thing-anyway/">devops environment</a> (with a tip of the hat to <a href="http://twitter.com/brianlmoon">Brian Moon</a> for bringing this term to my attention) I am determined to NOT be the only one who can do deployments.  It's 2010, the year we make contact, and there is no reason that my boss, when he alters some marketing copy on our main web site, should not be able to push those changes himself (with the side-effect being leaving me out of it).  With a little work and some digging, I got Phing to do it for me.
+</p>
+
+<p>
+Like many awesome tools with lots of documentation, Phing suffers from a lack of easy-to-find tutorials covering the exact things I wanted to do.  Or sure, I eventually tracked it all down (with the help of the best support group in the world, Twitter) but I'm guessing this a trend that will not go away.
+</p>
+
+<p>
+So, being the lazy sort, I set out to duplicate how Capistrano does their deploys:
+<ol>
+<li>Check out the latest version of code from HEAD on your repo (SVN in this case)</li>
+<li>Create a new "current" directory</li>
+<li>Symlink the latest checkout (which is in release/yyyymmddhhmmss) to current</li>
+</ol>
+There are some other steps in here that I use as well that are specific to my applications but these are the basics.
+</p>
+
+<p>Why the symlink method?  Capistrano allows you to also rollback to a previous deployment, but I haven't gotten around to implementing that feature with the new Phing-based setup.  I never make mistakes that need to be rolled back like that.  Yes, I'm kidding.
+</p>
+
+<p>So, what would a build script to cover the basics look like?
+~~~
+< ?xml version="1.0"?>                                                                               
+<project name="build" default="main">
+    <property name="exportdir"  value="/var/www/foo" />
+    <property name="svnpath" value="/usr/bin/svn" />
+    <property name="repo" value="REDACTED" />
+    <tstamp>
+        <format property="build.time" pattern="%Y%m%d%H%I%S" />
+    </tstamp>
+    <target name="main" depends="svnexport">
+        <exec command="rm -f ${exportdir}/current" escape="false" />
+        <exec command="ln -s ${exportdir}/releases/${build.time} ${exportdir}/current" escape="false" />
+    </target>
+    <target name="svnexport">
+        <svnexport svnpath="${svnpath}"
+            nocache="true"
+            repositoryurl="${repo}"
+            todir="${exportdir}/releases/${build.time}"/>
+    </target>
+</project>
+~~~ 
+I know there are XML haters out there, but that's a readable configuration file right there.  One of the things I did was to remove any user name and password information from the config file.  You never know if you'll get cracked by a script kiddie exploit and someone reads a configuration file full of critical information.  Call me paranoid, butyaneverknow.
+</p>
+
+<p>
+So, after you install Phing then to run things you just need to type 'phing -f <path to deploy file>'.  In our case, I then get prompted for a password, as the user names on the servers are the same as for the SVN repo.
+</path></p>
+
+<p>So what else do I do when I deploy?  There is always some clean-up work to be done after the fact, so I add a few more actions to the file:
+~~~
+        <exec command="chmod -R 777 ${exportdir}/current/tmp" escape="false" />
+        <exec command="chown -R user:group ${exportdir}/current" escape="false" />
+        <exec command="chmod -R ug+rw ${exportdir}/current" escape="false" />
+~~~ 
+I won't get into the details of what I'm doing there, but you can execute any command you want on the server, so long you have permissions to do so. 
+</p>
+
+<p>So, sometimes you are lazy and don't want to mess around with symlinks and figuring out how to roll things backwards.  Here's how you could do a deployment using Phing that simply updates a directory that you checked out using SVN already:
+~~~
+< ?xml version="1.0"?>
+<project name="build" default="main">
+        <property name="svnpath" value="/usr/bin/svn" />
+        <property name="username" value="codemonkey" />
+        <property name="exportdir"  value="/var/www/bar" />
+        <target name="main" depends="svnupdate" />
+        <target name="svnupdate">
+                <svnupdate svnpath="${svnpath}"
+                        username="${username}"
+                        nocache="true"
+                        todir="${exportdir}"/>
+        </target>
+</project>
+~~~ 
+Again, very straight-forward.  Phing is a very powerful tool that can be used for a lot more than just deployments.  Browsing through the documentation gave me some ideas for extending Phing further to meet our deployment needs.  If you deal with PHP all the time, I cannot think of a better tool to help with complex build-and-deploy tasks than Phing.  
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/127">Newer Posts</a><br />
+        <a href="/page/129">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

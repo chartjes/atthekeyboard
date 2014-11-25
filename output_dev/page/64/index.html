@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2007-08-17-cakephp-resources.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post
+title: CakePHP Resources
+date: 2007-08-17</p>
+
+<h2>author: Chris Hartjes</h2>
+
+<p>As my friends find out that I work for <a href="http://www.cakedevelopment.com">Cake Development Corporation</a>, they start asking me what resources I use in order to get my work done.  Since I don't have any essays to share, or tutorials for you this week, I'd thought I'd spend some time sharing some of my favorite resources.</p>
+
+<p><i><a href="http://manual.cakephp.org">The CakePHP Manual</a></i> is the first place I go when I need to remember how to use some pretty basic, non-advanced functionality.  For all the pissing and moaning about the lack of documentation for 1.2.x, the manual is still a great resource.  When will the documentation be ready? When it's ready!</p>
+
+<p>When the manual isn't enough, I venture down into the bowels of the code and visit the <a href="http://api.cakephp.org">online API</a> so I can see if a particular class / component / whatever has a method I think it has and what parameters it can accept.  As awesome as the API is, I think it would be very helpfull if there were examples of using a method right in the API.  Next time I add something into the core I will be sure to include an example right there in my <a href="http://phpdoc.org">docblock</a></p>
+
+<p>However, nothing beats actually having examples on how to do something with CakePHP.  Once I found out about <a href="http://bakery.cakephp.org">the Bakery</a>, it was like I had found a chest up in an attic with all sorts of cool stuff inside it.  Lots of examples, and when you're an insider like I am (heh) you can even see articles that hasn't been published yet.  If you are looking for specific examples of doing stuff in both 1.1.x and 1.2.x then your first stop should be the Bakery.</p>
+
+<p>I am on the <a href="http://groups.google.com/group/cake-php">CakePHP mailing list</a>, where I have earned my nickname 'GrumpyCanuck' that I use on various IRC channels on freenode.  Getting help via the mailing list and IRC comes with some baggage though.  Do your research before you ask, or else you will be either flamed or outright ignored.  Nobody wants that, they want answers to their questions, right?  I may come across as grumpy on the list but when you show you've put the work into trying to find an answer you will be surprised how quickly people rush to help.</p>
+
+<p>Then I start using Google itself, finding interesting information all over the web.  There are very few CakePHP blogs that I go to all the time (I read a lot of aggregating feeds, so that does the work for me) but the one I find myself constantly coming back to is Felix Geisend?rfer's <a href="http://www.thinkingphp.org">ThinkingPHP And Beyond</a>.  Tons of code exampes and excellent commentary.  Almost as good as this blog (hah!)</p>
+
+<p>But of course, I'm super spoiled because I have direct access to many of the core developers of CakePHP, such as Larry Masters (PhpNut), Garrett Woodworth (gwoo) and Nate Abele (_nate_).  Without being able to talk to those guys via IM or on IRC, so many of my problems learning how CakePHP works at more than a basic level would not have been solved.  So, it never hurts to suck-up to / cultivate relationships with some of the more senior members of the CakePHP community.  They are usually more than glad to help you out when you have questions and can speak to them directly.</p>
+
+<p>
+So, as baseball season starts to head towards a finish (between my long-running simulation baseball league, coaching girls baseball and playing men's 35+ slow-pitch) I will finally have some time to give back to CakePHP.  There are some tickets in <a href="http://trac.cakephp.org">CakePHP's trac site</a> with my name on them that I need to get to and hack away at them, along with adding functionality to my CLI console for testing things.  Also, rumours of a CakeFest conference for later this year have me motivated to get a bunch of stuff done so I have something to give some talks about.</p>
+
+<p>
+So, if you have any other resources you like to use for CakePHP, feel free to put them in the comments and if we get enough of them I will do a follow-up post.</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2007-08-21-trusting-magic-methods.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post
+title: Trusting Magic Methods
+date: 2007-08-21</p>
+
+<h2>author: Chris Hartjes</h2>
+
+<p>One of the reasons I use <a href="http://www.cakephp.org">CakePHP</a> (well, other than the fact I get paid to :) ) is that I'm a believer in full-stack frameworks, and learning to build your application within the rules that the framework lays down is an exercise in understanding the problem domain and then figuring out how to solve it with the tools at hand.  Most full-stack frameworks rely on what I call "magic methods", complex functionality that has been reduced to a simple API for the developer to use.  A good example of this is the ability to create relationships between models.  If you say "Foo has many Bar" and create that relationship in the model, you can access all the Bars that belong to Foo with a simple command:
+~~~
+$bars = $this->Foo->Bar->findAll();
+~~~
+<br />
+Talk about magic methods.  All sorts of complexity in terms of writing your own SQL code to pull this information out is totally hidden from the developer and you are left with an easy-to-use API for getting that information.  But, like anything, this comes with a price.</p>
+
+<p>
+A common message that I see on the CakePHP <a href="http://groups.google.com/group/cake-php">mailing list</a> is one from a user who is examining the SQL generated by command like the one I showed above.  They question why it's being done this way.  "The SQL isn't efficient, why does it have joins, etc".  All valid arguments but reveal a huge problem that goes unspoken in programmer circles:  trust is an issue when using someone else's code.
+</p>
+
+<p>Look at this code:
+~~~
+$this->Media->hasAndBelongsToMany['Tag']['conditions'] = array('Tag.name' => $tag);
+$media = $this->paginate('Media', array('AND' => array('Media.approved' => 1, 'Media.published' => 1)));
+~~~
+<br />
+That's a lot of serious complexity in two lines of code.  This is part of some code I'm writing for a CDC project where I'm trying to paginate over a result set of media that have been given a particular tag.  The current pagination method wasn't able to do what I wanted, so with some help from gwoo I found out what magic I needed to make things work the way I wanted.  That code is amazing when you think about it, but do you trust it?  If you use CakePHP you have no choice but to trust that the model methods are doing things the best way they can.</p>
+
+<p>
+Being open source, there is nothing stopping people who have gripes about certain functionality to go in and fix it themselves, but how many people really do?  1% of the users?  1% of 1% of the users?  It's a very, very small percentage, small enough that it becomes daunting at times to contemplate contributing to a popular open source project.  So, instead you sit back, curse the developers and trust that whatever problem you want fixed will be fixed.
+</p>
+
+<p>
+Adoption of any library or framework depends so hugely on trust, I'm surprised that it never comes up in the discussion.  I guess it's so obvious that nobody has seen it.  If I don't trust a tool to do what I want it to do, I won't use it.  Witness my retreat (once again) from <a href="http://www.vim.org">vim</a> to <a href="http://www.activestate.com/Products/komodo_ide/">Komodo</a>.  I don't *trust* my ability to make vim do the things I can do in Komodo, so I go back to using a tool that I do trust.  Recently, it was the ease with which I was able to debug some code using <a href="http://xdebug.org">XDebug</a> and Komodo.  It's something I could never do with vim because I don't trust myself with vim.
+</p>
+
+<p>
+I'm not saying you need to have blind faith in a particular bit of software, because that's dangerous and leads to a lot of unfulfilled expectations.  The path from fanboy to intense critic is a very short one, especially if you bought into the promise of something and it didn't deliver the way you wanted.  I trust CakePHP for very different reasons, ones that obviously make me a fanboy.  I liked what the framework was about, trusted that the magic methods were doing what they were supposed to be doing after getting to know the core development team, and now I earn a living off of trusting that CakePHP can do the job that I want.</p>
+
+<p>
+The biggest lesson I've learned from thinking about this idea of trust is that you have to do your research and learn how the magic methods interact with each other.  Could I have possibly come up with that line of code above that sets the hasAndBelongsToMany relationship in order for me to find all tags associated with a particular media file?  I would have to say that before I asked gwoo about it, I was thinking I was going to have to set *some* value in $this->Media to get the pagination functionality to work but didn't know where to start.  But now that I see the code I understand why it works.  It's the dynamic setting of conditions for the hasAndBelongsToMany that forces the Media model (when used by the pagination functions) to pull in the associated Tag records.  It's the ultimate hindsight:  "Of *course* that's what you should do, it makes perfect sense in front of my grumpy face!";
+</p>
+
+<p>
+So next time you are evaluating a piece of technology that you wish to start using, ask yourself if the reason you are reluctant to use it is because you don't trust it to work the way you are expecting it.</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2007-08-28-when-do-you-take-your-ball-and-go-home.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: When Do You Take Your Ball And Go Home?</h2>
+
+<p>As someone who has used lots of open source software, in fact making my livelihood off of open source software, I've often wondered what happens when the guiding forces behind an open source project decide to make that project closed source?  Under what circumstances is that even possible.</p>
+
+<p>I'm the lead developer for my <a href="http://www.ibl.org">simulation baseball league's</a> web site.  That is a very small venture, so I often say no to requests for additions and changes because, well, I can.  It's okay to be an asshole sometimes instead of just bottling it up all inside.  Sometimes I don't feel like putting in the work to implement certain functionality.  Or I don't feel like the request adds anything to the web site.  But if I were the lead developer for a fairly large open source project, I'm pretty sure I would get to some point where the complainers and moaners would get to me and cause me to want to consider closing the source.  It's an easy thing to complain about a bug or missing feature, but it takes real courage to complain *and* go and fix it, showing why and how you fixed it.</p>
+
+<p>
+So, what would happen if you closed the source?  I guess you'd say that you would still accept patches but nobody could distribute or implement those changes without your permission.  I believe that Dan Bernstein does this for his immensely popular <a href="http://www.qmail.org">qmail</a> project and explains that <a href="http://www.qmail.org/not-open-source.html">qmail is not open source</a>.  I also imagine that the license you release your code under would have a huge impact on this as well.  If you took something close sourced, what about all the changes that others had contributed while the project was open sourced?  Are they out of luck?  Do they remain in the closed source with you giving them credit?  Many, many questions to be answered when taking an open source project closed.
+</p>
+
+<p>
+The key feature of open source, to me, seems to be that you can get the source, change it, and then distribute those changes.  There is nothing wrong with you taking an open source project, make a bunch of your own changes and then using it yourself without distributing those changes.  That's how a lot of cool functionality ends up in an open source project.   I seem to remember the systems group at a previous employer hacking on qmail and making some changes to it that were only used internally and, although I am not a lawyer, I can't imagine that being a problem.  Distributing those changes to others is a different story, as that would appear to violate the license that qmail has been released under.</p>
+
+<p>
+The perception on many open source projects is that the leadership is running things like a closed source project by limiting access to people to commit their changes to whatever central version control repository they are using.  Is that a bad thing?  I would have to say no because when a project gets to a certain level of complexity (such as, say PHP itself) you don't want just anyone going in there and making changes that would cause things to break all over the place.  <a href="http://www.cakephp.org">CakePHP</a> does exactly that:  there is a "core" team of developers who have write access to the subversion repository, and they either change code themselves or go over patches submitted by others, committing them if it's agreed that the patch fixes a problem.</p>
+
+<p>
+From my own perspective as a developer, I don't know if I would stop using an open source application if it would go closed source.  As long as it continued to work the way I needed it, I don't think I would complain too much.  But if I needed to make changes and are skilled enough to do so, that's when it would become really annoying if there was a bug I could obviously fix but have no access to do so.  My experiences with some PHP applications that were encoded using IonCube showed me how much time and money was wasted trying to get problems that could've been fixed in-house.  That's as closed-source you can get in the PHP world.</p>
+
+<p>
+Tell me in the comments your thoughts on taking an open source project closed and what you think the ramifications of that would be.</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/63">Newer Posts</a><br />
+        <a href="/page/65">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2009-06-12-the-upcoming-scalable-datastore-singularity.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: The Upcoming Scalable Datastore Singularity</h2>
+
+<p>I talked about this briefly on Twitter but I am wondering if we are at the edge of an upcoming "singularity" for technologies dealing with really large data sets.  Things like <a href="http://couchdb.apache.org">CouchDB</a>, <a href="http://tokyocabinet.sourceforge.net/">Tokyo Cabinet</a>, <a href="http://incubator.apache.org/cassandra/">Cassandra</a> and some other non-RDBM's datastores that I'm sure I'm forgetting about are starting to filter down from the experimental level to the usable-by-developers-like-me level.  We all dream of working on a project that has to deal with highly scalable data sources, because that means the project has been an awesome success.</p>
+
+<p>
+I just wonder if use of these types of technology for a site that you have no idea whether or not it will be wildly successful is a case of premature optimization.  I mean, it's cool that I can use CouchDB for a little side project that is more an exercise in learning CouchDB and Python.  But could I use something like this at work?
+</p>
+
+<p>(Warning, this is where I start talking about some of the things I do at <a href="http://www.xmlteam.com">my day job</a>.) Our systems accepts tens of thousands of XML documents per day from different sources, and then a lot of them get translated from source XML into <a href="http://en.wikipedia.org/wiki/SportsML">SportsML</a>.  Now, granted, some of these things are updates of previous information, but we still have to process them.  One of our products queries our servers, pulls down the SportsML documents and then parses them to stick the results in a RDBMS.  Customers can then build their own products on top of this system, writing SQL to pull out the info they want.
+</p>
+
+<p>
+But what if instead of parsing them, we drop them into a document datastore?  I've been using <a href="http://exist.sourceforge.net">eXist</a> for a work-related project and after some initial struggles (mostly learning to use <a href="http://www.w3.org/TR/xquery/">XQuery 1.0</a>) it's the perfect datastore for a project where you need to deal with XML.</p>
+
+<p>
+I work on a web service front-end for all these stats, which we both give to our customers (it's open-sourced under the GPL) to run themselves *and* use it internally (eating our own dog food!).  I've often wondered if we switched to using eXist as the back-end instead of a more traditional RDBMS, would our customers be able to handle it?  Finding a developer who knows SQL or a DBA who can tweak the queries is probably easier than finding someone who is familiar with XQuery / Xpath and eXist.</p>
+
+<p>So while switching to something like eXist would make sense on a certain level (skips the intermediate step of parsing the XML, we have in-house knowledge of writing XQuery scripts to pull data out) it definitely does not make sense for us from a customer support perspective.  Definitely a research project for when the company makes enough money to hire some minions for me to boss around.
+</p>
+
+<p>
+Maybe I'm wrong, but much like the <a href="http://en.wikipedia.org/wiki/Magic_8-Ball">Magic 8-ball</a> says: all signs point to yes.  Non-RDBMS datastores are getting right up into our faces, and it's only a matter of time before a high-profile project uses one of these and then everyone jumps on board.  Keep your eyes open and read up what you can about these things.  You never know when you might get the opportunity to use one in a serious way.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2009-06-19-do-androids-dream-of-googlephones.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Do Androids Dream Of Googlephones?</h2>
+
+<p>I talked briefly on Twitter about me getting a new phone to replace my beat-up Blackberry.  Instead of a new iPhone 3GS, I decided to get the HTC Dream, more commonly known as the G-1 to my American readers.  My carrier is Rogers Wireless, so no switching required *or* extending of my term.  I had to talk to the right people in customer support, but I got it for the same price that someone who was just signing up for 3 years would get it.</p>
+
+<p>
+So why one of those and not an iPhone.  Well, reason number one is that I tend to be a contrarian at times.  Everyone has an iPhone, not many people have an Android phone.  That makes me a unique little snowflake, and sometimes we all need to feel like that.  Secondly, I have noticed a very disturbing trend with the whole acceptance process for the App store.  Some really arbitrary decisions, conflicting decisions.  Not that I want to be a phone app maker but the idea that I could make an app exactly the way I want, and have it rejected for very flimsy reasons sort of irks me.  I should ask <a href="http://mtabini.blogspot.com/">Marco Tabini</a> for a more inside look at the whole iPhone-app-building process.</p>
+
+<p>
+I'm not sure what the Android app development process is like though. But it appears to be a little bit more entrepreneurial that Apple's "we are the gatekeepers of the app world" routine.  Not that I blame Apple in the least, as it is their right to do it that way.
+</p>
+
+<p>
+Now, as much as this might irk some of my friends but the fact that Android runs Java means that I will start getting some experience with stuff that runs on the JVM.  In my tinkering with Python I've looked at <a href="http://www.jython.org/">Jython</a>, and I have seen that you can get Jython running on an Android phone.  Definitely something to look into.
+</p>
+
+<p>
+Now, the phone itself.  It has a slide-out keyboard, so no need for me to monkey around with any on-screen keyboards.  Having used the Blackberry for a while, I'm used to the thumbtapping needed to type text messages.  Oddly enough, the HTC Magic, which has no keyboard, was the same price.  I find the keyboard just fine for me, but I have heard others complaining about the keyboard.  YMMV.
+</p>
+
+<p>
+Apps on the phone are pretty decent, once you learn how to navigate your way through the menu system, and how to put apps into the background so I can run other ones. I know there's complaints about how you can run apps in the background on the iPhone, but Apple lets their own apps run in the background.  Really, a minor detail.
+</p>
+
+<p>
+The games I've played are good and addictive (Abduction is so simple to learn but difficult to beat at the higher levels) and some of the various apps I've tried out have been easy to use as well.  Twitdroid and the Meebo client are just slick and easy to use.
+</p>
+
+<p>
+My only gripe is that I cannot *buy* any apps through the <a href="http://www.android.com/market/">Android Market</a> because, according to some digging around on Google, <a href="http://www.google.com/support/androidmarket/bin/answer.py?hl=en&answer=138294">Google won't let people in Canada buy apps</a>.  Again more of an annoyance.
+</p>
+
+<p>
+So far I'm impressed with the phone and look forward to getting some time to fool around with maybe writing a simple app, or seeing about getting Jython up and running on it.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2009-07-01-brittle-web-services.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Brittle Web Services</h2>
+
+<p>Happy Canada Day to all my Canadian friends and readers!</p>
+
+<p>
+For a project at work I've been working a lot with web services, creating a new one and tweaking an existing one.  That work got me to thinking that not only can you have brittle code, but you can have brittle web services as well.  Things like:
+<ul>
+<li>Dependencies on 3rd-party tools that might force you to send parameters in a certain order (I'm looking at *you*, XSLT tools)</li>
+<li>Non-intuitive parameters</li>
+<li>Misleading error responses</li>
+<li>Poor permission schemes that allow you to access data you shouldn't</li>
+</ul>
+I could go on and on, but a lot of the things that make web services "brittle" are the same things that make regular code "brittle" as well.  C'mon people, it's not so hard!
+</p>
+
+<p>
+I've worked very hard to adhere to a set of standards when building these web services:
+<ul>
+<li>All services must be authenticated against using login and password</li>
+<li>You pass in a parameter indicating how you want the response back (in this case XML, HTML made pretty using XSLT, or JSON</li>
+<li>Standardized the parameters being passed in across all internal web services</li>
+<li>Cache everything you can using read-through caching strategies.  I would've loved to use write-through caching but it's just not possible at this time.</li>
+</ul>
+</p>
+
+<p>The main reason for all this pedantry is for maintenance reasons.  When (not if) I go back to work on it, I want to know that I will not have to remember any weird exceptions made in the code in the pursuit of Getting Things Done, Damnit.  When you're the only developer working on it, it's easy to fall into the trap of the quick fix or the non-intuitive block of code.  
+</p>
+
+<p>
+Share your tips for building solid web services with me in the comments.
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/109">Newer Posts</a><br />
+        <a href="/page/111">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

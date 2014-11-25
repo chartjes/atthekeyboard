@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/blog/2013/03/07/grumpy-phpunit-launched">The Grumpy Programmer&#039;s PHPUnit Cookbook launched</a></h2>
+        </header>
+        <div>
+            <p>After I wrote my <a href="http://grumpy-testing.com">first Leanpub book</a> I would get
+asked all the time on how to use PHPUnit itself. Again, much like the information
+I put into the "Grumpy Testing" book, I found lots of shallow information on
+how to use PHPUnit itself.</p>
+
+<p>I did some research <a href="http://unicornfree.com/30x500">30x500 style</a>, worked
+on my pitch while writing the book, and on March 4th I launched <a href="http://grumpy-phpunit.com">"The Grumpy Programmer's PHPUnit Cookbook"</a>.</p>
+
+<p>This book is a collection of the most common tips and techniques I use myself
+to write effective and quick tests for PHP code. If you've ever wondered
+how to create mock objects, or wanted to know how to test code that uses
+remote API calls, my book will help you.</p>
+
+<p>As my way of saying thank you to those who read my blog, you can use the code
+GRUMPYFEED to get $5 off my book for the next week.</p>
+
+<p>As always, I welcome your feedback via email (chartjes@littlehart.net) or
+Twitter (@grmpyprogrammer).</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/blog/2013/01/20/standards-soapboxes-and-shamans">Standards, soapboxes, and shamans</a></h2>
+        </header>
+        <div>
+            <p>To paraphrase Batman:</p>
+
+<blockquote>
+  <p>"Programmers are a cowardly, superstitious lot"</p>
+</blockquote>
+
+<p>Programmers often look to external sources for validation of
+all sorts of things they do. Did they choose the right
+language? Are they writing good code? Will they be
+accepted by their peers.</p>
+
+<p>Of course, there are those who are leaders within a 
+community. Those who manage to do great things
+but with an idiosyncratic way of doing things.
+Let's call these people shamans. In many ways
+programming is a mystical thing: you conjure
+up solutions to problems using tools that
+often require strange incantations.</p>
+
+<p>For those who pay attention to the workings of the PHP community
+you might have heard about the "PHP Standards Recommendations"
+that have been coming out of the <a href="http://www.php-fig.org/">PHP Framwork Interop Group</a>.</p>
+
+<p>It's first contribution was <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">PSR-0</a>, which covers recommended standards for
+autoloading of PHP code (no more remembering to require/include files
+any more to load your class files), then followed by <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md">PSR-1</a> (which covers basic coding standards) and <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md">PSR-2</a> which is about a coding style guideline.</p>
+
+<p>More recently this group has been working on a standard for logging 
+interfaces called <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md">PSR-3</a>.</p>
+
+<p>I spoke about this on Twitter, and I will repeat it here: 
+I think PHP programmers should get behind PSR-0 and efforts like
+PSR-3. I feel that PSR-1 and PSR-2 are solutions looking for
+a problem and seem, to me anyway, to me out of place with
+the solutions offered by PSR-0 and PSR-3.</p>
+
+<p>Standards that are enforced by the community have a power
+that people really don't understand. The classic example of
+this are the <a href="http://www.python.org/dev/peps/">Python Enhancement Proposals</a>.
+They cover a incredible range of ideas and concepts that a Python
+developer needs to worry about.</p>
+
+<p>PEP-8, which covers coding standards, is probably the one most
+casual Python programmers are familiar with. The whole community followed
+it, which might have been easier due to Python's use of significant
+whitespace. But more importantly, it was championed by
+Python's Benevolent Dictator For Life, Guido van Rossum.
+He was able to use his soapbox as the guiding force behind it.</p>
+
+<p>PSR-1 and PSR-2 are generating a lot of, well, pissing and moaning 
+from people. I get it: I often grind my teeth when looking at
+code written in a style that deviates quite a bit from my
+normal coding style and practices.</p>
+
+<p>However, it's far more important to be able to understand
+what the code is doing. PSR-0, in my opinion, serves to standardize
+application layout for the purpose of making it easier to
+load classes you need in your code. PSR-3 (and similar interface
+standard recommendations) serves to allow you to integrate
+3rd party code with yours a lot quicker.</p>
+
+<p>Standards, soapboxes and shamans are an integral part of
+any programming community that wants to move forward and keep
+producing better and better tools and applications. Any programming
+language community that does not work as hard as possible to
+make it easier to integrate other's libraries of code together
+is asking for irrelevancy.</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/blog/2013/01/11/one-year-of-grumpy-testing">One year of Grumpy Testing</a></h2>
+        </header>
+        <div>
+            <p>It was one year ago today that I released <a href="http://grumpy-testing.com">"The Grumpy Programmer's Guide To Building Testable PHP Applications"</a>. 650+ customers later (about 10% of those are free copies) 
+I am happy with some of the outcomes, and unhappy about others.</p>
+
+<p>Just for the sake of openness, here's an awesome ASCII bar graph made with
+<a href="https://github.com/stefanschramm/barg">barg</a> to show you week-by-week sales
+counts and numbers. I apologize for the scrolling you might have to do to see it.</p>
+
+<pre>
+Week Starting          #  Paid
+2012-01-09 00:00:00-05 56 $673.06 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+2012-01-16 00:00:00-05 29 $306.05 |||||||||||||||||||||||||||||||||||||||||                                         
+2012-01-23 00:00:00-05 17 $95.00  ||||||||||||||||||||||||                                                          
+2012-01-30 00:00:00-05 19 $203.50 |||||||||||||||||||||||||||                                                       
+2012-02-06 00:00:00-05 17 $160.00 ||||||||||||||||||||||||                                                          
+2012-02-13 00:00:00-05 7  $73.05  ||||||||||                                                                        
+2012-02-20 00:00:00-05 14 $162.2  ||||||||||||||||||||                                                              
+2012-02-27 00:00:00-05 7  $89.71  ||||||||||                                                                        
+2012-03-05 00:00:00-05 6  $69     ||||||||                                                                          
+2012-03-12 00:00:00-04 7  $70.93  ||||||||||                                                                        
+2012-03-19 00:00:00-04 15 $128.67 |||||||||||||||||||||                                                             
+2012-03-26 00:00:00-04 55 $356.97 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||   
+2012-04-02 00:00:00-04 11 $131.00 |||||||||||||||                                                                   
+2012-04-09 00:00:00-04 1  $8.50   |                                                                                 
+2012-04-16 00:00:00-04 25 $277.30 ||||||||||||||||||||||||||||||||||||                                              
+2012-04-23 00:00:00-04 16 $157.83 |||||||||||||||||||||||                                                           
+2012-04-30 00:00:00-04 8  $95.00  |||||||||||                                                                       
+2012-05-07 00:00:00-04 7  $81.50  ||||||||||                                                                        
+2012-05-14 00:00:00-04 8  $75.04  |||||||||||                                                                       
+2012-05-21 00:00:00-04 13 $43.00  ||||||||||||||||||                                                                
+2012-05-28 00:00:00-04 2  $21.50  ||                                                                                
+2012-06-04 00:00:00-04 19 $149.41 |||||||||||||||||||||||||||                                                       
+2012-06-11 00:00:00-04 8  $74.42  |||||||||||                                                                       
+2012-06-18 00:00:00-04 10 $92.00  ||||||||||||||                                                                    
+2012-06-25 00:00:00-04 7  $30.00  ||||||||||                                                                        
+2012-07-02 00:00:00-04 11 $104.08 |||||||||||||||                                                                   
+2012-07-09 00:00:00-04 14 $157.47 ||||||||||||||||||||                                                              
+2012-07-16 00:00:00-04 3  $26.99  ||||                                                                              
+2012-07-23 00:00:00-04 3  $34.50  ||||                                                                              
+2012-07-30 00:00:00-04 11 $120.50 |||||||||||||||                                                                   
+2012-08-06 00:00:00-04 4  $43.00  |||||                                                                             
+2012-08-13 00:00:00-04 10 $108.00 ||||||||||||||                                                                    
+2012-08-20 00:00:00-04 4  $47.50  |||||                                                                             
+2012-08-27 00:00:00-04 7  $82.00  ||||||||||                                                                        
+2012-09-03 00:00:00-04 6  $55.50  ||||||||                                                                          
+2012-09-10 00:00:00-04 6  $464.98 ||||||||                                                                          
+2012-09-17 00:00:00-04 6  $62.01  ||||||||                                                                          
+2012-09-24 00:00:00-04 3  $34.50  ||||                                                                              
+2012-10-01 00:00:00-04 5  $61.40  |||||||                                                                           
+2012-10-08 00:00:00-04 55 $624.92 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||   
+2012-10-15 00:00:00-04 21 $218.78 ||||||||||||||||||||||||||||||                                                    
+2012-10-22 00:00:00-04 16 $169.50 |||||||||||||||||||||||                                                           
+2012-10-29 00:00:00-04 6  $105.00 ||||||||                                                                          
+2012-11-05 00:00:00-05 12 $120.00 |||||||||||||||||                                                                 
+2012-11-12 00:00:00-05 4  $43.00  |||||                                                                             
+2012-11-19 00:00:00-05 10 $112.02 ||||||||||||||                                                                    
+2012-11-26 00:00:00-05 9  $101.25 |||||||||||||                                                                     
+2012-12-03 00:00:00-05 15 $159.00 |||||||||||||||||||||                                                             
+2012-12-10 00:00:00-05 6  $72.30  ||||||||                                                                          
+2012-12-17 00:00:00-05 13 $142.03 ||||||||||||||||||                                                                
+2012-12-24 00:00:00-05 4  $38.50  |||||                                                                             
+2012-12-31 00:00:00-05 1  $13.90  |                                                                                 
+</pre>
+
+<p>What am I disappointed about? I think, to use the old expression, I left a lot
+of money on the table. I could've charged more for the book, but this was
+before I started learning more about the marketing of info products and
+how to do research to find solutions to problems people are experiencing.</p>
+
+<p>Setting that aside, I think my Testing Crusade is paying dividends for the
+community as a whole. The more developers who are exposed to the ideas
+that people like myself are promoting, the higher quality code that
+is likely to be produced.</p>
+
+<p>If you're a customer of mine, thanks so much for supporting my efforts through
+your paid contributions. Writing automated tests and code that you can easily test doesn't have to suck.
+I can show you how to do it, and I look forward to bringing you more of it
+in 2013.</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/143">Newer Posts</a><br />
+        <a href="/page/145">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2009-05-01-chris-brain-may-2009-edition.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Chris' Brain - May 2009 Edition</h2>
+
+<h2>Book Update</h2>
+
+<p>
+For those not following along on Twitter, the first month of sales of my <a href="http://littlehart.net/book">CakePHP book</a> have been a success:  70 PDF's and 5 print-on-demand copies via <a href="http://www.lulu.com/content/paperback-book/refactoring-legacy-applications-using-cakephp/6626981">Lulu.com</a>.  A big thanks to everyone who has purchased a copy.  My next thought has been a book about doing Test Driven Development using CakePHP, but perhaps that is just wishcasting.
+</p>
+
+<h2>Deployment Thoughts</h2>
+
+<p>
+At work I've been tweaking the deployment process for an <a href="http://www.sportsdb.org/sd/sportscaster">open source project</a> that talks to our infrastructure and came upon an interesting problem.  Like many projects, we have some configuration files that would be different from environment to environment (i.e. different database access credentials, paths to archived files) so we've chosen to instead create sample versions of those configuration files and include them in the  application when you either download it (as external clients of ours do) or update from SVN (like we do).  
+</p>
+
+<p>
+Since I like to use <a href="http://capify.org">Capistrano</a> to do deployment, I needed a way to make sure that the configuration files that are currently being used by the application get copied into the proper place.  Lucky for me, it was easy enough to add this in as a task in my Capfile:
+~~~
+  # Do nothing (To restart apache, run 'cap deploy:apache:restart')
+  task :restart do
+    run "cp /var/www/settings/sportscaster/gateway/php/config.php #{deploy_to}/current/gateway/php"
+    run "cp /var/www/settings/sportscaster/gateway/php_ci/config/gateway.config.php #{deploy_to}/current/gateway/php_ci/config"
+    run "cp /var/www/settings/sportscaster/engine/_application/config/database.php #{deploy_to}/current/engine/_application/config"
+    run "cp /var/www/settings/sportscaster/engine/_application/config/config.php #{deploy_to}/current/engine/_application/config"
+  end
+~~~
+As you can see, I've placed the configuration files in their own directory (off the web root I know, might make more sense to put them some place else but they can live there for now) and then simply copy them in place once I've deployed the latest code.  I'd be interested in seeing how other people handle this issue.
+</p>
+
+<h2>Getting paid to do open source work</h2>
+
+<p>
+I feel like I'm very fortunate to have an employer who (mostly for business reasons) has decided to make some of their projects open source so that others can use it without cost.  Sure, some of it is niche software to be sure (a web service that only works with our pay-to-use infrastructure) but still, d00d, I'm getting paid to write open source code!  We also have another project in the works, helping <a href="http://www.phpffl.com">these guys</a> create a newer, more generic version of their fantasy league management application that has hooks to allow users to pull in data from our own web services.  Sure, it's helping to drive our business but isn't that the point?  I create something that helps my company make money, and in exchange I get to share it with everyone else.  Sounds like a pretty good deal to me.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2009-05-08-digging-through-the-bookmarks.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Digging Through The Bookmarks</h2>
+
+<p>Although I never got into the habit of using online bookmarking services like Delicious (never really understood how/why to use them) I do tend to bookmark a lot of stuff.  So as a change of pace I thought I'd go through my programming bookmarks and show you some of the stuff I found interesting enough to save:
+</p>
+
+<h3><a href="http://github.com/sofadesign/limonade/tree/master">Limonade, a PHP microframework</a></h3>
+
+<p>I am Mr. Framework (Rails, ZF, CakePHP, Code Igniter, Django, I've tried a ton of 'em) so I found this project to be very interesting.  I think it's only really missing easy-to-do URL rewriting.  I could *probably* figure it out using whatever the web server for that project uses, but I am spoiled by the easy routing stuff in most frameworks.</p>
+
+<h3><a href="http://marcgrabanski.com/article/jquery-google-maps-tutorial-ajax-php-mysql">jQuery and Google Maps</a></h3>
+
+<p>
+Marc Grabanski is a guy I met at the original <a href="http://cakefest.org">CakeFest</a> in Orlando, and he does so much amazing front-end work that I find myself going back to his site over and over again.  This is the second tutorial he has up there on using jQuery with Google Maps.  So well written, and so easy to implement with your own stuff.
+</p>
+
+<h3><a href="http://misko.hevery.com/">The Testability Explorer Blog</a></h3>
+
+<p>Misko Hevery has this amazing blog where he talks about great testing practices.  For the love Murphy, please go read his blog and start testing your code.  I mean it!</p>
+
+<h3><a href="http://venturehacks.com/articles/five-whys">The startup immune system</a></h3>
+
+<p>
+Great article on some recommended practices for making your company's handling of defects in the software they produce better.
+</p>
+
+<h3><a href="http://ivanidris.net/wordpress/index.php/2009/02/03/sharpen-the-vim-saw">Sharpen the Vim Saw</a></h3>
+
+<p>
+What?  You don't use <a href="http://www.vim.org">Vim</a>?!?!  That's okay, what Ivan Idris talks about here is finding inefficiencies in the way you use your editor-of-choice and eliminate them.</p>
+
+<h3><a href="http://www.eecs.harvard.edu/~cduan/technical/git/">Understanding Git Conceptually</a></h3>
+
+<p>
+Want to know what the big deal about Git is?  Why are all the cool kids using it?  Well, many of *them* don't even know why Git is so awesome.  This site explains HOW Git works so you can understand WHY you should be using it.
+</p>
+
+<h3><a href="http://jeffcroft.com/blog/2006/jul/14/django-admin-your-php-app/">Django admin for your PHP app?</a></h3>
+
+<p>
+A quick guide to how to sneak Django into your PHP project as the rock-solid start of an admin area.  I have done this with a project at work at the prototype level (no code committed yet) and it just makes so much sense.</p>
+
+<h3><a href="http://blog.johngoulah.com/2009/01/mysql-sandbox/">Quick DB Setups with MySQL Sandbox</a></h3>
+
+<p>
+Although I am lucky that I do not need to test my work code against different versions of MySQL, the techniques described here show how to do that exactly that in a way that is so simple I thought to myself "Why did nobody ever tell me you could do this?!?"</p>
+
+<h3><a href="http://www.databaseanswers.org/data_models/index.htm">Library of Free Data Models</a></h3>
+
+<p>
+This site is awesome in a very subtle way.  It shows you all sorts of samples of building relationships between things in a data model.  Want an example of how to link agents and leads together for a recruiting company? They have one. Ever wanted to see how a hotel would handle booking reservations?  They got one.
+</p>
+
+<p>Okay, last one.  I promise</p>
+
+<h3><a href="http://rope.sourceforge.net/">Rope, a python refactoring library</a></h3>
+
+<p>
+I'm starting to get into the world of refactoring tools as I dig into Python.  Rope is a tool to let you go through your Python code and identify things that need to be refactored, like duplicate code blocks that can be combined into one.  I so wish tools like this existed for PHP, as I would use them all the time.  Add in the fact that it can be integrated into Vim, well, I've got a tool that will become an essential part of my Python toolkit going forward.
+</p>
+
+<p>
+So there you have it.  What hidden gems do you have to share?
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2009-05-14-my-next-book.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: My Next Book</h2>
+
+<p>Okay, so since the first book has been a pretty good success for me, I've been thinking about writing a second book.  Will be the same format:  PDF, under 100 pages, selling for between $10 and $20.  So that got me to thinking "what topic could I go on and on about like an idiot in regards to programming and CakePHP in general?"</p>
+
+<p>
+I've become a believer in Test Driven Development and TATFT practices (thanks to <a href="http://gilesbowkett.blogspot.com/2009/05/one-way-to-escape-cargo-cult.html">Giles Bowkett</a> for his blog posts espousing the concept.  So why not combine that with my knowledge (no jokes from Nate allowed) of CakePHP and produce another inexpensive book.  Thus, the seeds of "Test Driven Development Using CakePHP" have been planted in my mind.
+</p>
+
+<p>
+Of course, the book will be made easier by the fact that I have a CakePHP project on the go at work where I am using TDD, so once again I will be producing a book with code examples and comments about what I was doing.  So, I am asking *you* what sort of things would you like to see in this book about TDD and CakePHP?
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/107">Newer Posts</a><br />
+        <a href="/page/109">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

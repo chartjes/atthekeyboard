@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/blog/6800/11/25/grumpy-testing">The Grumpy Programmer&#039;s Guide To Building Testable PHP Applications</a></h2>
+        </header>
+        <div>
+            <p>After the middling success of my first <a href="http://www.littlehart.net/book">programming book</a>
+I had been thinking about writing another book. When the end of October rolled
+around and <a href="https://en.wikipedia.org/wiki/National_Novel_Writing_Month">National Novel Writing Month</a>
+was about to happen I decided to take the plunge and write something.</p>
+
+<p>It didn't turn out to be The Great Canadian Novel but I did collect my thoughts on
+what goes into building PHP applications in such a way that they are easily
+testable. I called it "The Grumpy Programmer's Guide To Building Testable PHP Applications".</p>
+
+<p>When I wrote my first book I did everything in <a href="http://www.apple.com/iwork/pages/">Pages</a> but
+that was before the rise of e-readers. This time I wanted to offer my book in
+PDF, epub and mobi formats. So I started up using <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a>
+since I felt it gave me the most options for converting the text into other formats
+with a little bit of programming work. I created a Makefile (old school, baby!)
+that took the text and turned it into a PDF.</p>
+
+<p>I had thought about doing the book directly in <a href="http://docbook.org/">Docbook</a> as
+it provided the best way for conversion purposes, but I found all the XML to
+be getting in the way of, you know, actually writing the thing. Plain text
+with a little bit of mark-up seemed to be the best fit for my brain.</p>
+
+<p>As my self-imposed deadline got closer I felt like I was in for a lot of late
+nights fiddling around with layouts to get things to an acceptable level. Lucky
+for me an alternative came along.</p>
+
+<p>I follow Reg Braithwaite (better known as @raganwald) and saw that he had a new
+ebook out called <a href="http://leanpub.com/shippingsoftware">"What I've Learned From Failure"</a> which he published with some
+help from <a href="http://leanpub.com">Leanpub</a>. The system looked awesome: write your
+book in Markdown (which I already use for this blog) and then it would create
+ebooks in PDF/epub/mobi for you, handling all the distribution and payment
+collection for you. Holy fuck, this is what I wanted.</p>
+
+<p>So I took the plunge and signed up for an account. I started tweaking my text
+to use the Markdown-specific formats the system requires and little by little
+the book is being massaged into it's new shape.</p>
+
+<p>I've gotten some great feedback from my technical reviewers and will be
+incorporating those changes into the book as soon as I've converted it over
+to the Leanpub structure. I'm giving a talk on the topic the book covers at
+<a href="http://codemash.org">Codemash 2012</a> and will launch the book while I'm
+there, offering those who attend my talk a discount as a way of thanking
+them for travelling to the shores of Lake Erie in the middle of winter.</p>
+
+<p>So please visit the <a href="http://leanpub.com/grumpy-testing">home of my book online</a>
+and until the book is published feel free to add your name to the mailing list.
+As soon as it's available you will be notified. I'm still tweaking the pricing
+so feel free to suggest to me how much you'd be willing to pay for such a beast.
+It will probably come in between 40 and 50 pages in length.</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/blog/6000/11/25/grumpy-programmers-like-pair-programming">Grumpy Programmers Like Pair Programming</a></h2>
+        </header>
+        <div>
+            <p>Some of you might have a vision of me, the self-described and oft-labeled
+Grumpy Programmer as the type who prefers to work in solitude. Uninterrupted,
+I crank out code while in The Zone.</p>
+
+<p>I prefer working in collaborative environments where the entire team gets to
+work on the entire application. None of this siloing bullshit that I see happen
+time and time again. "Borat is the only guy who understand our reporting system.
+We can't possibly let anyone else work on it!" That sort of nonsense doesn't
+belong on any team and also speaks of ridonkulous communication problems.</p>
+
+<p>At <a href="http://www.kaplanprofessional.com">Kaplan Professional</a> they've chosen to
+use <a href="http://en.wikipedia.org/wiki/Pair_programming">pair programming</a> as a normal,
+everyday development practice. Our team consists of 3 developers in the main
+offices in La Crosse, 7 remote workers spread across 3 time zones, 2 QA staff, 
+one testing engineer, and our development manager. Pair programming has worked
+out awesomely and I want to try and explain why.</p>
+
+<p>One of the biggest hurdles facing a team with in-house and remote workers is
+communication issues. Your classic pair programming setup is two developers
+sitting together at the same desk, one typing while the other helps out with
+suggestions on how to write the tests we're going to need and how to hand-crafted
+our artisanal code. Sadly we still have people writing the tests AFTER they've
+written the code, but grumpiness is not eliminated in one day.</p>
+
+<p>At Kaplan we use the dynamic duo of <a href="http://join.me">Join.me</a> and <a href="http://www.teamspeak.com/">TeamSpeak</a>
+for pair programming. Whomever is driving will start a join.me session, share the
+link with their partner and away they go. There is much coding and playful banter
+as Shit Gets Done. I cannot put it any other way.</p>
+
+<p>Your partner keeps you honest and focussed on the task you're trying to solve. For
+example, when I was coding a feature I was not 100% familiar with I was able to 
+get my pair to do research on other parts of the code base while I was creating
+the skeletons for some tests. Many times my pair would suggest "don't you think we
+could make that bit of code better by...", and more often than not we'd have a good
+discussion about writing easy-to-understand-yet-efficient code or discuss how what
+we are doing is out of character with the rest of the code. <a href="http://www.slideshare.net/rdohms/bettercode-phpbenelux212alternate">Object calisthenics</a>
+is a favourite topic of mine and has led some of my other fellow developers to rethink
+how they have been building things.</p>
+
+<p>See, people have this idea that pair programming means that one guy codes while the
+other sullenly watches or surfs the internet instead. Or it means two developers
+fucking around instead of working. I cannot speak for other developers, but I don't
+put up with that shit while paired. I am expecting my pair to devote as much attention
+to the task at hand as I am, and I return the favour by being attentive and helpful
+towards my pair when I am not driving the session.</p>
+
+<p>Because developers are taking turns solving problems and implementing solutions,
+the amount of tribal knowledge (knowledge about the application itself locked up 
+in people's brains instead of shared and/or documented) decreases and everyone's
+understanding of the system goes up. This transfer of knowledge can only really
+happen as one developer shows another just what the hell is going on inside this
+application. There is no better way I can think of to do this than while paired.</p>
+
+<p>Pair programming also has the added good side effect of allowing team members to
+get to know each other. It's only the most anti-social of co-workers who won't end
+up discussing things outside of work while pair programming. I don't see any reason
+to work with robots who only care about how many story points we are cranking out
+every sprint. We are people first and coders second. Don't forget that.</p>
+
+<p>Finally, pair programming results in more than one person understanding how a 
+particular problem was solved and how the solution was implemented. At Kaplan
+we always have a sprint demo day at the end where we demonstrate the various
+features that were implemented during the sprint. With everyone having used
+pair programming, it's much easier for the group as a whole to decide who will
+demonstrate what. No need for one developer to hog all the glory!</p>
+
+<p>This also ends up being a great way for those who already understand the
+application to teach new hires how things work. Kaplan Professional had 
+expanded its team quite rapidly when I started and I think that without pairing we would
+still be struggling to meet our sprint commitments. Nothing prompts rage-quitting
+more than a situation where it is incredibly difficult for new hires to make
+positive contributions to the team within a few days of starting.</p>
+
+<p>I understand that not every organization is ready to make a commitment to use
+pair programming. Just like not every organization is ready to make a commitment
+to writing tests as part of their normal flow. But don't harbour any misconceptions
+about what pair programming <em>really</em> is: two developers working together towards
+solving problems, alternating who is mashing keys on a keyboard. Both developers
+<em>are</em> working, they are just working <em>together</em>.</p>
+
+<p>The goal is to solve problems within a unit of time that you have committed to. 
+Kaplan Professional is no different in that it expects you to honour your commitments.
+Pair programming has been a way for problems to get solved faster than if 
+individual programmers had been trying to solve them. Communication is up, non-working
+features are done, and the amount of work actually getting done has increased
+noticeably in the two months since I started working in pairs.</p>
+
+<p>I cannot recommend enough giving pair programming an honest try in your work
+environment. You might be surprised to find out that you are Getting More Shit Done
+than you realize.</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/blog/4800/11/25/you-need-tests-just-not-yet">You need tests...just not yet</a></h2>
+        </header>
+        <div>
+            <p>Every once in a while I come across a blog post or a presentation that helps
+me figure out something that has been bothering but I was having problems
+articulating. Lately I've been struggling to come up with strategies to help
+developers figure out when they should REALLY be writing tests for their code.</p>
+
+<p>If you believe in the power of TDD, then the answer is "you write tests from
+the beginning of the project and forever after." I am a believer that TDD can
+be a very powerful design tool for building things at the unit / module / component
+level.</p>
+
+<p>Then some people asked me my thoughts on the comments by the creator of the
+Rails project about the usefulness of dependency injection. As happens when
+I am feeling frustrated, I started firing out the tweets on my feelings on
+testing and the lonely Crusade that I am on.</p>
+
+<p>Then I saw a talk by Dan North called <a href="http://www.infoq.com/presentations/Decisions-Decisions">"Decisions, Decisions"</a> at the recommendation of <a href="https://twitter.com/ianbarber">Ian Barber</a> that made me realize that someone else has articulated my feelings on
+when you should be doing testing. Slides for the presentation can be found
+<a href="http://qconlondon.com/dl/qcon-london-2012/slides/DanNorth_DecisionsDecisions.pdf">here</a>.</p>
+
+<p>You should watch the whole presentation. So many decisions about programming
+are made without understanding, REALLY understanding the trade-offs involved
+when making one decision vs. another.</p>
+
+<p>Let's look at TDD vs. Test whenever. The trade-off being made here is not
+about quality of code or guarding against regressions. It's about opportunity cost.
+This had occurred to me but I had dismissed it as being "anti-testing".</p>
+
+<p>But I think I was wrong, and here's why.</p>
+
+<p>In that awesome presentation he talks about "patterns" he observed on the team
+he was working with at the time. He was amazed at how much work this team was
+getting done, so he spent time analyzing what they were doing and trying to
+turn some of their activities into patterns of behaviour. Repeatable processes
+are good, right?</p>
+
+<p>The one that he saw being related to writing was a pattern he called "Spike
+and Stabilize." Basically, you write code without any tests until it becomes
+a solid part of your application's architecture. Once this code has proven
+it's usefulness, you start writing comprehensive tests in order to verify
+that it is in fact doing the job and doesn't break going forward.</p>
+
+<p>This is so obvious to me now. Clearly, you are leaving yourself open to the
+potential of writing not just application code but testing code that gets
+tossed away if the idea you are implementing is unable to prove it's value.</p>
+
+<p>Opportunity cost is huge and often dismissed by developers too. If you have
+some prototype code, or even functionality with a half-life measured
+in 3-month-increments, what else could be worked on while tests for this
+code are being written?</p>
+
+<p>Could this hybrid approach be an easier sell to skeptical managers or
+other stakeholders? That's hard to say. The "too busy to write tests"
+camp still has many members, and is still seems that it takes catastrophic
+failures before many people join the Testing Crusade.</p>
+
+<p>To be perfectly clear: I find great value in prototyping code and then
+committing to tests once the prototype is ready to move to a more stable
+environment.</p>
+
+<p>I try and do prototyping before I commit to writing code, because I often
+feel that way. My prototypes are usually command-line scripts that try
+and accomplish the task I've been assigned. That way, it's easier to
+actually write some tests once I know what I'm doing and guard against
+regressions later.</p>
+
+<p>The key to all this is being able to identify at what stage in this particular
+pattern your code is at. Is it still a spike, meaning you are working out
+implementation details and trying to figure out if it will even have the
+desired result? Or is it stable, providing solid value to the application 
+as a whole and ready to be wrapped in tests to protect against regressions?</p>
+
+<p>Next time you are thinking about "I need some tests for this", consider the
+Spike and Stabilize pattern. The answer might be "you need tests...but not yet."</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/138">Newer Posts</a><br />
+        <a href="/page/140">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

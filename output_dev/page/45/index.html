@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2007-01-16-application-authentication.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Application authentication</h2>
+
+<p>On the CakePHP mailing list I see frequent questions about various ACL and authorization plugins that are available for cake.  I've never used anything beyond simple authentication and access control and always felt that ACL schemes were either too hard to implement or too restrictive.  Honestly, do you really need to have one person who can see 5 reports and another see 6?  I never saw the point of that, but perhaps one day I will run into a scenario where that is needed.
+</p>
+
+<p>Rallyhat needed some authentication.  Being a Rails app, there were tons of options.  Basically, they revolve around the same principle:  there is a feature called a before_filter that runs before you execute any action in a controller.  Lucky for my fellow CakePHP users, there is a similar feature in CakePHP.  So, you create a function that you call via the before_filter (beforeFilter in CakePHP) that verifies that the person has permission to access the current controller.  Yep, it's really that simple.
+</p>
+
+<p>
+Of course, there are many varied ways to do the whole login / assign roles to users, too many to list here.  Don't expect any code here either, as I haven't written any.  Like any lazy programmer, I steal from the best. ;)  For Rallyhat I'm using Rick Olson's awesome <a href="http://technoweenie.stikipad.com/plugins/show/Acts+as+Authenticated">acts_as_authenticated</a> plugin.  Man, it is PERFECT for what I need.  You install the plugin, head over to the stikipad where the documentation is and it gives you just about everything you need.  Signup, login, activation codes, email confirmation, "forgot my password" stuff.  I can't imagine how much time this has saved me.  Oh yeah, on top of it it comes with tests to make sure everything is working.  Make a change, run 'rake test' and fix any errors that pop up.  Rallyhat will require a full commitment to writing tests, so I'm glad to get into the habit of it.
+</p>
+
+<p>
+So, if you want some simple authentication then if you're using CakePHP, fool around with using a beforeFilter to do things like look for a cookie or look in the session for a variable that says you are logged in.  Authentication doesn't have to be complicated, it just has to work.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2007-01-20-rallyhatcom-moving-forward.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Rallyhat.com -- moving forward</h2>
+
+<p>
+I've gotten some work done on Rallyhat lately, mostly on the train ride home but some stuff in the evenings when I need an internet connection for looking up some sites and testing.  Here's what I've gotten working:
+<ul>
+<li>User signup (complete with email and activation code)</li>
+<li>User authentication</li>
+</ul>
+<br />
+The next thing I'm working on is the Hunt stuff.  I've got to write some code to create hunts, allow people to join up with a hunt and stuff like that.  As part of that I will also have to do work on the image upload and storage part of the site, which has me worried due to potential bandwidth issues, but I might use Amazon's awesome SSS for that and see what the bills are like.  Along the way, I'm writing unit tests to go with my code because when my current host upgrades to Rails 1.2 I want to be able to do the same at my end, and a simple "rake test" command will run all my tests and point out anything that will be broken and needs to be fixed.  I suggest that interested parties go to <a href="http://weblog.rubyonrails.org">the Rails blog</a> to see the latest news about Rails 1.2
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2007-01-26-komodo-not-just-a-dragon.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Komodo - not just a dragon</h2>
+
+<p>
+I've tried all sorts of editors in my time:  emacs, vim, Eclipse, Zend Studio.  After I got into Ruby on Rails, I bought a copy of TextMate to be my main editor.  But that's all it is, an editor.   In the Rails world, lightweight tools are preferred.  I'm a big believer in lightweight tools, because I *hate* when my system gets lagged down because of the number of apps I'm running at once.  However, I've noticed that there really isn't much out there in the way of a full IDE for Rails, with debugging tools, etc.  I really like the TextMate + Cyberduck combo I've been using at work for my PHP work and using TextMate for all my Ruby work.  But I feel like a debugger is something that is missing.  Maybe that's in the works or exists already, I just haven't run into it.
+</p>
+
+<p>
+For PHP I really liked Zend Studio, but it was pretty expensive for just one developer to buy...and my company seems reluctant to fork out the cash to buy me a copy.  The other PHP developer at work is old skool, using vim.  So, I'd been getting along just fine with TextMate...but was starting to feel the pinch of not having a debugger (and some integrated version control would be nice) for the PHP work.  A step-through debugger would've been a HUGE help as I was building out my Sportsticker feed parser.  I got so used to using var_dump and print statements at certain points to see what was going on, that I totally forgot about using debuggers and setting break points, and the joy that can come from putting your app through it's paces via a step-through debugger.  Work smarter Chris, not harder. :)
+</p>
+
+<p>
+Now, one of the fine folks who is putting together the <a href="http://vancouver.php.net">Vancouver PHP Conference 2007</a> is Shane Caraveo, who is a lead developer for <a href="http://www.activestate.com">ActiveState</a>, the company that makes the Komodo IDE.  While exchanging some emails with him (thanking him for the reimbursement cheque for my flight to Vancouver amongst other things) I sort of jokingly mentioned that I thought it would be a nice perk for giving the talk at the conference if I could get a copy of Komodo from them, because I felt that I would have to buy a copy of it with my own money if I wanted a copy.  Next thing I new, I got an email from someone at ActiveState with a link to a downloadable copy of Komodo IDE 4.0 (the latest) and a license for it.  Awesome!
+</p>
+
+<p>
+One of the blogs I read is <a href="http://www.litfuel.net/plush/">Jim Plush's</a> (I heard him on the sadly silent Pro-PHP podcast), and he was <a href="http://www.litfuel.net/plush/?postid=160">raving about Komodo</a> because, like me, he uses a MacBook and there is no Intel version of Zend Studio Server.  He even provided a nice link to someone else instructions on how to get the <a href="http://www.sysarchitects.com/node/22">PHP debugger up and running</a>.
+</p>
+
+<p>
+Undaunted, I set things up and bingo!  It works like a charm.  Just as a test, I decided to try the step-through debugger on my reporting system I wrote in CakePHP and got a glimpse into the heart of CakePHP just to do a simple request.  On Monday I'm going to configure PHP on my development server at work to have support for <a href="http://www.xdebug.org">XDebug</a> built into it so I can use the step-through debugger there as well.  It will help me track down some stupid mistakes I made with the Sportsticker code that took me a long time to figure out.
+</p>
+
+<p>
+Until you've used one of these debuggers for a while, you don't understand how powerful they really are.  Thanks again to Shane for hooking me up with a copy!  I owe you a beer or two while in Vancouver...
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/44">Newer Posts</a><br />
+        <a href="/page/46">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

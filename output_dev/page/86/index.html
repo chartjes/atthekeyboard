@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2008-04-17-deployment-is-not-a-4-letter-word-the-screencast.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post
+title: Deployment Is Not A 4 Letter Word - The Screencast!
+author: Chris Hartjes</p>
+
+<h2>date: 2008-04-17</h2>
+
+<p>
+I managed to make a screencast of the second talk I gave at <a href="http://www.openwebvancouver.ca">Open Web Vancouver 2008</a> about application deployment.  I had hoped to make a screencast of my CakePHP console talk, but I messed something up at my end and all I have is the audio from it.  Not the best thing when you are doing a demo.  However, the conference was also recording talks so hopefully they will have a copy of it for you to see as well.
+</p>
+
+<p>
+The talk was well-attended, which is a nice boost for the ego and although I spoke too fast (as usual) I think I got all my points across quite nicely.
+<br /><br />
+[flv:http://www.archive.org/download/DeploymentIsNotA4LetterWord/deployment.flv 320 240]
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2008-04-23-c7y-podcast.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: C7Y Podcast</h2>
+
+<p>While at Open Web Vancouver I got the chance to participate in a <a href='http://c7y.phparch.com/c/entry/1/p3,20080417'>podcast</a> with Paul Reinheimer from php|architect.  Take a listen as we discuss PHP 5.3 and some other topics, along with a disturbing discovery at the end of the podcast about my frozen cappuccino drink.
+</p>
+
+<p>
+A friend of mine (hi Juan!) had a brief chat with me about my "Deployment Isn't A 4 Letter Word" talk and screencast and brought up some interesting points about the talk.  I was gonna do a posting about it today, but I need some time to put my thoughts together in a coherent way.  Look for that on Friday.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2008-04-25-deployment-rule-5-the-only-difference-between-environments-should-be-data-sets.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: "Deployment Rule #5: The only difference between environments should be data sets"</h2>
+
+<p>One of the 6 "rules" I came up with for my talk on application deployment at <a href="http://www.openwebvancouver.ca">Open Web Vancouver</a> was that the only difference between your development environment and your production environment should be data sets.  My friend Juan, who works as the software architect at the adult dating site I used to work for, talked with me via IM about how that rule isn't always true.
+</p>
+
+<p>
+A little background on this is necessary.  They are still using the same development setup today that was in place when I was there, in that they have given each developer a server that uses jails (this is a FreeBSD thing) to simulate having all the servers they would have in production.  A great solution, one that is still great today.  It made writing architecture-specific code (i.e. testing that an application server could talk to a queue processing server for a specific task) very simple.  So, in this case I believe that they had a development environment that matches production as closely as you can get.
+</p>
+
+<p>
+But then Juan mentioned that they are using <a href="http://www.zend.com/en/products/platform/">Zend Platform</a> on their production servers, and it wasn't possible to give everyone a copy of Zend Platform on their development servers due to licensing.  While Zend Platform is a great product, well, you've just introduced an extra variable into your application development and deployment process.  Now, your development environment will never be the same as production and you are increasing the likelihood that you will encounter "production-only" bugs, which are the hardest to solve.
+</p>
+
+<p>I have great respect for Juan (he's near the top of my list of the smartest developers I've worked with), but rule #5 still the best one to follow.  While you gain from using something like Zend Platform in production because of all the extras you get, you end up with a development environment very far from what is using in production. Just make sure that you understand the implications of that decision.
+</p>
+
+<p>
+Also, there is something else hidden inside rule #5.  If you have differences between environments, make sure you understand what those differences are and take steps to minimize their impact.  For example, I run Apache2 + PHP 5.2.5 compiled from source + Postgres 8.25 from a package for OS-X & MySQL 5.0.45  from a package for OS-X on my laptop, which is my main development environment.  On my VPS (which hosts this blog) I'm running Nginx + PHP 5.2.5 modified under Gentoo with USE flags + MySQL 5.0.54 under Gentoo.  So, that means I'm running mod_php on my dev, but using FastCGI on my "production".
+</p>
+
+<p>
+Has this been a problem?  Nothing yet *but* if I ever got serious about running something other than my blog I would definitely consider configuring my VPS to use Apache 2 and PHP with the same configuration options as I have in dev, so that I have consistency in environments.  Django is recommending Apache + mod_python so I may be doing this sooner rather than later.
+</p>
+
+<p>
+So, remember, the goal is to have your dev and production environments the same.  But if you can't have the same, you better be damn sure you understand what the differences are so you don't end up saying stuff like <a href="http://www.littlehart.net/workz-for-me-u-must-b-dum.jpg">this</a>.
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/85">Newer Posts</a><br />
+        <a href="/page/87">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2006-09-13-live-from-phpworks-laying-in-bed-edition.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Live From php|works (laying in bed edition)</h2>
+
+<p>
+So much for liveblogging.  Honestly, I found that having my laptop with me was a huge distraction so I simply took it upstairs to my hotel room and left it there.  That way I was able to concentrate on the talks.
+</p>
+
+<p>
+So, after my interview with Cal Evans I went to a talk on "The Truth Behind XSS" by security expert Chris Shiflett.  Honestly, the talk was way too short:  it could've easily been two hours of talking by Chris.  He knows his stuff and gets his point across in a very low-key way.  I've been really thinking about the implications of XSS and CSRF (cross site request forgeries) when it comes to all the forum sites.  I wonder how good a job vBulletin is doing of it.
+</p>
+
+<p>
+Next was a talk by Ilia Alshanetsky (I met him at least year's show and he autographed a copy of his book that I owned) on migrating to PHP 5.2 from either PHP 4 or PHP 5.1.  I need to get those slides, print them out, put them on my bosses desk and say "this is proof of why we need to move to 5.2 when we upgrade and redesign the forums."  It's really that simple, and he dispelled a lot of myths about what sort of things will break when you move from PHP 4 to PHP 5.
+</p>
+
+<p>
+I then went to Joshua Eichhorn's talk on "Javascript Sweet and Light", but I was too busy tinkering with my slides to pay full attention.  He did do a good job of showing just how easy it is to use the Prototype javascript library for most of your AJAX needs.  For some reason, I've turned to using YUI for my Ajax stuff.  I seem to be able to understand it better.
+</p>
+
+<p>
+Finally, I went to another talk by Chris Shiflett on "Agile PHP Testing" but he had modified it and included some great tips on doing security testing for your application as well.  Again, I'm starting to have some thoughts about how we need to implement some testing of our code at work beyond the "please do a quick run-through of the site" variety.  I'm hoping that I won't get a lot of push back on it, because I'm itching to also slap some of the tools onto vBulletin that Rasmus talked about during his keynote.
+</p>
+
+<p>Anyhow, I'm off to do a last run through of my slides and get some sleep so I'm not dog-tired when I give my talk.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2006-09-14-live-from-phpworks-day-2-decompressing-edition.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Live From php|works Day 2 (decompressing edition)</h2>
+
+<p>
+Phew!  My talk is over and I think it went really well.  I was *so* nervous for the first 5 minutes or so but cruised along nicely.  I even finished with 5 minutes to spare.  I want to thank all the people who came up to me after the talk and told me how they liked it and that I did a good job.  Nothing like a little ego boost to make you come through nicely after a stressful time.
+</p>
+
+<p>
+I'm currently in Chrsitan Wenz's talk on using Flash with PHP.  At work, we're creating a flash movie for use on our web sites that interacts with a module I've created to parse the XML stream that Sportsticker sends out.  I think I will send a link to this presentation to our flash guy (who I think could use some tips on interacting with a PHP script via Flash) so he can get a better understanding of what we need to do.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2006-09-14-live-from-phpworks-day-2-keynote-edition.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Live From php|works Day 2 (Keynote edition)</h2>
+
+<p>
+I'm sitting in the keynote on day 2 where Joe Stagner from Microsoft is talking about how to make PHP play nicely with Microsoft's various tools, ranging from IIS to how to talk to Excell.  I don't have any sites that run on IIS but I can imagine that a lot of people are doing  so.
+</p>
+
+<p>
+So, while he's talking I'm going over my slides for my presentation.  I'd be lieing if I said I wasn't nervous, but I should be okay once I get going.
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/30">Newer Posts</a><br />
+        <a href="/page/32">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

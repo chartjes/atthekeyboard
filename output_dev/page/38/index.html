@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/blog/categories">Categories</a></li>
+                                <li><a href="/blog/tags">Tags</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/_posts/2006-11-10-zend_service_audioscrobbler-update-2.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post
+title: Zend_Service_Audioscrobbler Update
+author: Chris Hartjes</p>
+
+<h2>date: 2006-11-10</h2>
+
+<p>
+Work has been moving a lot slower on this than I would have liked for a number of reasons, mostly family related as my wife's return to the working world has meant a good portion of the time I used to devote to my various side projects is now devoted to doing things like making lunches for my daughter and helping to prepare dinner for the next day.  So I don't have the time I used to.
+</p>
+
+<p>
+Any how, in a <href ="http://www.littlehart.net/atthekeyboard/2006/09/28/zend_service_audioscrobbler-update/">previous posting I had talked about how the work on my Last.fm/Audioscrobbler plugin had been going.  I've come a long way since then, and only have one more major category of functions to write the unit tests and accompanying code (notice that it's tests first, code second in true agile fashion).  After a bunch of suggestions, I've reworked the code and I think I've made it really simple for me to add new functionality.  Here's what I'm talking about:
+</href></p>
+
+<pre><code>    /**
+    *
+    * Private method that queries REST service and returns SimpleXML response set
+    * @param string $service name of Audioscrobbler service file we're accessing
+    * @param string $params parameters that we send to the service if needded
+    * @return SimpleXML result set
+    */
+    private function getInfo($service, $params = NULL)
+    {
+        $service = (string) $service;
+        $params = (string) $params;
+
+        try {   
+            $request = $this-&gt;_rest-&gt;restGet($service, $params);
+
+            if ($request-&gt;isSuccessful()) {
+                $response = simplexml_load_string($request-&gt;getBody());
+                return $response;
+            } else {
+                if ($request-&gt;getBody() == 'No such path') {
+                    throw new Zend_Service_Exception('Could not find: ' . $dir);
+                } else if ($request-&gt;getBody() == 'No user exists with this name.') {
+                    throw new Zend_Service_Exception('No user exists with this name.');
+                } else {
+                    throw new Zend_Service_Exception('The REST service ' . $service . ' returned the following status code: ' . $request-&gt;getStatus());
+                }
+            }
+        }
+        catch (Zend_Service_Exception $e) {
+            throw ($e);
+        }
+    }
+</code></pre>
+
+<p>
+That bit of code is what does all the heavy lifting for me. It uses the Zend_Service_Rest component to talk to Audioscrobbler's web services, and returns the results as a SimpleXML object.  Nice and simple.  A perfect example of what Zend Framework is trying to accomplish.
+</p>
+
+<p>
+So, how do I query the web service?  I think an example of one of my unit tests will show you again how simple I've tried to make it.
+</p>
+
+<pre><code>&lt;?php
+
+/**
+ * @package    Zend_Service_Audioscrobbler
+ * @subpackage UnitTests
+ */
+
+/**
+ * Zend_Service_Audioscrobbler
+ */
+require_once 'Zend/Service/Audioscrobbler.php';
+
+/**
+ * PHPUnit test case
+ */
+require_once 'PHPUnit/Framework/TestCase.php';
+
+/**
+ * @package    Zend_Service_Audioscrobbler
+ * @subpackage UnitTests
+ */
+class Zend_Service_Audioscrobbler_TagDataTest extends PHPUnit_Framework_TestCase
+{
+    public function testGetTopTags()
+    {
+        try {
+            $as = new Zend_Service_Audioscrobbler();
+            $response = $as-&gt;tagGetTopTags();
+            $this-&gt;assertNotNull($response-&gt;tag);
+        } catch (Exception $e ) {
+                $this-&gt;fail("Exception: [" . $e-&gt;getMessage() . "] thrown by test");
+        }
+    }
+
+    public function testGetTopArtists()
+    {
+         try {
+                $as = new Zend_Service_Audioscrobbler();
+                $as-&gt;set('tag', 'Rock');
+                $response = $as-&gt;tagGetTopArtists();
+                $this-&gt;assertNotNull($response-&gt;artist);
+                $this-&gt;assertEquals($response['tag'], strtolower($as-&gt;get('tag')));
+            } catch (Exception $e ) {
+                    $this-&gt;fail("Exception: [" . $e-&gt;getMessage() . "] thrown by test");
+            }       
+    }
+
+    public function testGetTopTracks() 
+    {
+        try {
+            $as = new Zend_Service_Audioscrobbler();
+            $as-&gt;set('tag', 'Rock');
+            $response = $as-&gt;tagGetTopTracks();
+            $this-&gt;assertNotNull($response-&gt;track);
+            $this-&gt;assertNotNull($response-&gt;artist);
+            $this-&gt;assertEquals($response['tag'], strtolower($as-&gt;get('tag')));
+        } catch (Exception $e) {
+            $this-&gt;fail("Exception: [" . $e-&gt;getMessage() . "] thrown by test");
+        }
+    }
+
+}
+
+?&gt;
+</code></pre>
+
+<p>
+I can't stress enough that I've really come around to the idea of that simple is always better, and if you want people to actually use what you've written you need to make it easy to use.  I hope to get the unit tests all done in the next week, and then write up some documentation on how to use the component.  After that, I'll send something to the fw-general mailing list announcing the fruits of my labours and people should take a look at the component.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2006-11-14-quick-hits-3.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: Quick Hits</h2>
+
+<ul>
+<li>Zend_Service_Audioscrobbler is almost finished but the group data web service functions aren't working so the unit tests are all failing.</li>
+<li>My attempt at writing an appending scoreboard for www.footballforums.com is not working properly...have you been working on something too long if you start dreaming about it?</li>
+<li>I read a very interesting article on <a href="http://thwartedefforts.org/2006/11/11/race-conditions-with-ajax-and-php-sessions/">race conditions when dealing with sessions and AJAX in PHP</a></li>
+</ul>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/_posts/2006-11-15-how-do-you-scale-a-rails-app-with-great-difficulty-apparantly.markdown"></a></h2>
+        </header>
+        <div>
+            <hr />
+
+<p>layout: post</p>
+
+<h2>title: How Do You Scale A Rails App?  With Great Difficulty Apparantly</h2>
+
+<p>Being an ADD programmer, I am always looking at the new and shiny to see if I can learn something.  I may have mentioned <a href="http://yarivsblog.com">Yariv Sadan's blog</a> before.  Yariv is a guy who has thrown himself into Erlang, creating all sorts of cool tools to let you build web-based apps in Erlang.  I'll be honest:  Erlang looks wicked cool, but good luck finding someone to host a web app for you.  Maybe that might change.  I'd hate to have to host my cutting edge up on my own co-located server.  Especially when your budget for operations is close to zero.
+</p>
+
+<p>
+He has a cool post on <a href="http://yarivsblog.com/articles/2006/07/18/the-adventures-horrors-of-scaling-rails">the problems some people had building a scalable Rails application</a>.  I've wondered how you would actually go about building a Rails app that can scale.  There aren't too many examples out there, and looking at the blog posts that Yariv's blog talks about brings back <sarcasm>fond memories</sarcasm> of my adventures in helping to build an online dating site.
+</p>
+
+<p>
+So why do I find this interesting?  Well, it will go a long way towards helping me decide on the super-secret project.  I *know* that PHP can scale if I need it to.  I *know* where to find help on scaling PHP-driven web applications.  I'm worried that I don't know enough about Rails to scale it if it becomes a big success.  But perhaps I'm putting the horse before the cart here.
+</p>
+
+<p>
+Either way, it's certainly food for thought.  Of course, none of this will matter if I don't build the damn thing. 
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/37">Newer Posts</a><br />
+        <a href="/page/39">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <h4>Links</h4>
+                        <ul class="nav">
+                            <li><a href="http://sculpin.io">sculpin.io</a></li>
+                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2014 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>
