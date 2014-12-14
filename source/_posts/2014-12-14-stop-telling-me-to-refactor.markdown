@@ -13,7 +13,7 @@ their words) "facing the problem in the wrong way".
 
 They went on to describe how I should just separate the front-end from the
 back-end to make testing the app as a whole easier. They shared a link
-to a project where they had done that so [go take a look](https://github.com/fourlaster/playlist).
+to a project where they had done that so [go take a look](https://github.com/fourlastor/playlist).
 
 I don't find much wrong with that approach but it has a hole in it big enough
 to throw my ego through without scraping the sides. Daniele, this has nothing
