@@ -8,7 +8,7 @@ sharing: true
 ---
 I was asked on Twitter today for my thoughts on the topic of whether or not
 there are things you should NOT test. Of course, I think that you should
-[test all the things](http://www.littlehart.net/test-all-the-things.jpg)
+[test all the things](https://www.littlehart.net/test-all-the-things.jpg)
 but let's be honest in what we're trying to do.
 
 Let's start out with the premise that every single bit of code in your

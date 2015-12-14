@@ -19,5 +19,5 @@ Also, there is something else hidden inside rule #5.  If you have differences be
 Has this been a problem?  Nothing yet *but* if I ever got serious about running something other than my blog I would definitely consider configuring my VPS to use Apache 2 and PHP with the same configuration options as I have in dev, so that I have consistency in environments.  Django is recommending Apache + mod_python so I may be doing this sooner rather than later.
 </p>
 <p>
-So, remember, the goal is to have your dev and production environments the same.  But if you can't have the same, you better be damn sure you understand what the differences are so you don't end up saying stuff like <a href="http://www.littlehart.net/workz-for-me-u-must-b-dum.jpg">this</a>.
+So, remember, the goal is to have your dev and production environments the same.  But if you can't have the same, you better be damn sure you understand what the differences are so you don't end up saying stuff like <a href="https://www.littlehart.net/workz-for-me-u-must-b-dum.jpg">this</a>.
 </p>

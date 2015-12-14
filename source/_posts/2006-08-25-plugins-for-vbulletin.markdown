@@ -6,6 +6,6 @@ For the stats system I built at work, there is a component that tracks clicks (m
 <br /><br />
 Now, I'm pretty sure I'm not giving anything away by showing you guys the plugin.  After all, it only works with vBulletin and you need the other half (the puller) to make use of the data.  So, here's a nice, open source contribution to the world:
 <br /><br />
-<a href="http://www.littlehart.net/product-vs-clicktracking.xml">Clicktracking plugin</a>
+<a href="https://www.littlehart.net/product-vs-clicktracking.xml">Clicktracking plugin</a>
 <br /><br />
 It's pretty straightforward, and the only trick was finding some code that works well with people hiding behind proxies and other places.  That I borrowed from a posting about how <a href="http://www.oscommerce.com>osCommerce</a> does it.

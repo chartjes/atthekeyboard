@@ -2,7 +2,7 @@
 layout: post
 title: Why Code Generation Just Works, Damnit!
 ---
-<p>In a previous post <a href="http://www.littlehart.net/atthekeyboard/2007/06/22/whats-in-chris-brain-june-2007-edition/">where I rambled on about what I was thinking about</a> I briefly talked about bake, the wonderful tool that comes with <a href="http://cakephp.org">CakePHP</a>.  In the comments for that post I was asked by 'keymaster' to expand a bit on why bake is such a powerful tool.  In a nutshell: it creates a skeleton for EVERYTHING that you will need.</p>
+<p>In a previous post <a href="https://www.littlehart.net/atthekeyboard/2007/06/22/whats-in-chris-brain-june-2007-edition/">where I rambled on about what I was thinking about</a> I briefly talked about bake, the wonderful tool that comes with <a href="http://cakephp.org">CakePHP</a>.  In the comments for that post I was asked by 'keymaster' to expand a bit on why bake is such a powerful tool.  In a nutshell: it creates a skeleton for EVERYTHING that you will need.</p>
 <p>
 At <a href="http://www.cakedevelopment.com">Cake Development Corporation</a> it's our secret weapon that allows us to build out a site faster than our competition.  With bake I can build the following:
 <ul>

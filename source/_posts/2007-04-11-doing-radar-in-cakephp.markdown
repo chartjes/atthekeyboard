@@ -4,7 +4,7 @@ title: Doing RADAR in CakePHP
 date: 2007-04-11
 author: Chris Hartjes
 ---
-<p>Okay, time for some code samples to boost traffic to my site.  In a previous posting I talked about the idea of <a href="http://www.littlehart.net/atthekeyboard/2007/04/04/keep-an-eye-on-your-radar/">RADAR</a>, or RESTful Application, Dumb-Ass Recipient.  So, wanting to see if I could put it into use, I decided to do the following for a new application:
+<p>Okay, time for some code samples to boost traffic to my site.  In a previous posting I talked about the idea of <a href="https://www.littlehart.net/atthekeyboard/2007/04/04/keep-an-eye-on-your-radar/">RADAR</a>, or RESTful Application, Dumb-Ass Recipient.  So, wanting to see if I could put it into use, I decided to do the following for a new application:
 <ul>
 <li>Have the core of the application provide data via a REST service</li>
 <li>For the web part of it, create controller / action pairs that call the REST service and pass the output onto the views</li></ul>
@@ -149,7 +149,7 @@ That's the main view for doing the standings, and it's done as an element called
 ~~~
 </p>
 <p>
-So, there you have it!  Remember, the idea of RADAR is that you have a REST service at the core of your application, and then you provide a "proxy" for dumb clients like browsers that only understand HTML natively.  That way you make your application it's own API, and everything else is just clients that hang off the API.  As an example, I could build a plugin for the sidebar of my <a href="http://www.littlehart.net/attheballpark">baseball blog</a> that shows the standings for the division my team is in.  I could hit the REST service, then manipulate the results via XML and spit it out.  
+So, there you have it!  Remember, the idea of RADAR is that you have a REST service at the core of your application, and then you provide a "proxy" for dumb clients like browsers that only understand HTML natively.  That way you make your application it's own API, and everything else is just clients that hang off the API.  As an example, I could build a plugin for the sidebar of my <a href="https://www.littlehart.net/attheballpark">baseball blog</a> that shows the standings for the division my team is in.  I could hit the REST service, then manipulate the results via XML and spit it out.  
 </p>
 <p>
 I hope the example above gives you a different perspective on putting together your application.

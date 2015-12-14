@@ -3,7 +3,7 @@ layout: post
 title: So You Want To Telecommute? Part 3 - Collaboration
 ---
 <p>(This is part 3 of an ongoing series about my experiences with telecommuting and the tools and practices I feel help make it work)</p>
-<p>This post has a little bit of crossover with <a href="http://www.littlehart.net/atthekeyboard/2009/08/01/so-you-want-to-telecommute-part-2-accountability/">second post</a> in this series, so you'll have to forgive me if you see something I talked about before.  Now that's we've identified the issues of trust and accountability, the next big issue a telecommuter faces is one of collaboration.
+<p>This post has a little bit of crossover with <a href="https://www.littlehart.net/atthekeyboard/2009/08/01/so-you-want-to-telecommute-part-2-accountability/">second post</a> in this series, so you'll have to forgive me if you see something I talked about before.  Now that's we've identified the issues of trust and accountability, the next big issue a telecommuter faces is one of collaboration.
 </p>
 <p>
 So now that you've gotten an environment created where you are being trusted to do your work as assigned (despite what people think, just doing a good job isn't always enough in the minds of those who manage programmers and designers), and you have a way to be held accountable for the stuff you are working on, we are on to the sticky issue of collaboration.

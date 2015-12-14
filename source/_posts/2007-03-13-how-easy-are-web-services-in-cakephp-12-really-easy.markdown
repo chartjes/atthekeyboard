@@ -4,7 +4,7 @@ title: How Easy Are Web Services in CakePHP 1.2?  Really Easy!
 date: 2007-03-13
 author: Chris Hartjes
 ---
-<p>In a <a href="http://www.littlehart.net/atthekeyboard/2006/11/29/using-cakephps-native-web-service-support/">previous post</a> I talked about how to use the built-in web services in <a href="http://www.cakephp.org">CakePHP</a> 1.1.x.x.  A very popular piece too according to my site statistics too.  Well, I've discovered that it's even easier in Cake 1.2.x.x.  I bugged Nate via IM for some tips on how to put it together, and it's really very simple.
+<p>In a <a href="https://www.littlehart.net/atthekeyboard/2006/11/29/using-cakephps-native-web-service-support/">previous post</a> I talked about how to use the built-in web services in <a href="http://www.cakephp.org">CakePHP</a> 1.1.x.x.  A very popular piece too according to my site statistics too.  Well, I've discovered that it's even easier in Cake 1.2.x.x.  I bugged Nate via IM for some tips on how to put it together, and it's really very simple.
 </p>
 <p>
 The biggest change is that the old way of doing custom routing in web services is gone in favour of handling them via extensions.  In the past, you would go into app/config/core.php and enable the special web services routing.  I was trying to do a web service with the URL http://localhost/cake_dev/foo and have it spit out an XML response.  According to what I was told "...going forward the routes part / extensions on the end of the URL is the recommended way of doing it".  So, if I was doing this the standard way I would be calling http://localhost/cake_dev/foo/index.xml.  I just like the cleaner URL.  Now, if I was to do it the proper way, I would add in the following to my app/config/routes.php file:

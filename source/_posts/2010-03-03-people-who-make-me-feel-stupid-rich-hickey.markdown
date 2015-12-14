@@ -2,7 +2,7 @@
 layout: post
 title: "People Who Make Me Feel Stupid: Rich Hickey"
 ---
-<p><i>This is the third in a series of blog posts where I talk about people who's skills as programmers make me feel stupid.  Check out my thoughts on <a href="http://www.littlehart.net/atthekeyboard/2010/03/01/people-who-make-me-feel-stupid-geoffrey-grosenbach/">Geoffrey Grosenbach</a> and <a href="http://www.littlehart.net/atthekeyboard/2010/03/02/people-who-make-me-feel-stupid-antirez/">Antirez</a>.</i>
+<p><i>This is the third in a series of blog posts where I talk about people who's skills as programmers make me feel stupid.  Check out my thoughts on <a href="https://www.littlehart.net/atthekeyboard/2010/03/01/people-who-make-me-feel-stupid-geoffrey-grosenbach/">Geoffrey Grosenbach</a> and <a href="https://www.littlehart.net/atthekeyboard/2010/03/02/people-who-make-me-feel-stupid-antirez/">Antirez</a>.</i>
 </p>
 <p>
 As a person who learned the hard way about how tough it is creating web applications that can handle state and concurrency  issues (if you've ever seen MySQL replication lag times as high as 30 *minutes* you can sympathize), the rise of languages designed from the ground up to support concurrency has caught my eye.  If you've heard of <a href="http://erlang.org">Erlang</a> or <a href="http://www.haskell.org/">Haskell</a> you are somewhat familiar with the topic.

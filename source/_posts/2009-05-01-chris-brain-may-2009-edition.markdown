@@ -4,7 +4,7 @@ title: Chris' Brain - May 2009 Edition
 ---
 <h2>Book Update</h2>
 <p>
-For those not following along on Twitter, the first month of sales of my <a href="http://littlehart.net/book">CakePHP book</a> have been a success:  70 PDF's and 5 print-on-demand copies via <a href="http://www.lulu.com/content/paperback-book/refactoring-legacy-applications-using-cakephp/6626981">Lulu.com</a>.  A big thanks to everyone who has purchased a copy.  My next thought has been a book about doing Test Driven Development using CakePHP, but perhaps that is just wishcasting.
+For those not following along on Twitter, the first month of sales of my <a href="https://littlehart.net/book">CakePHP book</a> have been a success:  70 PDF's and 5 print-on-demand copies via <a href="http://www.lulu.com/content/paperback-book/refactoring-legacy-applications-using-cakephp/6626981">Lulu.com</a>.  A big thanks to everyone who has purchased a copy.  My next thought has been a book about doing Test Driven Development using CakePHP, but perhaps that is just wishcasting.
 </p>
 <h2>Deployment Thoughts</h2>
 <p>

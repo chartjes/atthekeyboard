@@ -8,7 +8,7 @@ date: 2006-11-10
 Work has been moving a lot slower on this than I would have liked for a number of reasons, mostly family related as my wife's return to the working world has meant a good portion of the time I used to devote to my various side projects is now devoted to doing things like making lunches for my daughter and helping to prepare dinner for the next day.  So I don't have the time I used to.
 </p>
 <p>
-Any how, in a <href ="http://www.littlehart.net/atthekeyboard/2006/09/28/zend_service_audioscrobbler-update/">previous posting I had talked about how the work on my Last.fm/Audioscrobbler plugin had been going.  I've come a long way since then, and only have one more major category of functions to write the unit tests and accompanying code (notice that it's tests first, code second in true agile fashion).  After a bunch of suggestions, I've reworked the code and I think I've made it really simple for me to add new functionality.  Here's what I'm talking about:
+Any how, in a <href ="https://www.littlehart.net/atthekeyboard/2006/09/28/zend_service_audioscrobbler-update/">previous posting I had talked about how the work on my Last.fm/Audioscrobbler plugin had been going.  I've come a long way since then, and only have one more major category of functions to write the unit tests and accompanying code (notice that it's tests first, code second in true agile fashion).  After a bunch of suggestions, I've reworked the code and I think I've made it really simple for me to add new functionality.  Here's what I'm talking about:
 </href></p>
 ~~~
 	/**

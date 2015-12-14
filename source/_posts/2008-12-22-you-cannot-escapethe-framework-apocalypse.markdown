@@ -4,7 +4,7 @@ title: You Cannot Escape...The Framework Apocalypse
 ---
 <p>For a while I had been threatening to commission a t-shirt design based on either "Framework Jihad" or "Framework Apocalypse".  The general consensus amongst my Twitter peeps was that (a) this was a great idea and (b) they would buy one.  Well, that time has come.</p>
 <p align="center">
-<img src="http://www.littlehart.net/zombie-shirt-3.png" height=325 width=454/>
+<img src="https://www.littlehart.net/zombie-shirt-3.png" height=325 width=454/>
 </p>
 <p>
 One of my favourite webcomics is <a href="http://hijinksensue.com/portfolio/">Joel Watson's</a> <a href="http://www.hijinksensue.com">Hijinks Ensue</a>.   Joel is trying to <a href="http://hijinksensue.com/experiment/">Live The Dream</a> of being a full-time web cartoonist / merchandiser, and to this end he also does custom design work.  After about exchanging a few emails about designs, Joel cranked out this awesome t-shirt for me.

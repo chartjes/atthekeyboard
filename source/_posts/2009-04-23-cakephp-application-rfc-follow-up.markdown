@@ -2,7 +2,7 @@
 layout: post
 title: CakePHP Application RFC Follow-Up
 ---
-<p>Holy moley, has it been almost a year since I <a href="http://www.littlehart.net/atthekeyboard/2008/05/16/cakephp-application-deployment-rfc">blogged about a potential CakePHP deployment task</a>.  Since a few people have hit me up in Twitter and in the comments for that blog post, I thought I would share my progress on this task.  To be blunt, I decided it was a waste of time to do it.</p>
+<p>Holy moley, has it been almost a year since I <a href="https://www.littlehart.net/atthekeyboard/2008/05/16/cakephp-application-deployment-rfc">blogged about a potential CakePHP deployment task</a>.  Since a few people have hit me up in Twitter and in the comments for that blog post, I thought I would share my progress on this task.  To be blunt, I decided it was a waste of time to do it.</p>
 <p>
 Why?  Well, there plenty of options out there to help you with application deployment already.  I talked about many of them in the talk I gave at PHPQuebec back in March.  In the end, there is no reason to NOT use an existing tool to handle this other than you cannot (or in some cases will not) use one of these tools.  I picked <a href="http://www.capify.org">Capistrano</a> because:
 <ul>

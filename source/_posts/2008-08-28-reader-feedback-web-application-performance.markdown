@@ -3,7 +3,7 @@ layout: post
 title: "Reader Feedback: Web Application Performance"
 ---
 <p>
-<img src="http://www.littlehart.net/images/web-app-development.png"/>
+<img src="https://www.littlehart.net/images/web-app-development.png"/>
 </p>
 <p>
 Welcome to the 4th and final day of reader feedback week here.  Today's topic is one that comes up over and over and over and over again:  web application performance.  In particular, I wanted to discuss web application performance and frameworks.

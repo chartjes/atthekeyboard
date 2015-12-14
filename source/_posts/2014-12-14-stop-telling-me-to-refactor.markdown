@@ -7,7 +7,7 @@ comments: true
 sharing: true
 ---
 I got an email from Daniele earlier this morning about the post I did talking
-about [how web acceptance tools suck](http://littlehart.net/atthekeyboard/2014/10/31/web-acceptance-tools-suck/) and
+about [how web acceptance tools suck](https://littlehart.net/atthekeyboard/2014/10/31/web-acceptance-tools-suck/) and
 they were kind enough to share their thoughts on how they felt I was (to use
 their words) "facing the problem in the wrong way".
 

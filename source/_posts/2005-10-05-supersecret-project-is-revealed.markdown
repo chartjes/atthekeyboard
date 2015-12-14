@@ -3,7 +3,7 @@ layout: post
 title: Supersecret project is revealed
 author: Chris Hartjes
 ---
-Back when I was at the php|works conference, i hooked up for dinner with <a href="http://www.slash7.com">Amy Hoy</a>, who I had met on the #rubyonrails IRC channel.  My other <a href="http://www.littlehart.net/attheballpark">blog</a> uses <a href="http://www.rubyonrails">Ruby on Rails</a> as the underlying technology.  Anyhow, at the time she mentioned there was a supersecret project she had been working on that she couldn't talk about.
+Back when I was at the php|works conference, i hooked up for dinner with <a href="http://www.slash7.com">Amy Hoy</a>, who I had met on the #rubyonrails IRC channel.  My other <a href="https://www.littlehart.net/attheballpark">blog</a> uses <a href="http://www.rubyonrails">Ruby on Rails</a> as the underlying technology.  Anyhow, at the time she mentioned there was a supersecret project she had been working on that she couldn't talk about.
 
 Yesterday, I read about <a href="http://www.ning.com">Ning</a>, a site that lets you build what they call "community and social software" applications really easily.  It looks like they host everything for you, and profide an API (PHP only for now) for you to write your own stuff.  Very interesting concept, and I signed up for a beta developer account if only to screw around with it and see what's going on.
 

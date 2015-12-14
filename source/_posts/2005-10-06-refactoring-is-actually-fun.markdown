@@ -6,7 +6,7 @@ date: 2005-10-06
 ---
 No, really.
 
-If you look at my <a href="http://www.littlehart.net/attheballpark">other blog</a>, you will notice that I'm the commissioner of the league.  There's a weekly newsletter that goes out to the league, with results and other info of interest to the league.
+If you look at my <a href="https://www.littlehart.net/attheballpark">other blog</a>, you will notice that I'm the commissioner of the league.  There's a weekly newsletter that goes out to the league, with results and other info of interest to the league.
 
 I've been Commish since the middle of the 2000 season and I was stunned to see that the newsletter was being compiled by hand (shudder), and that was the most difficult part of the job.  So, I quickly wrote a bunch of PHP scripts to collect the raw info needed to do the newsletter and then munge it all into the format it needs.  I'd show you guys the app, but it's password protected and the security is pretty much non-existent.
 

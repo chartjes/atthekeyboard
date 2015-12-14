@@ -2,7 +2,7 @@
 layout: post
 title: More Framework Fun
 ---
-<p>Sometimes you make a blog post that generates a lot of feedback.  In this case, Nate from CakePHP had a vigorous conversation with me via IM about my blog posting <a href="http://www.littlehart.net/atthekeyboard/2007/03/23/in-spring-time-a-not-so-young-php-programmers-mind-turns-to-frameworks/">about frameworks</a>.  In a nutshell, Nate took issue with my comment that CakePHP isn't quite there yet because you can't use components from it outside the framework itself.</p>
+<p>Sometimes you make a blog post that generates a lot of feedback.  In this case, Nate from CakePHP had a vigorous conversation with me via IM about my blog posting <a href="https://www.littlehart.net/atthekeyboard/2007/03/23/in-spring-time-a-not-so-young-php-programmers-mind-turns-to-frameworks/">about frameworks</a>.  In a nutshell, Nate took issue with my comment that CakePHP isn't quite there yet because you can't use components from it outside the framework itself.</p>
 <p>
 Nate does have a point here.  Zend Framework is perhaps being *overly* ambitious by not only providing an MVC component, but you can use parts of it outside that MVC component as long as you place the Zend Framework itself in your path.  So is Zend Framework truly a framework?  Yes, as long as you understand that a web application framework means more than just a MVC-based framework.
 </p>

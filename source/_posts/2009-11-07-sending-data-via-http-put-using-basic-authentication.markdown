@@ -19,7 +19,7 @@ So here's what we had to do:
 The old code was sending the username and password as part of the URL, but that simply was not working any more.  Why it stopped working isn't all that important except to say that passing the username and password the *proper* way, which is via the HTTP header in the request, is the correct way to go.
 </p>
 <p>
-So, I googled around, looked at my existing code (including an <a href="http://www.littlehart.net/atthekeyboard/2008/01/11/how-to-http-put-a-file-somewhere-using-php/">old blog post</a>) I tried a few things and just couldn't get it to work.  The problem?  I kept getting a "401 Authorization denied" message.  I was positive I was sending the header in the correct format.  So, I asked Stack Overflow to help me while I looked at the code with my trusty stuffed Grumpy Dwarf doll (you know, from the Disney Movie) in my lap looking at the screen while I went over the code.
+So, I googled around, looked at my existing code (including an <a href="https://www.littlehart.net/atthekeyboard/2008/01/11/how-to-http-put-a-file-somewhere-using-php/">old blog post</a>) I tried a few things and just couldn't get it to work.  The problem?  I kept getting a "401 Authorization denied" message.  I was positive I was sending the header in the correct format.  So, I asked Stack Overflow to help me while I looked at the code with my trusty stuffed Grumpy Dwarf doll (you know, from the Disney Movie) in my lap looking at the screen while I went over the code.
 </p>
 <p>
 You know, I never figured that "rubber duck debugging" worked, but in this instance by explaining what I'm doing I figured out a few things:

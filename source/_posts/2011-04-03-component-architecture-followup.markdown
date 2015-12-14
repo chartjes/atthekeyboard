@@ -3,7 +3,7 @@ layout: post
 title: Component Architecture -- Follow-up
 ---
 After posting my thoughts on
-[component architectures](http://www.littlehart.net/atthekeyboard/2011/03/31/component-architecture)
+[component architectures](https://www.littlehart.net/atthekeyboard/2011/03/31/component-architecture)
 I asked Stu Herbert to provide me with any comments he had on this
 particular topic, having been the original inspiration. He was kind
 enough to do so and I have extracted some of his thoughts and

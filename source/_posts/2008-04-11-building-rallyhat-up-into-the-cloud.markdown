@@ -2,7 +2,7 @@
 layout: post
 title: "Building Rallyhat: Up into the cloud"
 ---
-<p>It pays to have friends who have connections.  After reading my blog posting about <a href="http://www.littlehart.net/atthekeyboard/2008/04/09/the-rise-of-the-app-cloud/">the rise of the app cloud</a> I got an IM from <a href="http://marcgrabanski.com/index.php">Marc Grabanski</a> asking me if I wanted an invite to get in on <a href="http://code.google.com/appengine/">Google App Engine</a>.  Needless to say, I said yes.</p>
+<p>It pays to have friends who have connections.  After reading my blog posting about <a href="https://www.littlehart.net/atthekeyboard/2008/04/09/the-rise-of-the-app-cloud/">the rise of the app cloud</a> I got an IM from <a href="http://marcgrabanski.com/index.php">Marc Grabanski</a> asking me if I wanted an invite to get in on <a href="http://code.google.com/appengine/">Google App Engine</a>.  Needless to say, I said yes.</p>
 <p>
 So I have an account up there now, but nothing to show you guys yet.  The tutorials they have are actually quite clear and make sense.  What makes it even more ironic is that all you can use is Python (which I'm learning) and runs Django 0.96 standards (although you can use dev versions if you like). Is that fate trying to give me a hint or something?
 </p>

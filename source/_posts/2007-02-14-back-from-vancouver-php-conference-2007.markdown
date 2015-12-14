@@ -15,5 +15,5 @@ I have to thank some of the following speakers:
 I'll be seeing most of these same people in Chicago at php|tek, so that's yet another reason to look forward to the middle of May.  Anyhow, I managed to make a screencast of my talk and chopped it down to size for the blog.  Hope you enjoy it!
 </p>
 <p>
-[flv:http://www.littlehart.net/atthekeyboard/videos/vancouver.flv 320 240]
+[flv:https://www.littlehart.net/atthekeyboard/videos/vancouver.flv 320 240]
 </p>

@@ -5,7 +5,7 @@ date: 2007-11-20
 author: Chris Hartjes
 ---
 <p>
-There have been some mention in the comments for <a href="http://www.littlehart.net/atthekeyboard/2007/09/11/a-hopefully-useful-tutorial-for-using-cakephps-auth-component/">this post</a> for clarification on the 'remember me' cookie that is mentioned in the code.  I thought I'd elaborate a bit on how I used it for this example.</p>
+There have been some mention in the comments for <a href="https://www.littlehart.net/atthekeyboard/2007/09/11/a-hopefully-useful-tutorial-for-using-cakephps-auth-component/">this post</a> for clarification on the 'remember me' cookie that is mentioned in the code.  I thought I'd elaborate a bit on how I used it for this example.</p>
 <p>
 As part of a project I was working on while at <a href="http://www.cakedevelopment.com">CDC</a> there was a requirement for there to be 'Remember Me' functionality for the authentication system.  I'm sure you've seen this elsewhere.  Implementing such a thing is actually very simple, but I should've clarified that 'remember me' functionality is NOT part of the Auth component.  
 <ul>

@@ -2,7 +2,7 @@
 layout: post
 title: "So You Want To Telecommute? Part 4 -- Programming Tools"
 ---
-<p>(This is the 4th part in series about my experiences as a telecommuting developer.  For more info, check out <a href="http://www.littlehart.net/atthekeyboard/2009/08/08/so-you-want-to-telecommute-part-3-collaboration/">part 3, </a><a href="http://www.littlehart.net/atthekeyboard/2009/08/01/so-you-want-to-telecommute-part-2-accountability/">part 2</a>, and <a href="http://www.littlehart.net/atthekeyboard/2009/07/29/so-you-want-to-telecommute-part-1-building-trust/">part 1</a>)</p>
+<p>(This is the 4th part in series about my experiences as a telecommuting developer.  For more info, check out <a href="https://www.littlehart.net/atthekeyboard/2009/08/08/so-you-want-to-telecommute-part-3-collaboration/">part 3, </a><a href="https://www.littlehart.net/atthekeyboard/2009/08/01/so-you-want-to-telecommute-part-2-accountability/">part 2</a>, and <a href="https://www.littlehart.net/atthekeyboard/2009/07/29/so-you-want-to-telecommute-part-1-building-trust/">part 1</a>)</p>
 <p>
 If you really want to set of a flame war on the internet, start talking about what you use as (a) your programming language and (b) what editor / IDE you use.  Thankfully, this posting is not about either one of those things.  After all, who can argue with using <a href="http://www.vim.org>the One True Editor</a>.  Here, I want to share my thoughts on the type of tools you are likely to need as a telecommuting developer.
 </p>
@@ -31,7 +31,7 @@ I am not aware of any tools like Capistrano that exist for those who use Windows
 I guess what I'm really trying to say is that you should be using tools that make deploying error-free code into production *easier*, because chances are you will be the one doing the deployment.  Where I work, each developer is responsible for deploying their own code so it was in my best interest to create something that was "fire and forget" when it came to pushing up changes.  Need to copy new scripts in place for pulling data from our XML db?  No problem.  Need to update the schema for the database?  No problem, got it totally covered.
 </p>
 <p>
-A lot of these issues are something I've covered <a href="http://www.littlehart.net/atthekeyboard/2008/04/17/deployment-is-not-a-4-letter-word-the-screencast/">before</a>.  Instead I will focus on a final thought on tools -- they need to be as easy to use as possible.
+A lot of these issues are something I've covered <a href="https://www.littlehart.net/atthekeyboard/2008/04/17/deployment-is-not-a-4-letter-word-the-screencast/">before</a>.  Instead I will focus on a final thought on tools -- they need to be as easy to use as possible.
 </p>
 <p>
 When you telecommute, one of the biggest problems is response time.  Since you're not in the same office (or even same city) as your co-workers, when something goes wrong it is likely that you will have to be the one that fixes it without help from others.  Building a tool kit like the one I've suggested will go a long way towards helping you when things go wrong.  Which they will.  By automating as much of this as possible, it becomes quite simple to fix any problems.
