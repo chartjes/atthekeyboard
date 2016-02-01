@@ -6,7 +6,7 @@ date: 2016-01-28
 comments: true
 sharing: true
 ---
-Yesterday I gave a short talk at [GPUG](http://gpug.ca) about a topic I've dubbed
+Yesterday I gave a short talk at [GPUG](https://twitter.com/_GPUG_) about a topic I've dubbed
 "metatesting". Borrowing the phrase from a [children's card game](http://magic.wizards.com)
 I wanted to talk about the state of testing and associated tools.
 
@@ -20,7 +20,7 @@ Enjoy the video!
     <source src="https://s3.amazonaws.com/grumpy-learning/metatesting.mp4" type="video/mp4">
     <p class="vjs-no-js">
       To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
     </p>
   </video>
-  <script src="http://vjs.zencdn.net/5.5.3/video.js"></script>
+  <script src="https://vjs.zencdn.net/5.5.3/video.js"></script>
