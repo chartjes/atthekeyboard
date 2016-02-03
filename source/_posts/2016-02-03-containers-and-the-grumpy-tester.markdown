@@ -196,4 +196,4 @@ with a way to try and build a reasonably-sandboxed environment to run functional
 tests in, I encourage you to take a look at what I've done here and copy it to
 your advantage.
 
-The tests I've been working on can be found inside [this GitHub repo](https://github.com/mozilla-services/services-tests/kinto)
+The tests I've been working on can be found inside [this GitHub repo](https://github.com/mozilla-services/services-test)
