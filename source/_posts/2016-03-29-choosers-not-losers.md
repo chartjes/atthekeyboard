@@ -34,9 +34,20 @@ their problems: "We're choosers, not losers".
 
 Zach's blog post is full of the choices that he has made and is making but he
 is trying to frame it as if they are not choices at all but immutable
-constraints on his life. They are choices. Nothing more.
+constraints on his life. They are choices. Nothing more. Sometimes the choices
+you are presented with suck. But realize they are choices because that lets
+you focus on them in a different way.
 
-Let's look at a few things he talked about and I will give my take.
+The choices of his that I totally agree with are the ones where he is putting
+his family first. I never advocate just stomping out of a job with no backup
+plan. The plan I always advocate is "stay in your job while you look for
+something better". Don't mistake Zach as being lazy or some other nonsense.
+I just disagree with some of his other choices.
+
+Programming is hard. Changing cultures is hard. Not everyone can do it. Hell,
+I don't do it all the time successfully. But I stay focused and try to make
+it work.
+
 
 First, I have a day job where I am required to do what my boss tells me or else
 there are professional consequences. I don't work in academia, I'm not a technical
