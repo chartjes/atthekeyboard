@@ -104,13 +104,14 @@ books or preparing conference talks. All done after work.
 Finally, when I talk to people about why they should test it is not from a
 throne of bones in an ivory tower. I have gone in there and worked hard to
 change cultures to be more open to testing. I have written countless tests and
-helped developers build their schools. I have worked hard to leave places in a
+helped developers build their skills. I have worked hard to leave places in a
 better state than when I got there.
 
 I am not asking for your approval. My message is not condescension but a reminder
 to take ownership of what you do and your choices. 10 years ago I did not imagine
 I would be in this position, but I do not regret anything that has happened
-along the way.
+along the way. There have been some bad choices, but there were choices I made
+with an understanding of the consequences to me, my family, and my career.
 
 It's true the world isn't always the way we want it. The best way for it to stay
 that way is to choose to. We're not losers, we're choosers. I want you to choose
