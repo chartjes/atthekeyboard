@@ -27,7 +27,7 @@ approved by QA for deployment to production.
 For example, here's me running some scripts and reporting the results along
 with a question:
 
-![QA feedback](http://grumpy-learning.s3.amazonaws.com/e6gv86j8.png)
+![QA feedback](https://grumpy-learning.s3.amazonaws.com/e6gv86j8.png)
 
 (Turns out I can only run that xml-verifier script in our staging environment)
 
@@ -46,11 +46,11 @@ I am working on this upcoming week.
 Here's an example of me outlining the manual process of adding some fonts to
 the collection that [Fennec](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Simple_Firefox_for_Android_build) uses.
 
-![Test cases for Kinto Writer](http://grumpy-learning.s3.amazonaws.com/L8psH5O2.png)
+![Test cases for Kinto Writer](https://grumpy-learning.s3.amazonaws.com/L8psH5O2.png)
 
 Later in the same "bug" about deploying Kinto, I added my notes on doing the
 manual testing for uploading fonts.
 
-![Manual testing passed](http://grumpy-learning.s3.amazonaws.com/PUzu7ofc.png)
+![Manual testing passed](https://grumpy-learning.s3.amazonaws.com/PUzu7ofc.png)
 
 Python + Pytest + Virtualenv + Bugzilla + TestRails == my tools for testing.
