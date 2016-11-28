@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "From macOS to Windows 10 - Part 2"
+title: "From macOS to Windows 10 - Part 3"
 author: Chris Hartjes
-date: 2016-11-18
+date: 2016-11-28
 comments: true
 sharing: true
 ---
