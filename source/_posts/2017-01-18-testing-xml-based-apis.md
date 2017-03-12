@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Testing XML-based API's""
+title: "Testing XML-based API's"
 author: Chris Hartjes
 date: 2017-01-18
 comments: true
