@@ -78,7 +78,7 @@ and adding and removing hardware for this setup is easy.
 I highly recommend this type of setup for your home:
 
 * centralized location of a switch near where your modem / internet connection enters
-* wired connections to multiple locations in your terminating near the switch
+* wired connections to multiple locations, terminating near the switch
 * in-wall or very small, unobtrusive access points
 
 I realize not everyone can do this -- apartments and older homes make this very
