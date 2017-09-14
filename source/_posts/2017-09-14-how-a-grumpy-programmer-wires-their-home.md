@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How a Grumpy Programmer wires their home"
+title: "How a Grumpy Programmer wires their home for internet"
 author: Chris Hartjes
 date: 2017-09-14
 comments: true
