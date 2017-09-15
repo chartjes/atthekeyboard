@@ -66,7 +66,7 @@ up over coax -- the modem is mounted on the wall next to the cabinet.
 At some point they will be upgrading connections around here -- less than 1km 
 away they are building a brand new subdivision with gigabit fiber being run to
 homes. When the time comes, I'll just have to update the modem...and nothing
-else. Maybe at some point Uqbuiti releases some nicer in-room access points.
+else. Maybe at some point [Ubiquiti](https://www.ubnt.com) releases some nicer in-room access points.
 I can just swap my old ones for the new ones and everything else will just still
 work great.
 
