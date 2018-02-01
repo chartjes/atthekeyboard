@@ -98,3 +98,7 @@ suggest you look for some other tools for encrypting your DNS traffic. The
 person who emailed me about DNSCrypt pointed to a blog post they wrote about
 about [DNSCrypt alternatives](https://thebestvpn.com/dnscrypt-best-alternatives/).
 Either way, encrypting your DNS is a good idea so please consider it.
+
+I used to recommend [Little Flocker](https://www.littleflocker.com/) but it looks
+like the project has become an F-Secure product and is no longer free. Check out
+it's successor [F-Secure XFENCE](https://campaigns.f-secure.com/xfence/)
