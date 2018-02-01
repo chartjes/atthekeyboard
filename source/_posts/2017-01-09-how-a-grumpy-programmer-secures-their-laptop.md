@@ -73,7 +73,6 @@ I followed:
 * third-party firewalls
 * Disable Spotlight Suggestions
 * Use [Homebrew](http://brew.sh/)
-* use [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html), [DNSSEC](https://en.wikipedia.org/wiki/Dnssec) and [dnscrypt](https://www.dnscrypt.org/)
 * turn off captive portal
 * use [Privoxy](https://www.privoxy.org/) as a local web proxy
 
@@ -82,3 +81,20 @@ started with. For Mac users, please read through that document. So much good
 stuff along with explanations of why you should do it.
 
 Hope that helps!
+
+*UPDATE February 1, 2018*
+
+I received two emails recently pointing out a few things about the tools above.
+
+The first was that the company that sponsors the work of Privoxy has a link on their web site to 
+some very sketchy financial trading software. The person who informed me of
+this was trying to get me to link to a free VPN solution they were promoting.
+My personal view is that people running free VPN's are sniffing the hell out
+of your traffic selling what you're are doing to someone. Make the decision to
+use a free VPN service with your eyes wide open.
+
+Secondly, I used to recommend the dnsmasq/DNSSEC/DNSCrypt combo but DNSCrypt is no longer available, so I
+suggest you look for some other tools for encrypting your DNS traffic. The
+person who emailed me about DNSCrypt pointed to a blog post they wrote about
+about [DNSCrypt alternatives](https://thebestvpn.com/dnscrypt-best-alternatives/).
+Either way, encrypting your DNS is a good idea so please consider it.
