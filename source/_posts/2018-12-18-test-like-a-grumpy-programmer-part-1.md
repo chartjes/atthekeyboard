@@ -7,7 +7,7 @@ comments: true
 sharing: true
 ---
 
-(You can see more stuff like this blog post if you buy my ["Learn To Test Like A Grumpy Programmer" course](https://leanpub.com/c/learntotest)] over at LeanPub)
+(You can see more stuff like this blog post if you buy my ["Learn To Test Like A Grumpy Programmer" course](https://leanpub.com/c/learntotest) over at LeanPub)
 
 I wanted to show folks how someone who has been writing tests for PHP in anger
 since 2003 actually implements new features for a web site, driving them with
@@ -244,7 +244,7 @@ it form tags that POST the results to another method.
                             Use the form below to create a talk that can be submitted to OpenCFP instances that are
                             using OpenCFP Central
                         </p>
-                            <form method="post" action=" {{ route('process_create_talk') }}">
+                            <form method="post" action="/talk/create">
                                 @csrf
                                 @include('talk.form')
                                 <button type="submit" class="btn btn-primary">Create Talk</button>
@@ -255,13 +255,6 @@ it form tags that POST the results to another method.
         </div>
     </div>
 @endsection
-```
-
-Test still fails because I did not add the `process_create_talk` route yet. Let me
-add that in.
-
-``` php
-Route::post('/talk/create', 'TalkController@process')->name('process_create_talk')
 ```
 
 Now the test passes!
