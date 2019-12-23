@@ -19,7 +19,7 @@ The methodology is as follows:
 <p>
 I could do more work in this script, to do things like look for certain tags in the XML document to be populated but we can skip that for now.  The new web service has been tested quite well and we are getting back results as expected via some other tests I've written using PHPUnit.</p>
 <p>
-With help from <a href="http://diveintopython.org/">Dive Into Python</a> and some judicious searching on Google, I came up with this script.  As far as I can tell, the only outside dependency was me using <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> to read in the HTML output.  Maybe I could've used Beautiful Soup for both the XML and HTML, but this still works just fine.
+With help from online Python resources like <a href="https://comparite.ch/python-cs">this Python cheat-sheet</a> and some judicious online searching, I came up with this script.  As far as I can tell, the only outside dependency was me using <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> to read in the HTML output.  Maybe I could've used Beautiful Soup for both the XML and HTML, but this still works just fine.
 </p>
 ~~~
 #!/usr/bin/python 
