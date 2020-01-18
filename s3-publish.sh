@@ -19,7 +19,7 @@ fi
 # If you're comfortable with that, uncomment the line below:
 # rm -rf output_prod/*
 
-vendor/bin/sculpin generate --env=prod || ( echo "Could not generate the site" && exit )
+sculpin.phar generate --env=prod || ( echo "Could not generate the site" && exit )
 
 S3CMD_PATH=`which s3cmd`
 if [ $? -ne 0 -o -z "$S3CMD_PATH" ]
@@ -55,4 +55,4 @@ else
     DRY_RUN=''
 fi
 
-s3cmd --config="$S3_CONFIG" $DRY_RUN --force --recursive $DELETE_REMOVED --bucket-location=$S3_REGION --progress --acl-public sync output_prod/ s3://$S3_BUCKET 
+s3cmd --config="$S3_CONFIG" $DRY_RUN --force --recursive $DELETE_REMOVED --bucket-location=$S3_REGION --progress --acl-public sync output_prod/ s3://$S3_BUCKET/atthekeyboard/

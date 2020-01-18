@@ -1,2 +1,4 @@
 output_dev/
 output_prod/
+*.sh
+vendor

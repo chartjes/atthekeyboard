@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home &mdash; @TheKeyboard &mdash; The ramblings of a grumpy programmer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/components/highlightjs/styles/github.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="@TheKeyboard activity feed" />
+        <link href="https://vjs.zencdn.net/5.5.3/video-js.css" rel="stylesheet">
+        <script src="https://vjs.zencdn.net/ie8/1.1.1/videojs-ie8.min.js"></script>
+        <style>
+        /** quick fix because bootstrap <pre> has a background-color. */
+        pre code { background-color: inherit; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">@TheKeyboard</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="/blog">Posts Archive</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/atom.xml">RSS/Atom</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mainContent container">
+            <div class="row-fluid">
+                <div class="span8">
+                        <article>
+        <header>
+            <h2><a href="/2009/11/13/going-to-christmas-town/">Going To Christmas Town</a></h2>
+           <h3>November 13th, 2009</h3>
+        </header>
+        <div>
+            <p>I'm off with the family to visit <a href="http://www.bronners.com/">the world's largest Christmas store</a> and do some cross-border shopping.  See you all on Monday.  I'm sure my mind will be churning about code generation and concurrency all weekend long, much to the dismay of my wife</p>
+
+<p>
+I do admire how she has learned to indulge my ramblings about programming when she is not a programmer at all and doesn't really care. ;)
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/2009/11/12/the-scary-future-world-i-will-program-in/">The Scary Future World I Will Program In</a></h2>
+           <h3>November 12th, 2009</h3>
+        </header>
+        <div>
+            <p>
+A lot of the reading I have done on the Internet in the last few years has led me to the following conclusions about the future world I will be programming in:
+<ul>
+<li>It will require manipulating exponentially more data than now</li>
+<li>It will require you to understand both parallel processing and concurrency (although to this simple programmer's brain they appear to be the same thing</li>
+<li>A stateless model of the web looks more and more like something that works against human nature</li>
+</ul>
+</p>
+
+<p>
+I have become fascinated with languages that talk about dealing with concurrency:  <a href="http://ftp.sunet.se/pub/lang/erlang/index.html">Erlang</a>, Python using <a href="http://twistedmatrix.com">Twisted</a>, <a href="http://clojure.org">Clojure</a>, and the newest kid on the block <a href="http://golang.org/">Google Go</a>.  I have no idea why these interest me so much.  But I find them all fascinating, and I wonder how anything we do at work on the XML-feed-parsing side could benefit from concurrency (and that gets me into the topic of whether or not concurrency matters if you have to write data to a relational database and dealing with locks etc, god I sound like a programming nerd!).
+</p>
+
+<p>
+Rich Hickey, the creator of Clojure, gave this <a href="http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey">awesome talk</a> about current programming language paradigms and how well suited they are to the highly statefull, concurrent future that I feel we will be facing when building online applications.  Go and watch it and you will find that you knew oh so very little about programming language concepts.
+</p>
+
+<p>
+So not only are we dealing with concurrency, we also need to deal with state.  PHP is stateless.  "Share-nothing" was a revelation for it's time, and allowed you to build web applications that could horizontally scale quite well.  But then we started requiring state.  So we use things like sessions, and cookies:  tricks that allow us to let data persist between requests.  You could almost throw databases into that category.
+</p>
+
+<p>
+Perhaps this is ignorant rambling.  All these things make it harder and harder for a statefull environment like the web to act like it is actually retaining values between requests.  Maybe something like <a href="http://en.wikipedia.org/wiki/Seaside_(software)">Seaside</a> is a model to look at it:  it preserves state across requests using continuations, which is a programming concept that you just don't learn when you teach yourself PHP.
+</p>
+
+<p>
+You could argue that we are on the verge of a major shift in programming language methodologies.  The challenge of programatically handling concurrency and state in a way that programming trolls like me can understand is a huge one.  Tim Bray has been covering this on his blog via his "so fascinating it makes me understands how stupid I really am" <a href="http://www.tbray.org/ongoing/When/200x/2009/09/27/Concur-dot-next">Concur.next</a> series.
+</p>
+
+<p>
+Will we ever have a statefull, concurrent language for building web apps.  I'm sure we will.  I just don't think it's been written yet.
+</p>
+
+        </div>
+            </article>
+    <article>
+        <header>
+            <h2><a href="/2009/11/11/on-remembrance-day-remember-both-sides/">On Remembrance Day, remember both sides</a></h2>
+           <h3>November 11th, 2009</h3>
+        </header>
+        <div>
+            <p>
+I am of German descent.  Both my parents were born there (although my mother moved away when she was 2, so I don't know if that really counts).  Both my grandfathers were in the German Army - one as an infantry solider, the other as a messenger.  My grandfather (and for that matter, my father) never told me anything about their experiences during World War II.  I do know that my father had his house bombed out three times, and he probably still suffers from Post Traumatic Stress Sydrome as a result of it.  Anyway, about 10 years ago when I was visiting my uncle (my father's eldest brother) he told me a story about my grandfather.
+</p>
+
+<p>
+My grandfather was unlucky enough to have been part of the German army during the <a href="http://en.wikipedia.org/wiki/Battle_of_Stalingrad">Battle of Stalingrad.</a>  Once the German army had surrendered, all the remaining soldiers were arrested for crimes both real and imagined (according to my uncle, my grandfather was arrested for stealing a loaf of bread) and sent away to labour camps.  My grandfather got sent to Siberia along with a bunch of other prisoners.  They were dumped into a forest, given tools and told to build themselves shelters if they expected to survive.
+</p>
+
+<p>
+So, while in that prison camp my grandfather learned to speak, read and write Russian.  At some point he discovered that once a year, prisoners who had committed certain crimes could apply for clemency and be allowed to go back home.  Eventually he was able to get his case accepted and was put on a train headed to Berlin.  I believe this was 1953 or 1954, I cannot remember.  Every time the train stopped, all the pardoned prisoners were marched out and every tenth man was sent back on a train going the other way to Siberia.
+</p>
+
+<p>
+Luckily my grandfather managed to make it all the way back to Berlin and back to his family in Gelsenkirchen.  I cannot being to imagine what his experiences were like, and I can understand why he was probably very reluctant to tell his very young grandson (he died when I was 11) what World War II was like.
+</p>
+
+<p>
+So on this Remembrance Day I will think about my grandfather, Henry Hartjes, and vow to never forget what happened to him.
+</p>
+
+        </div>
+            </article>
+    <nav>
+        <a href="/page/54">Newer Posts</a><br />
+        <a href="/page/56">Older Posts</a><br />
+    </nav>
+                </div>
+                <div class="span4 sidebar">
+                    <div class="well">
+                        <h4>@TheKeyboard <small>The ramblings of a grumpy programmer</small></h4>
+                    </div>
+                    <div class="well sidebar-nav">
+                        <section>
+                            <h3>Find stuff</h3>
+                            <script>
+                              (function() {
+                                var cx = '010269902375244482518:ddxhg1qhod4';
+                                var gcse = document.createElement('script');
+                                gcse.type = 'text/javascript';
+                                gcse.async = true;
+                                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                                    '//www.google.com/cse/cse.js?cx=' + cx;
+                                var s = document.getElementsByTagName('script')[0];
+                                s.parentNode.insertBefore(gcse, s);
+                              })();
+                            </script>
+                            <gcse:searchbox-only></gcse:searchbox-only>
+                        </section>
+                        <section>
+                            <h3>Contact me</h3>
+                            <ul>
+                                <li>Email me at chartjes@grumpy-learning.com</li>
+                                <li>Find me on Twitter as <a href="https://twitter.com/grmpyprogrammer">@grmpyprogrammer</a></li>
+                            </ul>
+                        </section>
+			<section>
+				<h3>Sponsor me</h3>
+				<p>If you like the work I do on <a href="https://github.com/opencfp/opencfp/">OpenCFP</a> you can become a
+				sponsor via my <a href="https://github.com/sponsors/chartjes">GitHub sponsors</a> page. Your sponsorship
+				allows me to spend more time on open source and less time writing books and training material.</p>
+			</section>
+                        <section>
+                            <h3>Books</h3>
+                            <ul>
+				<li><a href="https://leanpub.com/grumpy-guide">The Grumpy Programmer's Guide To Testing PHP Applications (currently pre-ordering)</a></li>
+                                <li><a href="https://leanpub.com/test-driven">Building Test-Driven Developers</a></li>
+                                <li><a href="https://leanpub.com/minimumviabletests">Minimum Viable Tests</a></li>
+                                <li><a href="https://leanpub.com/grumpy-phpunit">The Grumpy Programmer's PHPUnit Cookbook</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            &copy; 2020 @TheKeyboard
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+                
+                <script src="/components/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

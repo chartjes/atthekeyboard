@@ -1,0 +1,7 @@
+<hr />
+
+<p>layout: post</p>
+
+<h2>title: I Broke It...</h2>
+
+<p>While upgrading my <a>other blog</a> I seem to have broken it.  Ugh.  Hopefully I can get this fixed in short order.</p>
