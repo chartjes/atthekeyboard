@@ -3,14 +3,14 @@
     <title><![CDATA[@TheKeyboard]]></title>
     <link href="/atom.xml" rel="self"/>
     <link href="/"/>
-    <updated>2020-01-18T16:39:15+00:00</updated>
+    <updated>2020-01-18T16:44:00+00:00</updated>
     <id>/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
             <title type="html"><![CDATA[OpenCFP Engineering Diary -- Adding Doctrine]]></title>
-            <link href="/2019/12/02/opencfp-engineering-diary-adding-doctrine/"/>
+            <link href="/atthekeyboard/2019/12/02/opencfp-engineering-diary-adding-doctrine/"/>
             <updated>2019-12-02T00:00:00+00:00</updated>
-            <id>/2019/12/02/opencfp-engineering-diary-adding-doctrine/</id>
+            <id>/atthekeyboard/2019/12/02/opencfp-engineering-diary-adding-doctrine/</id>
             <content type="html"><![CDATA[<h2 id="tl%3Bdr---adding-support-to-an-existing-symfony-3.4-application-for-doctrine">TL;DR - Adding support to an existing Symfony 3.4 application for Doctrine</h2>
 
 <p>(If you like the work I do on OpenCFP, please consider sponsoring me at
@@ -282,9 +282,9 @@ Eloquent model.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[Mocking a function with different return values in Python]]></title>
-            <link href="/2019/05/15/python-mocking-function-with-different-return-values/"/>
+            <link href="/atthekeyboard/2019/05/15/python-mocking-function-with-different-return-values/"/>
             <updated>2019-05-15T00:00:00+00:00</updated>
-            <id>/2019/05/15/python-mocking-function-with-different-return-values/</id>
+            <id>/atthekeyboard/2019/05/15/python-mocking-function-with-different-return-values/</id>
             <content type="html"><![CDATA[<p>For the first half of 2019 I was borrowed by the Performance Team
 at Mozilla and asked to help them implement a way to measure the
 performance of various browsers on Android platforms. This has
@@ -422,9 +422,9 @@ example useful!</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[Mocking a function with different return values in Python]]></title>
-            <link href="/2019/05/15/getting-things-done-while-remote/"/>
+            <link href="/atthekeyboard/2019/05/15/getting-things-done-while-remote/"/>
             <updated>2019-05-15T00:00:00+00:00</updated>
-            <id>/2019/05/15/getting-things-done-while-remote/</id>
+            <id>/atthekeyboard/2019/05/15/getting-things-done-while-remote/</id>
             <content type="html"><![CDATA[<p>For the first half of 2019 I was borrowed by the Performance Team
 at Mozilla and asked to help them implement a way to measure the
 performance of various browsers on Android platforms. This has
@@ -562,9 +562,9 @@ example useful!</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[Watch me get grumpy - event sourcing refactor]]></title>
-            <link href="/2019/04/27/watch-me-get-grumpy-event-sourcing-refactor/"/>
+            <link href="/atthekeyboard/2019/04/27/watch-me-get-grumpy-event-sourcing-refactor/"/>
             <updated>2019-04-27T00:00:00+00:00</updated>
-            <id>/2019/04/27/watch-me-get-grumpy-event-sourcing-refactor/</id>
+            <id>/atthekeyboard/2019/04/27/watch-me-get-grumpy-event-sourcing-refactor/</id>
             <content type="html"><![CDATA[<p>As I continue to build out <a href="https://opencfpcentral.com">OpenCFP Central</a> I
 wanted to share with you some of the work I have been doing to move it from
 your typical <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a>
@@ -839,9 +839,9 @@ soon.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[Watch Me Get Grumpy -- Zend Expressive Doctrine Configuration]]></title>
-            <link href="/2019/03/17/zend-expressive-doctrine-configuration/"/>
+            <link href="/atthekeyboard/2019/03/17/zend-expressive-doctrine-configuration/"/>
             <updated>2019-03-17T00:00:00+00:00</updated>
-            <id>/2019/03/17/zend-expressive-doctrine-configuration/</id>
+            <id>/atthekeyboard/2019/03/17/zend-expressive-doctrine-configuration/</id>
             <content type="html"><![CDATA[<p>I am in the process of starting the dreaded Rewrite Of An Existing Application
 That Works. In this case, it is time that I turned <a href="https://github.com/opencfp/opencfp">OpenCFP</a>
 from a install-it-yourself web application into a Software-As-A-Service offering.</p>
@@ -959,9 +959,9 @@ Twitter (my preferred way) or you can email me at chartjes@grumpy-learning.com.<
         </entry>
             <entry>
             <title type="html"><![CDATA[Docker as a testing tool]]></title>
-            <link href="/2019/01/31/docker-as-a-testing-tool/"/>
+            <link href="/atthekeyboard/2019/01/31/docker-as-a-testing-tool/"/>
             <updated>2019-01-31T00:00:00+00:00</updated>
-            <id>/2019/01/31/docker-as-a-testing-tool/</id>
+            <id>/atthekeyboard/2019/01/31/docker-as-a-testing-tool/</id>
             <content type="html"><![CDATA[<p>Yes, <a href="https://docker.com">Docker</a> can be used as a tool to help
 you out with some testing problems. Let me show an example of
 how it makes some load testing easier.</p>
@@ -1067,9 +1067,9 @@ build whatever you are testing.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[Learn To Test Like A Grumpy Programmer - Part 2]]></title>
-            <link href="/2019/01/16/test-like-a-grumpyprogrammer-part-2/"/>
+            <link href="/atthekeyboard/2019/01/16/test-like-a-grumpyprogrammer-part-2/"/>
             <updated>2019-01-16T00:00:00+00:00</updated>
-            <id>/2019/01/16/test-like-a-grumpyprogrammer-part-2/</id>
+            <id>/atthekeyboard/2019/01/16/test-like-a-grumpyprogrammer-part-2/</id>
             <content type="html"><![CDATA[<p>(If you use PHP, you can learn how to write automated tests for your code via my <a href="https://leanpub.com/c/learntotest">"Learn To Test Like A Grumpy Programmer" course</a> over at LeanPub)</p>
 
 <p>In this blog post I wanted to talk about some of the lessons I've
@@ -1217,9 +1217,9 @@ those people and promote what they are doing!</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[Learn To Test Like A Grumpy Programmer - Part 1]]></title>
-            <link href="/2018/12/18/test-like-a-grumpy-programmer-part-1/"/>
+            <link href="/atthekeyboard/2018/12/18/test-like-a-grumpy-programmer-part-1/"/>
             <updated>2018-12-18T00:00:00+00:00</updated>
-            <id>/2018/12/18/test-like-a-grumpy-programmer-part-1/</id>
+            <id>/atthekeyboard/2018/12/18/test-like-a-grumpy-programmer-part-1/</id>
             <content type="html"><![CDATA[<p>(You can see more stuff like this blog post if you buy my <a href="https://leanpub.com/c/learntotest">"Learn To Test Like A Grumpy Programmer" course</a> over at LeanPub)</p>
 
 <p>I wanted to show folks how someone who has been writing tests for PHP in anger
@@ -1470,9 +1470,9 @@ real conditions looks like.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[Why GrumpyConf Has No Sponsors]]></title>
-            <link href="/2018/11/08/why-grumpyconf-has-no-sponsors/"/>
+            <link href="/atthekeyboard/2018/11/08/why-grumpyconf-has-no-sponsors/"/>
             <updated>2018-11-08T00:00:00+00:00</updated>
-            <id>/2018/11/08/why-grumpyconf-has-no-sponsors/</id>
+            <id>/atthekeyboard/2018/11/08/why-grumpyconf-has-no-sponsors/</id>
             <content type="html"><![CDATA[<p><a href="https://grumpy-learning.com/grumpyconf2019.php">GrumpyConf 2019</a> will mark
 the 7th conference I've been involved in running:</p>
 
@@ -1526,9 +1526,9 @@ way at the bottom in mobile versions.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[Maybe This Book Isn&#039;t For You]]></title>
-            <link href="/2018/10/22/maybe-this-book-isnt-for-you/"/>
+            <link href="/atthekeyboard/2018/10/22/maybe-this-book-isnt-for-you/"/>
             <updated>2018-10-22T00:00:00+00:00</updated>
-            <id>/2018/10/22/maybe-this-book-isnt-for-you/</id>
+            <id>/atthekeyboard/2018/10/22/maybe-this-book-isnt-for-you/</id>
             <content type="html"><![CDATA[<p>(Author note -- I am trying to do more blogging and less long
 Twitter threads.)</p>
 
