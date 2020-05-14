@@ -86,8 +86,8 @@ class NewTalksTableAsJsonb extends Migration
             $table->uuid('uuid');
             $table->integer('user_id');
             $table->jsonb('details');
-	    $table->datetime('created_at');
-	    $table->datetime('updated_at');
+            $table->datetime('created_at');
+            $table->datetime('updated_at');
         });
     }
 
@@ -299,7 +299,7 @@ Route::middleware('auth:api')->get('/talk/{id}', function (Request $request, $id
 I run the tests...and it fails, complaining that it can't find things at index 0
 in the array that has my results in it. I see that just returning the talk means
 I get one record instead of an array that contains one record. I fix the test
-to reflect that change and no I have a completely passing test.
+to reflect that change and now I have a completely passing test.
 
 Here is the entire test and I hope this
 blog post helps you get better at testing the API's you are building.
